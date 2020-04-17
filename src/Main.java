@@ -90,8 +90,10 @@ public class Main {
 		nextPageButton.setIcon(new ImageIcon("./otherimages/nextButton.png"));
 		nextPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				menupage++;
-				changeMenu();
+				if(menupage < 6) {
+					menupage++;	
+					changeMenu();
+				}
 			}
 		});
 		mainPurchaseScene.add(nextPageButton);
@@ -103,8 +105,10 @@ public class Main {
 		previousPageButton.setIcon(new ImageIcon("./otherimages/previousButton.png"));
 		previousPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(menupage > 0) {
 				menupage--;
 				changeMenu();
+				}
 			}
 		});
 		mainPurchaseScene.add(previousPageButton);
