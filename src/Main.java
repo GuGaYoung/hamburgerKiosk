@@ -56,7 +56,11 @@ public class Main {
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
 	
-		nextPageButton.setBounds(533, 200, 50, 80);
+		nextPageButton.setBounds(537, 200, 50, 80);
+		nextPageButton.setBorderPainted(false);
+		nextPageButton.setContentAreaFilled(false);
+		nextPageButton.setFocusPainted(false);
+		nextPageButton.setIcon(new ImageIcon("./otherimages/nextButton.png"));
 		nextPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menupage++;
@@ -65,7 +69,11 @@ public class Main {
 		});
 		mainPurchaseScene.add(nextPageButton);
 		
-		previousPageButton.setBounds(5, 200, 50, 80);
+		previousPageButton.setBounds(3, 200, 50, 80);
+		previousPageButton.setBorderPainted(false);
+		previousPageButton.setContentAreaFilled(false);
+		previousPageButton.setFocusPainted(false);
+		previousPageButton.setIcon(new ImageIcon("./otherimages/previousButton.png"));
 		previousPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menupage--;
