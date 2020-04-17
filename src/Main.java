@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -30,6 +31,8 @@ public class Main {
 		});
 	}
 	
+	JLabel firstScene = new JLabel();
+	JLabel pressKeyText = new JLabel();
 	JPanel mainPurchaseScene = new JPanel();
 	JButton[] menuImages = new JButton[9];
 	JButton nextPageButton = new JButton();
@@ -42,6 +45,8 @@ public class Main {
 	int menuImageHeight = 130;
 	int menuHorizontalInterval = 170;
 	
+	changefirstScene changefirstScene = new changefirstScene(firstScene);
+	
 	public Main() {
 
 		frame = new JFrame();
@@ -52,10 +57,23 @@ public class Main {
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 		
+		firstScene.setBounds(0, 0, 600, 800);
+		frame.getContentPane().add(firstScene);
+		firstScene.setLayout(null);
+		
 		mainPurchaseScene.setBounds(0, 150, 600, 700);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
+		mainPurchaseScene.setVisible(false);
 	
+		pressKeyText.setBounds(0, 680, 600, 100);
+		pressKeyText.setLayout(null);
+		pressKeyText.setText("화면 터치해 주세요");
+		pressKeyText.setHorizontalAlignment(SwingConstants.CENTER);
+		pressKeyText.setFont(new Font("굴림", Font.BOLD, 30));
+		pressKeyText.setForeground(Color.white);
+		firstScene.add(pressKeyText);
+		
 		nextPageButton.setBounds(537, 200, 50, 80);
 		nextPageButton.setBorderPainted(false);
 		nextPageButton.setContentAreaFilled(false);
@@ -112,6 +130,7 @@ public class Main {
 			menuImages[i].setFocusPainted(false);
 		}
 		changeMenu();
+		changefirstScene.start();
 	}
 	
 	public void changeMenu() {
