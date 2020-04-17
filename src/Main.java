@@ -61,11 +61,19 @@ public class Main {
 		frame.getContentPane().add(firstScene);
 		firstScene.setLayout(null);
 		
+		firstScene.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				firstScene.setVisible(false);
+				mainPurchaseScene.setVisible(true);
+			}
+		});
+		
 		mainPurchaseScene.setBounds(0, 150, 600, 700);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
 		mainPurchaseScene.setVisible(false);
 	
+		//처음 화면 (광고화면)
 		pressKeyText.setBounds(0, 680, 600, 100);
 		pressKeyText.setLayout(null);
 		pressKeyText.setText("화면 터치해 주세요");
@@ -74,6 +82,7 @@ public class Main {
 		pressKeyText.setForeground(Color.white);
 		firstScene.add(pressKeyText);
 		
+		//구매화면 
 		nextPageButton.setBounds(537, 200, 50, 80);
 		nextPageButton.setBorderPainted(false);
 		nextPageButton.setContentAreaFilled(false);
