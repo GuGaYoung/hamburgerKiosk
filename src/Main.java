@@ -50,9 +50,11 @@ public class Main {
 	JLabel numberText = new JLabel();
 	JLabel amountText = new JLabel();
 	JLabel totalOrderDetails = new JLabel();
+	JLabel textBackGround = new JLabel();
 	//JTextArea textArea = new JTextArea();
 	
 	ArrayList<JLabel> OrderStatusText = new ArrayList<>();
+	JLabel OrderStatusBackGround = new JLabel();
 	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -64,7 +66,7 @@ public class Main {
 	int number = 0;
 	int amount = 0;
 
-	int OrderStatusTextInterval = 590;
+	int OrderStatusVerticalLength = -40;
 	
 	changefirstScene changefirstScene = new changefirstScene(firstScene);
 	
@@ -332,28 +334,34 @@ public class Main {
 			menuImages[i].setFocusPainted(false);
 		}
 		
-		totalOrderDetails.setBounds(30, 570, 200, 100);
+		totalOrderDetails.setBounds(90, 570, 200, 100);
 		totalOrderDetails.setText("총주문내역");
 		totalOrderDetails.setHorizontalAlignment(SwingConstants.CENTER);
 		totalOrderDetails.setFont(new Font("굴림", Font.BOLD, 15));
 		mainPurchaseScene.add(totalOrderDetails);
 		
-		numberText.setBounds(120, 570, 200, 100);
+		numberText.setBounds(210, 570, 200, 100);
 		numberText.setText("0개");
 		numberText.setHorizontalAlignment(SwingConstants.CENTER);
 		numberText.setFont(new Font("굴림", Font.BOLD, 15));
 		mainPurchaseScene.add(numberText);
 		
-		amountText.setBounds(170, 570, 200, 100);
+		amountText.setBounds(320, 570, 200, 100);
 		amountText.setText("0");
 		amountText.setHorizontalAlignment(SwingConstants.CENTER);
 		amountText.setFont(new Font("굴림", Font.BOLD, 15));
 		mainPurchaseScene.add(amountText);
+	
+		textBackGround.setBounds(50, 607, 490, 20);
+		textBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
+		mainPurchaseScene.add(textBackGround);
 		/*
 		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
 		textArea.setBounds(50, 630, 490, 110);
 		mainPurchaseScene.add(textArea);
 */
+		
+		
 		//메뉴 버튼을 누르면 선택한 메뉴들이 주문내역에 출력된다
 		for(int i = 0; i < menuImages.length; i++) {
 			menuImages[i].addActionListener(new ActionListener() {
@@ -362,13 +370,17 @@ public class Main {
 					OrderStatusText.add(new JLabel());
 					OrderStatusText.get(number).setText("AZ버거 1개 6300원");
 					OrderStatusText.get(number).setFont((new Font("굴림체", Font.BOLD, 15)));
-					mainPurchaseScene.add(OrderStatusText.get(number));
-					OrderStatusText.get(number).setBounds(50, OrderStatusTextInterval, 490, 110);
-					OrderStatusTextInterval = OrderStatusTextInterval + 20;
+					OrderStatusBackGround.add(OrderStatusText.get(number));
+					OrderStatusText.get(number).setBounds(5, OrderStatusVerticalLength, 490, 110);
+					OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
 					number++;
 				}
 			});
 		}
+		
+		OrderStatusBackGround.setBounds(50, 630, 490, 110);
+		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
+		mainPurchaseScene.add(OrderStatusBackGround);
 		
 		changeMenu();
 		changefirstScene.start();
