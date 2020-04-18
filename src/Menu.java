@@ -10,4 +10,9 @@ public class Menu {
 		this.amount = amount;
 	}
 	
+	void buy() {
+		price = price * amount;
+		Main.totalPrice = Main.totalPrice+price;
+		System.out.println(productName+"의 갯수는 "+amount+"이고 가격은 "+price+"이고 총 가격은 "+Main.totalPrice);
+	}
 }
