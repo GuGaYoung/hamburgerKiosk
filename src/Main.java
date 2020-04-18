@@ -19,26 +19,42 @@ public class Main {
 		HamburgerSet chickenBurgerSet = new HamburgerSet("치킨버거 세트",5100,1);
 		HamburgerSet T_RexBurgerSet = new HamburgerSet("T-Rex 버거 세트",5900,1);
 		HamburgerSet classicCheeseBurgerSet = new HamburgerSet("클래식 치즈 버거 세트",6400,1);
-		HamburgerSet teriBurgerSet = new HamburgerSet("데리버거 세트",4900,1);
-
+		HamburgerSet teriBurgerSet = new HamburgerSet("데리버거 세트",4900,1); 
 		
+		Burger wagyuEdition2 = new Burger("와규 에디션2",5800,1);
+		Burger doubleX2 = new Burger("더블X2",5500,1);
+		Burger mozzarellaInTheBurger = new Burger("모짤렐라 인 더 버거",6000,1);
+		Burger AZBurger = new Burger("AZ버거",6600,1);
+		Burger bigBulgogi = new Burger("원조빅불",5800,1);
+		Burger hotCrispyBurger = new Burger("핫크리스피버거",4900,1);
+		Burger hanwooBulgogi = new Burger("한우 불고기 버거",7000,1);
+		Burger bulgogiBurger = new Burger("불고기 버거",3900,1);
+		Burger riaMiracleBurger = new Burger("리아미라클버거",5600,1);
+		Burger shrimpBurger = new Burger("새우버거",3900,1);
+		Burger chickenBurger = new Burger("치킨버거",2900,1);
+		Burger T_RexBurger = new Burger("T-Rex",3700,1);
+		Burger classicCheeseBurger = new Burger("클래식 치즈버거",4400,1);
+		Burger teriBurger = new Burger("데리버거",2500,1);
+		
+	
+		/*
 		//+버튼을 누르면 갯수가 추가되게끔
-		//wagyuEdition2Set.amount++;
+		wagyuEdition2Set.amount++;
 		doubleX2Set.amount++;		
-		//AZBurgerSet.amount++;
-		//hanwooBulgogiCombo.amount++;	
+		AZBurgerSet.amount++;
+		hanwooBulgogiCombo.amount++;	
 		hanwooBulgogiBurgerSet.amount++;
-		//mozzarellaInTheBurgerSet.amount++;
+		mozzarellaInTheBurgerSet.amount++;
 		bigBulgogiSet.amount++;
 		//hotCrispyBurgerSet.amount++;
 		bulgogiBurgerSet.amount++;
-		//riaMiracleBurgerSet.amount++;
+		riaMiracleBurgerSet.amount++;
 		shrimpBurgerSet.amount++;
-		//chickenBurgerSet.amount++;
+		chickenBurgerSet.amount++;
 		T_RexBurgerSet.amount++;
-		//classicCheeseBurgerSet.amount++;
+		classicCheeseBurgerSet.amount++;
 		teriBurgerSet.amount++;
-		
+		*/
 		
 		/*
 		//-버튼을 누르면 갯수가 빼지게끔
@@ -58,8 +74,7 @@ public class Main {
 		classicCheeseBurgerSet.amount--;
 		teriBurgerSet.amount--; */
 		
-		//샀을때 계산하는 메소드
-		wagyuEdition2Set.buyHamburgerSet();
+		//세트 샀을때 계산하는 메소드
 		wagyuEdition2Set.buyHamburgerSet();
 		doubleX2Set.buyHamburgerSet();		
 		AZBurgerSet.buyHamburgerSet();	
@@ -75,9 +90,27 @@ public class Main {
 		T_RexBurgerSet.buyHamburgerSet();
 		classicCheeseBurgerSet.buyHamburgerSet();
 		teriBurgerSet.buyHamburgerSet();
-		System.out.println("구입하기를 눌렀습니다\n");
+		
+		//햄버거 단품 샀을때 계산하는 메소드
+		wagyuEdition2.buyBurger();
+		doubleX2.buyBurger();
+		mozzarellaInTheBurger.buyBurger();
+		AZBurger.buyBurger();
+		bigBulgogi.buyBurger();
+		hotCrispyBurger.buyBurger();
+		hanwooBulgogi.buyBurger();
+		bulgogiBurger.buyBurger();
+		riaMiracleBurger.buyBurger();
+		shrimpBurger.buyBurger();
+		chickenBurger.buyBurger();
+		T_RexBurger.buyBurger();
+		classicCheeseBurger.buyBurger();
+		teriBurger.buyBurger();
 		
 		//totalPrice = totalPrice+price;
+		System.out.println("구입하기를 눌렀습니다\n");
+		
+		//세트버거 출력
 		System.out.println("제품이름: "+wagyuEdition2Set.productName+" 		가격: "+wagyuEdition2Set.price+" 		갯수: "+wagyuEdition2Set.amount);
 		System.out.println("제품이름: "+doubleX2Set.productName+" 		가격: "+doubleX2Set.price+" 		갯수: "+doubleX2Set.amount);
 		System.out.println("제품이름: "+AZBurgerSet.productName+" 		가격: "+AZBurgerSet.price+" 		갯수: "+AZBurgerSet.amount);
@@ -93,6 +126,23 @@ public class Main {
 		System.out.println("제품이름: "+T_RexBurgerSet.productName+" 		가격: "+T_RexBurgerSet.price+" 		갯수: "+T_RexBurgerSet.amount);
 		System.out.println("제품이름: "+classicCheeseBurgerSet.productName+" 		가격: "+classicCheeseBurgerSet.price+" 		갯수: "+classicCheeseBurgerSet.amount);
 		System.out.println("제품이름: "+teriBurgerSet.productName+" 		가격: "+teriBurgerSet.price+" 		갯수: "+teriBurgerSet.amount);
+		
+		//버거 단품 출력
+		System.out.println("");
+		System.out.println("제품이름: "+wagyuEdition2.productName+" 		가격: "+wagyuEdition2.price+" 		갯수: "+wagyuEdition2.amount);
+		System.out.println("제품이름: "+doubleX2.productName+" 			가격: "+doubleX2.price+" 		갯수: "+doubleX2.amount);
+		System.out.println("제품이름: "+mozzarellaInTheBurger.productName+" 		가격: "+mozzarellaInTheBurger.price+" 		갯수: "+mozzarellaInTheBurger.amount);
+		System.out.println("제품이름: "+AZBurger.productName+" 			가격: "+AZBurger.price+" 		갯수: "+AZBurger.amount);
+		System.out.println("제품이름: "+bigBulgogi.productName+" 			가격: "+bigBulgogi.price+" 		갯수: "+bigBulgogi.amount);
+		System.out.println("제품이름: "+hotCrispyBurger.productName+" 		가격: "+hotCrispyBurger.price+" 		갯수: "+hotCrispyBurger.amount);
+		System.out.println("제품이름: "+hanwooBulgogi.productName+" 		가격: "+hanwooBulgogi.price+" 		갯수: "+hanwooBulgogi.amount);
+		System.out.println("제품이름: "+bulgogiBurger.productName+" 		가격: "+bulgogiBurger.price+" 		갯수: "+bulgogiBurger.amount);
+		System.out.println("제품이름: "+riaMiracleBurger.productName+" 		가격: "+riaMiracleBurger.price+" 		갯수: "+riaMiracleBurger.amount);
+		System.out.println("제품이름: "+shrimpBurger.productName+"	 		가격: "+shrimpBurger.price+" 		갯수: "+shrimpBurger.amount);
+		System.out.println("제품이름: "+chickenBurger.productName+" 			가격: "+chickenBurger.price+" 		갯수: "+chickenBurger.amount);
+		System.out.println("제품이름: "+T_RexBurger.productName+" 			가격: "+T_RexBurger.price+" 		갯수: "+T_RexBurger.amount);
+		System.out.println("제품이름: "+classicCheeseBurger.productName+" 		가격: "+classicCheeseBurger.price+" 		갯수: "+classicCheeseBurger.amount);
+		System.out.println("제품이름: "+teriBurger.productName+" 			가격: "+teriBurger.price+" 		갯수: "+teriBurger.amount);
 		
 		System.out.println("\n총 가격은: "+totalPrice);
 	}
