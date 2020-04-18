@@ -46,6 +46,12 @@ public class Main {
 	JButton drinkButton = new JButton();
 	JButton dessertButton = new JButton();
 	JLabel advertisingImage = new JLabel();
+	JLabel numberText = new JLabel();
+	JLabel amountText = new JLabel();
+	JLabel totalOrderDetails = new JLabel();
+	JLabel OrderStatusText = new JLabel();
+			
+	JTextArea textArea = new JTextArea();
 	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -319,6 +325,29 @@ public class Main {
 			menuImages[i].setContentAreaFilled(false);
 			menuImages[i].setFocusPainted(false);
 		}
+		
+		totalOrderDetails.setBounds(30, 570, 200, 100);
+		totalOrderDetails.setText("총주문내역");
+		totalOrderDetails.setHorizontalAlignment(SwingConstants.CENTER);
+		totalOrderDetails.setFont(new Font("굴림", Font.BOLD, 15));
+		mainPurchaseScene.add(totalOrderDetails);
+		
+		numberText.setBounds(120, 570, 200, 100);
+		numberText.setText("0개");
+		numberText.setHorizontalAlignment(SwingConstants.CENTER);
+		numberText.setFont(new Font("굴림", Font.BOLD, 15));
+		mainPurchaseScene.add(numberText);
+		
+		amountText.setBounds(170, 570, 200, 100);
+		amountText.setText("0");
+		amountText.setHorizontalAlignment(SwingConstants.CENTER);
+		amountText.setFont(new Font("굴림", Font.BOLD, 15));
+		mainPurchaseScene.add(amountText);
+		
+		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
+		textArea.setBounds(50, 630, 490, 110);
+		mainPurchaseScene.add(textArea);
+
 		changeMenu();
 		changefirstScene.start();
 	}
