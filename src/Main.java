@@ -38,6 +38,8 @@ public class Main {
 	JButton nextPageButton = new JButton();
 	JButton previousPageButton = new JButton();
 	JButton goFirstScreenButton = new JButton();
+	JButton cancelPageButton = new JButton();
+	JButton paymentButton = new JButton();
 	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -84,8 +86,7 @@ public class Main {
 		firstScene.add(pressKeyText);
 		
 		//구매화면 
-		
-		goFirstScreenButton.setBounds(55, 530, 100, 50);
+		goFirstScreenButton.setBounds(110, 550, 100, 40);
 		goFirstScreenButton.setText("첫화면으로");
 		goFirstScreenButton.setFont(new Font("굴림", Font.BOLD, 10));
 		goFirstScreenButton.setBackground(Color.LIGHT_GRAY);
@@ -97,6 +98,31 @@ public class Main {
 			}
 		});
 		mainPurchaseScene.add(goFirstScreenButton);
+		
+		cancelPageButton.setBounds(247, 550, 100, 40);
+		cancelPageButton.setText("취소하기");
+		cancelPageButton.setFont(new Font("굴림", Font.BOLD, 10));
+		cancelPageButton.setBackground(Color.LIGHT_GRAY);
+		cancelPageButton.setBorderPainted(false);
+		cancelPageButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		mainPurchaseScene.add(cancelPageButton);
+		
+		paymentButton.setBounds(385, 550, 100, 40);
+		paymentButton.setText("결제하기");
+		paymentButton.setFont(new Font("굴림", Font.BOLD, 10));
+		paymentButton.setBackground(Color.LIGHT_GRAY);
+		paymentButton.setBorderPainted(false);
+		paymentButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		mainPurchaseScene.add(paymentButton);
+		
 		
 		nextPageButton.setBounds(537, 200, 50, 80);
 		nextPageButton.setBorderPainted(false);
