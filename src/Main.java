@@ -36,6 +36,22 @@ public class Main {
 		Burger classicCheeseBurger = new Burger("클래식 치즈버거",4400,1);
 		Burger teriBurger = new Burger("데리버거",2500,1);
 		
+		Dessert cheeseInTheEgg = new Dessert("치즈인더에그",3000,1);
+		Dessert jipieHabanero_L = new Dessert("지파이 하바네로",4300,1);
+		Dessert jipie_S = new Dessert("지파이 고소한맛",3400,1);
+		Dessert chickenNugget = new Dessert("치킨너겟",1200,1);
+		Dessert longCheeseStick = new Dessert("롱 치즈스틱",1800,1);
+		Dessert coneSalad= new Dessert("콘샐러드",1700,1);
+		Dessert sundayIceCream = new Dessert("선데이아이스크림",1500,1);
+		Dessert shakeShakeChicken = new Dessert("쉑쉑치킨",2500,1);
+		Dessert seasoningPotato = new Dessert("양념감자",2000,1);
+		Dessert squidRing = new Dessert("오징어링",2200,1);
+		Dessert naturalCheeseStick = new Dessert("치즈스틱",2000,1);
+		Dessert chocoCookieTornado = new Dessert("토네이도(초코쿠키)",2300,1);
+		Dessert greenTeaTornado = new Dessert("토네이도(녹차)",2300,1);
+		Dessert strawberryTornado = new Dessert("토네이도(스트로베리)",2400,1);
+		Dessert softCone = new Dessert("소프트콘",700,1); 
+		
 	
 		/*
 		//+버튼을 누르면 갯수가 추가되게끔
@@ -107,6 +123,23 @@ public class Main {
 		classicCheeseBurger.buyBurger();
 		teriBurger.buyBurger();
 		
+		//디저트 단품 샀을때 계산하는 메소드
+		cheeseInTheEgg.buyDessert();
+		jipieHabanero_L.buyDessert();
+		jipie_S.buyDessert();
+		chickenNugget.buyDessert();
+		longCheeseStick.buyDessert();
+		coneSalad.buyDessert();
+		sundayIceCream.buyDessert();
+		shakeShakeChicken.buyDessert();
+		seasoningPotato.buyDessert();
+		squidRing.buyDessert();
+		naturalCheeseStick.buyDessert();
+		chocoCookieTornado.buyDessert();
+		greenTeaTornado.buyDessert();
+		strawberryTornado.buyDessert();
+		softCone.buyDessert();
+		
 		//totalPrice = totalPrice+price;
 		System.out.println("구입하기를 눌렀습니다\n");
 		
@@ -143,6 +176,24 @@ public class Main {
 		System.out.println("제품이름: "+T_RexBurger.productName+" 			가격: "+T_RexBurger.price+" 		갯수: "+T_RexBurger.amount);
 		System.out.println("제품이름: "+classicCheeseBurger.productName+" 		가격: "+classicCheeseBurger.price+" 		갯수: "+classicCheeseBurger.amount);
 		System.out.println("제품이름: "+teriBurger.productName+" 			가격: "+teriBurger.price+" 		갯수: "+teriBurger.amount);
+		
+		//디저트 단품 출력
+		System.out.println("");
+		System.out.println("제품이름: "+cheeseInTheEgg.productName+" 		가격: "+cheeseInTheEgg.price+" 		갯수: "+cheeseInTheEgg.amount);
+		System.out.println("제품이름: "+jipieHabanero_L.productName+" 		가격: "+jipieHabanero_L.price+" 		갯수: "+jipieHabanero_L.amount);
+		System.out.println("제품이름: "+jipie_S.productName+" 		가격: "+jipie_S.price+" 		갯수: "+jipie_S.amount);
+		System.out.println("제품이름: "+chickenNugget.productName+" 			가격: "+chickenNugget.price+" 		갯수: "+chickenNugget.amount);
+		System.out.println("제품이름: "+longCheeseStick.productName+" 		가격: "+longCheeseStick.price+" 		갯수: "+longCheeseStick.amount);
+		System.out.println("제품이름: "+coneSalad.productName+" 			가격: "+coneSalad.price+" 		갯수: "+coneSalad.amount);
+		System.out.println("제품이름: "+sundayIceCream.productName+" 		가격: "+sundayIceCream.price+" 		갯수: "+sundayIceCream.amount);
+		System.out.println("제품이름: "+shakeShakeChicken.productName+" 			가격: "+shakeShakeChicken.price+" 		갯수: "+shakeShakeChicken.amount);
+		System.out.println("제품이름: "+seasoningPotato.productName+" 			가격: "+seasoningPotato.price+" 		갯수: "+seasoningPotato.amount);
+		System.out.println("제품이름: "+squidRing.productName+"	 		가격: "+squidRing.price+" 		갯수: "+squidRing.amount);
+		System.out.println("제품이름: "+naturalCheeseStick.productName+" 			가격: "+naturalCheeseStick.price+" 		갯수: "+naturalCheeseStick.amount);
+		System.out.println("제품이름: "+chocoCookieTornado.productName+" 		가격: "+chocoCookieTornado.price+" 		갯수: "+chocoCookieTornado.amount);
+		System.out.println("제품이름: "+greenTeaTornado.productName+" 		가격: "+greenTeaTornado.price+" 		갯수: "+greenTeaTornado.amount);
+		System.out.println("제품이름: "+strawberryTornado.productName+" 	가격: "+strawberryTornado.price+" 		갯수: "+strawberryTornado.amount);
+		System.out.println("제품이름: "+softCone.productName+" 			가격: "+softCone.price+" 		갯수: "+softCone.amount);
 		
 		System.out.println("\n총 가격은: "+totalPrice);
 	}
