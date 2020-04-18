@@ -37,6 +37,7 @@ public class Main {
 	JButton[] menuImages = new JButton[9];
 	JButton nextPageButton = new JButton();
 	JButton previousPageButton = new JButton();
+	JButton goFirstScreenButton = new JButton();
 	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -83,6 +84,20 @@ public class Main {
 		firstScene.add(pressKeyText);
 		
 		//구매화면 
+		
+		goFirstScreenButton.setBounds(55, 530, 100, 50);
+		goFirstScreenButton.setText("첫화면으로");
+		goFirstScreenButton.setFont(new Font("굴림", Font.BOLD, 10));
+		goFirstScreenButton.setBackground(Color.LIGHT_GRAY);
+		goFirstScreenButton.setBorderPainted(false);
+		goFirstScreenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstScene.setVisible(true);
+				mainPurchaseScene.setVisible(false);
+			}
+		});
+		mainPurchaseScene.add(goFirstScreenButton);
+		
 		nextPageButton.setBounds(537, 200, 50, 80);
 		nextPageButton.setBorderPainted(false);
 		nextPageButton.setContentAreaFilled(false);
