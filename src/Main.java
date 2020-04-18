@@ -5,12 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -49,9 +50,9 @@ public class Main {
 	JLabel numberText = new JLabel();
 	JLabel amountText = new JLabel();
 	JLabel totalOrderDetails = new JLabel();
-	JLabel OrderStatusText = new JLabel();
-			
-	JTextArea textArea = new JTextArea();
+	//JTextArea textArea = new JTextArea();
+	
+	ArrayList<JLabel> OrderStatusText = new ArrayList<>();
 	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -59,6 +60,11 @@ public class Main {
 	int menuImageWidth = 150;
 	int menuImageHeight = 130;
 	int menuHorizontalInterval = 170;
+	
+	int number = 0;
+	int amount = 0;
+
+	int OrderStatusTextInterval = 590;
 	
 	changefirstScene changefirstScene = new changefirstScene(firstScene);
 	
@@ -343,11 +349,27 @@ public class Main {
 		amountText.setHorizontalAlignment(SwingConstants.CENTER);
 		amountText.setFont(new Font("굴림", Font.BOLD, 15));
 		mainPurchaseScene.add(amountText);
-		
+		/*
 		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
 		textArea.setBounds(50, 630, 490, 110);
 		mainPurchaseScene.add(textArea);
-
+*/
+		//메뉴 버튼을 누르면 선택한 메뉴들이 주문내역에 출력된다
+		for(int i = 0; i < menuImages.length; i++) {
+			menuImages[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					OrderStatusText.add(new JLabel());
+					OrderStatusText.get(number).setText("AZ버거 1개 6300원");
+					OrderStatusText.get(number).setFont((new Font("굴림체", Font.BOLD, 15)));
+					mainPurchaseScene.add(OrderStatusText.get(number));
+					OrderStatusText.get(number).setBounds(50, OrderStatusTextInterval, 490, 110);
+					OrderStatusTextInterval = OrderStatusTextInterval + 20;
+					number++;
+				}
+			});
+		}
+		
 		changeMenu();
 		changefirstScene.start();
 	}
