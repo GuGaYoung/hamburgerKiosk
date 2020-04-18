@@ -192,6 +192,17 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				firstScene.setVisible(true);
 				mainPurchaseScene.setVisible(false);
+				
+				for(int i = 0; i < OrderStatusText.size(); i++) {
+					OrderStatusText.get(i).setLocation(1000, 1000);
+					//OrderStatusText.remove(i);
+				}
+				
+				OrderStatusText.clear();
+				number = 0;
+				OrderStatusVerticalLength = -40;
+				
+				System.out.println(OrderStatusText.size());
 			}
 		});
 		mainPurchaseScene.add(goFirstScreenButton);
