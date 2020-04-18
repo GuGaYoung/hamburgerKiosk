@@ -215,6 +215,14 @@ public class Main {
 		cancelPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				for(int i = 0; i < OrderStatusText.size(); i++) {
+					OrderStatusText.get(i).setLocation(1000, 1000);
+					//OrderStatusText.remove(i);
+				}
+				
+				OrderStatusText.clear();
+				number = 0;
+				OrderStatusVerticalLength = -40;
 			}
 		});
 		mainPurchaseScene.add(cancelPageButton);
