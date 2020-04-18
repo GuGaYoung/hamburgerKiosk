@@ -40,6 +40,11 @@ public class Main {
 	JButton goFirstScreenButton = new JButton();
 	JButton cancelPageButton = new JButton();
 	JButton paymentButton = new JButton();
+	JButton Button = new JButton();
+	JButton hamburgerButton = new JButton();
+	JButton hamburgerSetButton = new JButton();
+	JButton drinkButton = new JButton();
+	JButton dessertButton = new JButton();
 	JLabel advertisingImage = new JLabel();
 	
 	int menupage = 0;
@@ -91,6 +96,79 @@ public class Main {
 		advertisingImage.setIcon(new ImageIcon("./otherimages/T-rax버거광고(구입창).jpg"));
 		mainPurchaseScene.add(advertisingImage);
 		
+		JButton hamburgerButton = new JButton();
+		JButton hamburgerSetButton = new JButton();
+		JButton drinkButton = new JButton();
+		JButton dessertButton = new JButton();
+		
+		hamburgerSetButton.setBounds(90, 150, 100, 40);
+		hamburgerSetButton.setText("햄버거 세트");
+		hamburgerSetButton.setFont(new Font("굴림", Font.BOLD, 10));
+		hamburgerSetButton.setBackground(Color.gray);
+		hamburgerSetButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hamburgerSetButton.setBackground(Color.gray);
+				hamburgerButton.setBackground(Color.white);
+				drinkButton.setBackground(Color.white);
+				dessertButton.setBackground(Color.white);
+				
+				menupage = 0;
+				changeMenu();
+			}
+		});
+		mainPurchaseScene.add(hamburgerSetButton);
+		
+		hamburgerButton.setBounds(190, 150, 100, 40);
+		hamburgerButton.setText("햄버거");
+		hamburgerButton.setFont(new Font("굴림", Font.BOLD, 10));
+		hamburgerButton.setBackground(Color.white);
+		hamburgerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hamburgerSetButton.setBackground(Color.white);
+				hamburgerButton.setBackground(Color.gray);
+				drinkButton.setBackground(Color.white);
+				dessertButton.setBackground(Color.white);
+				
+				menupage = 2;
+				changeMenu();
+			}
+		});
+		mainPurchaseScene.add(hamburgerButton);
+		
+		dessertButton.setBounds(290, 150, 100, 40);
+		dessertButton.setText("디저트");
+		dessertButton.setFont(new Font("굴림", Font.BOLD, 10));
+		dessertButton.setBackground(Color.white);
+		dessertButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hamburgerSetButton.setBackground(Color.white);
+				hamburgerButton.setBackground(Color.white);
+				drinkButton.setBackground(Color.gray);
+				dessertButton.setBackground(Color.white);
+				
+				menupage = 4;
+				changeMenu();
+			}
+		});
+		mainPurchaseScene.add(dessertButton);
+		
+		drinkButton.setBounds(390, 150, 100, 40);
+		drinkButton.setText("음료");
+		drinkButton.setFont(new Font("굴림", Font.BOLD, 10));
+		drinkButton.setBackground(Color.white);
+		drinkButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hamburgerSetButton.setBackground(Color.white);
+				hamburgerButton.setBackground(Color.white);
+				drinkButton.setBackground(Color.white);
+				dessertButton.setBackground(Color.gray);
+				
+				menupage = 6;
+				changeMenu();
+			}
+		});
+		mainPurchaseScene.add(drinkButton);
+		
 		goFirstScreenButton.setBounds(110, 750, 100, 40);
 		goFirstScreenButton.setText("첫화면으로");
 		goFirstScreenButton.setFont(new Font("굴림", Font.BOLD, 10));
@@ -137,8 +215,35 @@ public class Main {
 		nextPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(menupage < 6) {
+					
 					menupage++;	
 					changeMenu();
+					
+					if(menupage == 0 || menupage == 1) {
+						hamburgerSetButton.setBackground(Color.gray);
+						hamburgerButton.setBackground(Color.white);
+						drinkButton.setBackground(Color.white);
+						dessertButton.setBackground(Color.white);
+						
+					}else if(menupage == 2 || menupage == 3) {
+						hamburgerSetButton.setBackground(Color.white);
+						hamburgerButton.setBackground(Color.gray);
+						drinkButton.setBackground(Color.white);
+						dessertButton.setBackground(Color.white);
+						
+					}else if(menupage == 4 || menupage == 5) {
+						hamburgerSetButton.setBackground(Color.white);
+						hamburgerButton.setBackground(Color.white);
+						drinkButton.setBackground(Color.white);
+						dessertButton.setBackground(Color.gray);
+						
+					}else if(menupage == 6) {
+						hamburgerSetButton.setBackground(Color.white);
+						hamburgerButton.setBackground(Color.white);
+						drinkButton.setBackground(Color.gray);
+						dessertButton.setBackground(Color.white);
+						
+					}
 				}
 			}
 		});
@@ -152,8 +257,34 @@ public class Main {
 		previousPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(menupage > 0) {
-				menupage--;
-				changeMenu();
+					
+					menupage--;
+					changeMenu();
+					
+					if(menupage == 0 || menupage == 1) {
+						hamburgerSetButton.setBackground(Color.gray);
+						hamburgerButton.setBackground(Color.white);
+						drinkButton.setBackground(Color.white);
+						dessertButton.setBackground(Color.white);
+						
+					}else if(menupage == 2 || menupage == 3) {
+						hamburgerSetButton.setBackground(Color.white);
+						hamburgerButton.setBackground(Color.gray);
+						drinkButton.setBackground(Color.white);
+						dessertButton.setBackground(Color.white);
+						
+					}else if(menupage == 4 || menupage == 5) {
+						hamburgerSetButton.setBackground(Color.white);
+						hamburgerButton.setBackground(Color.white);
+						drinkButton.setBackground(Color.white);
+						dessertButton.setBackground(Color.gray);
+						
+					}else if(menupage == 6) {
+						hamburgerSetButton.setBackground(Color.white);
+						hamburgerButton.setBackground(Color.white);
+						drinkButton.setBackground(Color.gray);
+						dessertButton.setBackground(Color.white);
+					}
 				}
 			}
 		});
