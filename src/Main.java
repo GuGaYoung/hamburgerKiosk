@@ -40,6 +40,7 @@ public class Main {
 	JButton goFirstScreenButton = new JButton();
 	JButton cancelPageButton = new JButton();
 	JButton paymentButton = new JButton();
+	JLabel advertisingImage = new JLabel();
 	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -53,14 +54,14 @@ public class Main {
 	public Main() {
 
 		frame = new JFrame();
-		frame.setBounds(0, 0, 600, 800);
+		frame.setBounds(0, 0, 600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("hamburgerKiosk");
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 		
-		firstScene.setBounds(0, 0, 600, 800);
+		firstScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(firstScene);
 		firstScene.setLayout(null);
 		
@@ -71,13 +72,13 @@ public class Main {
 			}
 		});
 		
-		mainPurchaseScene.setBounds(0, 0, 600, 800);
+		mainPurchaseScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
 		mainPurchaseScene.setVisible(false);
 	
 		//처음 화면 (광고화면)
-		pressKeyText.setBounds(0, 680, 600, 100);
+		pressKeyText.setBounds(0, 730, 600, 100);
 		pressKeyText.setLayout(null);
 		pressKeyText.setText("화면 터치해 주세요");
 		pressKeyText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -86,7 +87,11 @@ public class Main {
 		firstScene.add(pressKeyText);
 		
 		//구매화면 
-		goFirstScreenButton.setBounds(110, 700, 100, 40);
+		advertisingImage.setBounds(0, 0, 600, 140);
+		advertisingImage.setIcon(new ImageIcon("./otherimages/T-rax버거광고(구입창).jpg"));
+		mainPurchaseScene.add(advertisingImage);
+		
+		goFirstScreenButton.setBounds(110, 750, 100, 40);
 		goFirstScreenButton.setText("첫화면으로");
 		goFirstScreenButton.setFont(new Font("굴림", Font.BOLD, 10));
 		goFirstScreenButton.setBackground(Color.LIGHT_GRAY);
@@ -99,7 +104,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(goFirstScreenButton);
 		
-		cancelPageButton.setBounds(247, 700, 100, 40);
+		cancelPageButton.setBounds(247, 750, 100, 40);
 		cancelPageButton.setText("취소하기");
 		cancelPageButton.setFont(new Font("굴림", Font.BOLD, 10));
 		cancelPageButton.setBackground(Color.LIGHT_GRAY);
@@ -111,7 +116,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(cancelPageButton);
 		
-		paymentButton.setBounds(385, 700, 100, 40);
+		paymentButton.setBounds(385, 750, 100, 40);
 		paymentButton.setText("결제하기");
 		paymentButton.setFont(new Font("굴림", Font.BOLD, 10));
 		paymentButton.setBackground(Color.LIGHT_GRAY);
@@ -124,7 +129,7 @@ public class Main {
 		mainPurchaseScene.add(paymentButton);
 		
 		
-		nextPageButton.setBounds(537, 350, 50, 80);
+		nextPageButton.setBounds(537, 360, 50, 80);
 		nextPageButton.setBorderPainted(false);
 		nextPageButton.setContentAreaFilled(false);
 		nextPageButton.setFocusPainted(false);
@@ -139,7 +144,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(nextPageButton);
 		
-		previousPageButton.setBounds(3, 350, 50, 80);
+		previousPageButton.setBounds(3, 360, 50, 80);
 		previousPageButton.setBorderPainted(false);
 		previousPageButton.setContentAreaFilled(false);
 		previousPageButton.setFocusPainted(false);
@@ -160,15 +165,15 @@ public class Main {
 			menuImages[i].setHorizontalAlignment(SwingConstants.CENTER);
 			
 			if (i < 3) {
-				menuVerticalLength = 150;
+				menuVerticalLength = 190;
 				menuImages[i].setBounds(menuHorizontalLength, menuVerticalLength, menuImageWidth, menuImageHeight);
 
 			} else if ((i >= 3) && (i < 6)) {
-				menuVerticalLength = 290;
+				menuVerticalLength = 330;
 				menuImages[i].setBounds(menuHorizontalLength, menuVerticalLength, menuImageWidth, menuImageHeight);
 
 			} else if ((i >= 6) && (i < 9)) {
-				menuVerticalLength = 430;
+				menuVerticalLength = 470;
 				menuImages[i].setBounds(menuHorizontalLength, menuVerticalLength, menuImageWidth, menuImageHeight);
 
 			}
