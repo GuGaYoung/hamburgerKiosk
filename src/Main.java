@@ -52,7 +52,13 @@ public class Main {
 		Dessert strawberryTornado = new Dessert("토네이도(스트로베리)",2400,1);
 		Dessert softCone = new Dessert("소프트콘",700,1); 
 		
-	
+		Drink cider = new Drink("사이다",1700,1);
+		Drink cola = new Drink("콜라",1700,1);
+		Drink americano = new Drink("아메리카노",2000,1);
+		Drink iceAmericano = new Drink("아이스 아메리카노",2000,1);
+		Drink caffeLatte = new Drink("카페라떼",2000,1);
+		Drink iceCaffeLatte= new Drink("아이스카페라떼",2000,1);
+		
 		/*
 		//+버튼을 누르면 갯수가 추가되게끔
 		wagyuEdition2Set.amount++;
@@ -140,6 +146,14 @@ public class Main {
 		strawberryTornado.buyDessert();
 		softCone.buyDessert();
 		
+		//음료수 단품 샀을때 계산하는 메소드
+		cider.buyDrink();
+		cola.buyDrink();
+		americano.buyDrink();
+		iceAmericano.buyDrink();
+		caffeLatte.buyDrink();
+		iceCaffeLatte.buyDrink();
+		
 		//totalPrice = totalPrice+price;
 		System.out.println("구입하기를 눌렀습니다\n");
 		
@@ -194,6 +208,15 @@ public class Main {
 		System.out.println("제품이름: "+greenTeaTornado.productName+" 		가격: "+greenTeaTornado.price+" 		갯수: "+greenTeaTornado.amount);
 		System.out.println("제품이름: "+strawberryTornado.productName+" 	가격: "+strawberryTornado.price+" 		갯수: "+strawberryTornado.amount);
 		System.out.println("제품이름: "+softCone.productName+" 			가격: "+softCone.price+" 		갯수: "+softCone.amount);
+		
+		//음료수 단품 출력
+		System.out.println("");
+		System.out.println("제품이름: "+cider.productName+" 			가격: "+cider.price+" 		갯수: "+cider.amount);
+		System.out.println("제품이름: "+cola.productName+" 			가격: "+cola.price+" 		갯수: "+cola.amount);
+		System.out.println("제품이름: "+americano.productName+" 			가격: "+americano.price+" 		갯수: "+americano.amount);
+		System.out.println("제품이름: "+iceAmericano.productName+" 		가격: "+iceAmericano.price+" 		갯수: "+iceAmericano.amount);
+		System.out.println("제품이름: "+caffeLatte.productName+" 			가격: "+caffeLatte.price+" 		갯수: "+caffeLatte.amount);
+		System.out.println("제품이름: "+iceCaffeLatte.productName+" 		가격: "+iceCaffeLatte.price+" 		갯수: "+iceCaffeLatte.amount);	
 		
 		System.out.println("\n총 가격은: "+totalPrice);
 	}
