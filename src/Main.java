@@ -71,7 +71,7 @@ public class Main {
 			}
 		});
 		
-		mainPurchaseScene.setBounds(0, 150, 600, 700);
+		mainPurchaseScene.setBounds(0, 0, 600, 800);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
 		mainPurchaseScene.setVisible(false);
@@ -86,7 +86,7 @@ public class Main {
 		firstScene.add(pressKeyText);
 		
 		//구매화면 
-		goFirstScreenButton.setBounds(110, 550, 100, 40);
+		goFirstScreenButton.setBounds(110, 700, 100, 40);
 		goFirstScreenButton.setText("첫화면으로");
 		goFirstScreenButton.setFont(new Font("굴림", Font.BOLD, 10));
 		goFirstScreenButton.setBackground(Color.LIGHT_GRAY);
@@ -99,7 +99,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(goFirstScreenButton);
 		
-		cancelPageButton.setBounds(247, 550, 100, 40);
+		cancelPageButton.setBounds(247, 700, 100, 40);
 		cancelPageButton.setText("취소하기");
 		cancelPageButton.setFont(new Font("굴림", Font.BOLD, 10));
 		cancelPageButton.setBackground(Color.LIGHT_GRAY);
@@ -111,7 +111,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(cancelPageButton);
 		
-		paymentButton.setBounds(385, 550, 100, 40);
+		paymentButton.setBounds(385, 700, 100, 40);
 		paymentButton.setText("결제하기");
 		paymentButton.setFont(new Font("굴림", Font.BOLD, 10));
 		paymentButton.setBackground(Color.LIGHT_GRAY);
@@ -124,7 +124,7 @@ public class Main {
 		mainPurchaseScene.add(paymentButton);
 		
 		
-		nextPageButton.setBounds(537, 200, 50, 80);
+		nextPageButton.setBounds(537, 350, 50, 80);
 		nextPageButton.setBorderPainted(false);
 		nextPageButton.setContentAreaFilled(false);
 		nextPageButton.setFocusPainted(false);
@@ -139,7 +139,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(nextPageButton);
 		
-		previousPageButton.setBounds(3, 200, 50, 80);
+		previousPageButton.setBounds(3, 350, 50, 80);
 		previousPageButton.setBorderPainted(false);
 		previousPageButton.setContentAreaFilled(false);
 		previousPageButton.setFocusPainted(false);
@@ -160,15 +160,15 @@ public class Main {
 			menuImages[i].setHorizontalAlignment(SwingConstants.CENTER);
 			
 			if (i < 3) {
-				menuVerticalLength = 0;
+				menuVerticalLength = 150;
 				menuImages[i].setBounds(menuHorizontalLength, menuVerticalLength, menuImageWidth, menuImageHeight);
 
 			} else if ((i >= 3) && (i < 6)) {
-				menuVerticalLength = 140;
+				menuVerticalLength = 290;
 				menuImages[i].setBounds(menuHorizontalLength, menuVerticalLength, menuImageWidth, menuImageHeight);
 
 			} else if ((i >= 6) && (i < 9)) {
-				menuVerticalLength = 280;
+				menuVerticalLength = 430;
 				menuImages[i].setBounds(menuHorizontalLength, menuVerticalLength, menuImageWidth, menuImageHeight);
 
 			}
