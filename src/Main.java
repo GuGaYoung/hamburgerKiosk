@@ -64,7 +64,7 @@ public class Main {
 	//JTextArea textArea = new JTextArea();
 	
 	ArrayList<JLabel> OrderStatusText = new ArrayList<>();
-	ArrayList<JButton> cancelButton = new ArrayList<>(); //수량변경
+	ArrayList<JButton> cancelButton = new ArrayList<>();
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); //수량변경
 	JLabel OrderStatusBackGround = new JLabel();
 	
@@ -446,6 +446,31 @@ public class Main {
 					OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
 					
 					number++;
+					
+					for(int i = 0; i < OrderStatusText.size(); i++) {
+						cancelButton.get(i).addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+
+									for (int i = 0; i < OrderStatusText.size(); i++) {
+										if (e.getSource() == cancelButton.get(i)) {
+											OrderStatusText.get(i).setLocation(1000, 1000);
+											cancelButton.get(i).setLocation(1000, 1000);
+											quantityChangeButton.get(i).setLocation(1000, 1000);
+											
+											OrderStatusText.remove(i);
+											cancelButton.remove(i);
+											quantityChangeButton.remove(i);
+									}
+								}
+							}
+						});
+						
+						quantityChangeButton.get(i).addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								
+							}
+						});
+					}
 				}
 			});
 		}
@@ -453,6 +478,8 @@ public class Main {
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(OrderStatusBackGround);
+		
+
 		
 		changeMenu();
 		changefirstScene.start();
