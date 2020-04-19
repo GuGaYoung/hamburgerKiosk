@@ -152,6 +152,7 @@ public class Main {
 		Menu seasoningPotato = new Menu("양념감자", 2000, 1);
 		Menu squidRing = new Menu("오징어링", 2200, 1);
 		Menu naturalCheeseStick = new Menu("치즈스틱", 2000, 1);
+		Menu potato = new Menu("포테이토", 1500, 1);
 		Menu chocoCookieTornado = new Menu("토네이도(초코쿠키)", 2300, 1);
 		Menu greenTeaTornado = new Menu("토네이도(녹차)", 2300, 1);
 		Menu strawberryTornado = new Menu("토네이도(스트로베리)", 2400, 1);
@@ -556,6 +557,42 @@ public class Main {
 									classicCheeseBurger.buy();
 								} else if (i == 3) {
 									teriBurger.buy();
+								}
+							}else if (menupage == 4) {
+								if (i == 0) {
+									cheeseInTheEgg.buy();
+								} else if (i == 1) {
+									jipieHabanero_L.buy();
+								} else if (i == 2) {
+									jipie_S.buy();
+								} else if (i == 3) {
+									chickenNugget.buy();
+								} else if (i == 4) {
+									longCheeseStick.buy();
+								} else if (i == 5) {
+									coneSalad.buy();
+								} else if (i == 6) {
+									sundayIceCream.buy();
+								} else if (i == 7) {
+									shakeShakeChicken.buy();
+								} else if (i == 8) {
+									seasoningPotato.buy();
+								}
+							}else if (menupage == 5) {
+								if (i == 0) {
+									squidRing.buy();
+								} else if (i == 1) {
+									naturalCheeseStick.buy();
+								} else if (i == 2) {
+									potato.buy();
+								} else if (i == 3) {
+									chocoCookieTornado.buy();
+								} else if (i == 4) {
+									greenTeaTornado.buy();
+								} else if (i == 5) {
+									strawberryTornado.buy();
+								} else if (i == 6) {
+									softCone.buy();
 								}
 							}
 						}
