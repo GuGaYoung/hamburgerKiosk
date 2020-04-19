@@ -64,6 +64,7 @@ public class Main {
 	//JTextArea textArea = new JTextArea();
 	
 	ArrayList<JLabel> OrderStatusText = new ArrayList<>();
+	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); //수량변경
 	JLabel OrderStatusBackGround = new JLabel();
 	
 	int menupage = 0;
@@ -425,11 +426,20 @@ public class Main {
 				public void actionPerformed(ActionEvent e) {
 					
 					OrderStatusText.add(new JLabel());
+					quantityChangeButton.add(new JButton());
+					
 					OrderStatusText.get(number).setText("AZ버거 1개 6300원");
 					OrderStatusText.get(number).setFont((new Font("굴림체", Font.BOLD, 15)));
+					
+					quantityChangeButton.get(number).setIcon(new ImageIcon("./otherimages/change.jpg"));
+					
 					OrderStatusBackGround.add(OrderStatusText.get(number));
+					OrderStatusBackGround.add(quantityChangeButton.get(number));
+					
 					OrderStatusText.get(number).setBounds(5, OrderStatusVerticalLength, 490, 110);
+					quantityChangeButton.get(number).setBounds(150, OrderStatusVerticalLength + 43, 20, 20);
 					OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
+					
 					number++;
 				}
 			});
