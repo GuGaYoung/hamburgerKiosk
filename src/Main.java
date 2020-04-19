@@ -57,7 +57,7 @@ public class Main {
 	JButton drinkButton = new JButton();
 	JButton dessertButton = new JButton();
 	JLabel advertisingImage = new JLabel();
-	JLabel numberText = new JLabel();
+	static JLabel numberText = new JLabel();
 	JLabel amountText = new JLabel();
 	JLabel totalOrderDetails = new JLabel();
 	JLabel textBackGround = new JLabel();
@@ -76,7 +76,7 @@ public class Main {
 	int menuHorizontalInterval = 170;
 
 	static int textNumber = 0;
-	int totalAmount = 0;
+	static int totalAmount = 0;
 	static int totalPrice = 0;
 	int amount = 0;
 

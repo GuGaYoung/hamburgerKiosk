@@ -14,5 +14,7 @@ public class Menu {
 		price = price * amount;
 		Main.totalPrice = Main.totalPrice+price;
 		Main.OrderStatusText.get(Main.textNumber).setText(productName+" "+amount+"개 "+price);
+		Main.totalAmount++;
+		Main.numberText.setText(Main.totalAmount+"개");
 	}
 }
