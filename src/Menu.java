@@ -16,5 +16,6 @@ public class Menu {
 		Main.OrderStatusText.get(Main.textNumber).setText(productName+" "+amount+"개 "+price);
 		Main.totalAmount++;
 		Main.numberText.setText(Main.totalAmount+"개");
+		Main.amountText.setText(Main.totalPrice+"원");
 	}
 }

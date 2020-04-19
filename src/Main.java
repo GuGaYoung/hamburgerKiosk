@@ -58,7 +58,7 @@ public class Main {
 	JButton dessertButton = new JButton();
 	JLabel advertisingImage = new JLabel();
 	static JLabel numberText = new JLabel();
-	JLabel amountText = new JLabel();
+	static JLabel amountText = new JLabel();
 	JLabel totalOrderDetails = new JLabel();
 	JLabel textBackGround = new JLabel();
 	// JTextArea textArea = new JTextArea();
@@ -330,7 +330,9 @@ public class Main {
 				OrderStatusVerticalLength = -40;
 				
 				totalAmount = 0;
-				numberText.setText(Main.totalAmount+"개");
+				totalPrice = 0;
+				numberText.setText(totalAmount+"개");
+				amountText.setText(totalPrice+"원");
 			}
 		});
 		mainPurchaseScene.add(cancelPageButton);
@@ -473,7 +475,7 @@ public class Main {
 		mainPurchaseScene.add(numberText);
 
 		amountText.setBounds(320, 570, 200, 100);
-		amountText.setText("0");
+		amountText.setText("0원");
 		amountText.setHorizontalAlignment(SwingConstants.CENTER);
 		amountText.setFont(new Font("굴림", Font.BOLD, 15));
 		mainPurchaseScene.add(amountText);
