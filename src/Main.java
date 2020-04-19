@@ -451,10 +451,18 @@ public class Main {
 					OrderStatusBackGround.add(cancelButton.get(textNumber));
 					OrderStatusBackGround.add(quantityChangeButton.get(textNumber));
 					
+					OrderStatusVerticalLength = -40;
+					if(textNumber != 0) {
+						for(int i = 0; i < textNumber; i++) {
+							OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
+						}
+					}
+					System.out.println("textNumber" + textNumber);
+					System.out.println(OrderStatusVerticalLength);
+					
 					OrderStatusText.get(textNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
 					cancelButton.get(textNumber).setBounds(200, OrderStatusVerticalLength + 43, 20, 20);
 					quantityChangeButton.get(textNumber).setBounds(150, OrderStatusVerticalLength + 43, 20, 20);
-					OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
 					
 					textNumber++;
 					
@@ -473,6 +481,18 @@ public class Main {
 											quantityChangeButton.remove(i);
 											
 											textNumber--;
+											
+											if(OrderStatusText.size() == 0) {
+												
+											}else {
+												for(int j = 0; j < OrderStatusText.size(); j++) {
+													if(i + j < OrderStatusText.size()) {
+														OrderStatusText.get(i + j).setLocation(OrderStatusText.get(i + j).getX(), OrderStatusText.get(i + j).getY() - 20);
+														cancelButton.get(i + j).setLocation(cancelButton.get(i + j).getX(), cancelButton.get(i + j).getY() - 20);
+														quantityChangeButton.get(i + j).setLocation(quantityChangeButton.get(i + j).getX(), quantityChangeButton.get(i + j).getY() - 20);		
+													}
+												}
+											}
 									}
 								}
 							}
