@@ -1,7 +1,14 @@
+import java.awt.EventQueue;
+import java.util.Random;
 
-public class Main {
+import javax.swing.JFrame;
+
+public class MainEx {
 
 	static int totalPrice = 0;
+	
+	private JFrame frame;
+	Random ramdom = new Random();
 	
 	public static void main(String[] args) {
 		
