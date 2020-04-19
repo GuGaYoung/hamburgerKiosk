@@ -61,6 +61,7 @@ public class Main {
 	JLabel amountText = new JLabel();
 	JLabel totalOrderDetails = new JLabel();
 	JLabel textBackGround = new JLabel();
+	JLabel chooseEatingPlaceText = new JLabel();
 	//JTextArea textArea = new JTextArea();
 	
 	ArrayList<JLabel> OrderStatusText = new ArrayList<>();
@@ -125,6 +126,12 @@ public class Main {
 		firstScene.add(pressKeyText);
 		
 		//매장에서 먹을 것인지 포장인지 선택하는 방법
+		chooseEatingPlaceText.setText("어디서 드시겠습니까?");
+		chooseEatingPlaceText.setBounds(0, 150, 600, 100);
+		chooseEatingPlaceText.setHorizontalAlignment(SwingConstants.CENTER);
+		chooseEatingPlaceText.setFont(new Font("굴림", Font.BOLD, 30));
+		packagingDeliveringScene.add(chooseEatingPlaceText);
+		
 		packagingButton.setBounds(320, 330, 150, 150);
 		packagingButton.setIcon(new ImageIcon("./otherimages/delivery.jpg"));
 		packagingButton.addActionListener(new ActionListener() {
@@ -196,8 +203,8 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				hamburgerSetButton.setBackground(Color.white);
 				hamburgerButton.setBackground(Color.white);
-				drinkButton.setBackground(Color.gray);
-				dessertButton.setBackground(Color.white);
+				drinkButton.setBackground(Color.white);
+				dessertButton.setBackground(Color.gray);
 				
 				menupage = 4;
 				changeMenu();
@@ -213,8 +220,8 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				hamburgerSetButton.setBackground(Color.white);
 				hamburgerButton.setBackground(Color.white);
-				drinkButton.setBackground(Color.white);
-				dessertButton.setBackground(Color.gray);
+				drinkButton.setBackground(Color.gray);
+				dessertButton.setBackground(Color.white);
 				
 				menupage = 6;
 				changeMenu();
