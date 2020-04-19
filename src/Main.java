@@ -495,9 +495,9 @@ public class Main {
 						if (e.getSource() == menuImages[i]) {
 							if (menupage == 0) {
 								if (i == 0) {
-									wagyuEdition2Set.buy();
-								} else if (i == 1) {
 									doubleX2Set.buy();
+								} else if (i == 1) {
+									wagyuEdition2Set.buy();
 								} else if (i == 2) {
 									AZBurgerSet.buy();
 								} else if (i == 3) {
@@ -526,6 +526,36 @@ public class Main {
 									classicCheeseBurgerSet.buy();
 								} else if (i == 5) {
 									teriBurgerSet.buy();
+								}
+							}else if (menupage == 2) {
+								if (i == 0) {
+									wagyuEdition2.buy();
+								} else if (i == 1) {
+									doubleX2.buy();
+								} else if (i == 2) {
+									mozzarellaInTheBurger.buy();
+								} else if (i == 3) {
+									AZBurger.buy();
+								} else if (i == 4) {
+									bigBulgogi.buy();
+								} else if (i == 5) {
+									hotCrispyBurger.buy();
+								} else if (i == 6) {
+									hanwooBulgogi.buy();
+								} else if (i == 7) {
+									riaMiracleBurger.buy();
+								}else if (i == 8) {
+									shrimpBurger.buy();
+								}
+							}else if (menupage == 3) {
+								if (i == 0) {
+									chickenBurger.buy();
+								} else if (i == 1) {
+									T_RexBurger.buy();
+								} else if (i == 2) {
+									classicCheeseBurger.buy();
+								} else if (i == 3) {
+									teriBurger.buy();
 								}
 							}
 						}
