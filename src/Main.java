@@ -328,6 +328,9 @@ public class Main {
 				OrderStatusText.clear();
 				textNumber = 0;
 				OrderStatusVerticalLength = -40;
+				
+				totalAmount = 0;
+				numberText.setText(Main.totalAmount+"개");
 			}
 		});
 		mainPurchaseScene.add(cancelPageButton);
