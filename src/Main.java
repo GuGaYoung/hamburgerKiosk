@@ -257,7 +257,11 @@ public class Main {
 
 				for(int i = 0; i < OrderStatusText.size(); i++) {
 					OrderStatusText.get(i).setLocation(1000, 1000);
+					cancelButton.get(i).setLocation(1000, 1000);
+					quantityChangeButton.get(i).setLocation(1000, 1000);
 					//OrderStatusText.remove(i);
+					
+					textNumber = 0;
 				}
 				
 				OrderStatusText.clear();
@@ -460,6 +464,8 @@ public class Main {
 											OrderStatusText.remove(i);
 											cancelButton.remove(i);
 											quantityChangeButton.remove(i);
+											
+											textNumber--;
 									}
 								}
 							}
