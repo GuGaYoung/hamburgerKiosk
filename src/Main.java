@@ -75,10 +75,10 @@ public class Main {
 	int menuImageHeight = 130;
 	int menuHorizontalInterval = 170;
 	
-	int number = 0;
+	int textNumber = 0;
 	int amount = 0;
 	
-	String eatingPlace = "";//매장할 건지 포장할건지
+	String eatingPlace = "";//매장에서 먹을 건지  포장 할 건지
 
 	int OrderStatusVerticalLength = -40;
 	
@@ -238,7 +238,7 @@ public class Main {
 				}
 				
 				OrderStatusText.clear();
-				number = 0;
+				textNumber = 0;
 				OrderStatusVerticalLength = -40;
 				eatingPlace = "";
 				
@@ -261,7 +261,7 @@ public class Main {
 				}
 				
 				OrderStatusText.clear();
-				number = 0;
+				textNumber = 0;
 				OrderStatusVerticalLength = -40;
 			}
 		});
@@ -418,7 +418,7 @@ public class Main {
 		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
 		textArea.setBounds(50, 630, 490, 110);
 		mainPurchaseScene.add(textArea);
-*/
+		 */
 		
 		
 		//메뉴 버튼을 누르면 선택한 메뉴들이 주문내역에 출력된다
@@ -430,22 +430,22 @@ public class Main {
 					cancelButton.add(new JButton());
 					quantityChangeButton.add(new JButton());
 					
-					OrderStatusText.get(number).setText("AZ버거 1개 6300원");
-					OrderStatusText.get(number).setFont((new Font("굴림체", Font.BOLD, 15)));
+					OrderStatusText.get(textNumber).setText("AZ버거 1개 6300원");
+					OrderStatusText.get(textNumber).setFont((new Font("굴림체", Font.BOLD, 15)));
 					
-					cancelButton.get(number).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
-					quantityChangeButton.get(number).setIcon(new ImageIcon("./otherimages/change.jpg"));
+					cancelButton.get(textNumber).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
+					quantityChangeButton.get(textNumber).setIcon(new ImageIcon("./otherimages/change.jpg"));
 					
-					OrderStatusBackGround.add(OrderStatusText.get(number));
-					OrderStatusBackGround.add(cancelButton.get(number));
-					OrderStatusBackGround.add(quantityChangeButton.get(number));
+					OrderStatusBackGround.add(OrderStatusText.get(textNumber));
+					OrderStatusBackGround.add(cancelButton.get(textNumber));
+					OrderStatusBackGround.add(quantityChangeButton.get(textNumber));
 					
-					OrderStatusText.get(number).setBounds(5, OrderStatusVerticalLength, 490, 110);
-					cancelButton.get(number).setBounds(200, OrderStatusVerticalLength + 43, 20, 20);
-					quantityChangeButton.get(number).setBounds(150, OrderStatusVerticalLength + 43, 20, 20);
+					OrderStatusText.get(textNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
+					cancelButton.get(textNumber).setBounds(200, OrderStatusVerticalLength + 43, 20, 20);
+					quantityChangeButton.get(textNumber).setBounds(150, OrderStatusVerticalLength + 43, 20, 20);
 					OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
 					
-					number++;
+					textNumber++;
 					
 					for(int i = 0; i < OrderStatusText.size(); i++) {
 						cancelButton.get(i).addActionListener(new ActionListener() {
