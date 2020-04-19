@@ -1,12 +1,13 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,15 +34,24 @@ public class Main {
 	}
 	
 	JLabel firstScene = new JLabel();
-	JLabel pressKeyText = new JLabel();
 	JPanel mainPurchaseScene = new JPanel();
+	JPanel packagingDeliveringScene = new JPanel() {
+		public void paintComponent(Graphics g) {
+			Dimension d = getSize();
+			ImageIcon image = new ImageIcon("./otherimages/empty.png");
+			g.drawImage(image.getImage(), 0, 0, d.width, d.height, this);
+		}
+	};
+	
+	JLabel pressKeyText = new JLabel();
+	JButton packagingButton = new JButton();
+	JButton deliveringButton = new JButton();
 	JButton[] menuImages = new JButton[9];
 	JButton nextPageButton = new JButton();
 	JButton previousPageButton = new JButton();
 	JButton goFirstScreenButton = new JButton();
 	JButton cancelPageButton = new JButton();
 	JButton paymentButton = new JButton();
-	JButton Button = new JButton();
 	JButton hamburgerButton = new JButton();
 	JButton hamburgerSetButton = new JButton();
 	JButton drinkButton = new JButton();
@@ -65,6 +75,8 @@ public class Main {
 	
 	int number = 0;
 	int amount = 0;
+	
+	String eatingPlace = "";//매장할 건지 포장할건지
 
 	int OrderStatusVerticalLength = -40;
 	
@@ -87,15 +99,20 @@ public class Main {
 		firstScene.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				firstScene.setVisible(false);
-				mainPurchaseScene.setVisible(true);
+				packagingDeliveringScene.setVisible(true);
 			}
 		});
+		
+		packagingDeliveringScene.setBounds(0, 0, 600, 850);
+		frame.getContentPane().add(packagingDeliveringScene);
+		packagingDeliveringScene.setLayout(null);
+		packagingDeliveringScene.setVisible(false);
 		
 		mainPurchaseScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
 		mainPurchaseScene.setVisible(false);
-	
+		
 		//처음 화면 (광고화면)
 		pressKeyText.setBounds(0, 730, 600, 100);
 		pressKeyText.setLayout(null);
@@ -105,15 +122,35 @@ public class Main {
 		pressKeyText.setForeground(Color.white);
 		firstScene.add(pressKeyText);
 		
+		//매장에서 먹을 것인지 포장인지 선택하는 방법
+		packagingButton.setBounds(320, 330, 150, 150);
+		packagingButton.setIcon(new ImageIcon("./otherimages/delivery.jpg"));
+		packagingButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				eatingPlace = "매장";
+				
+				packagingDeliveringScene.setVisible(false);
+				mainPurchaseScene.setVisible(true);
+			}
+		});
+		packagingDeliveringScene.add(packagingButton);
+		
+		deliveringButton.setBounds(110, 330, 150, 150);
+		deliveringButton.setIcon(new ImageIcon("./otherimages/store.jpg"));
+		deliveringButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				eatingPlace = "포장";
+				
+				packagingDeliveringScene.setVisible(false);
+				mainPurchaseScene.setVisible(true);
+			}
+		});
+		packagingDeliveringScene.add(deliveringButton);
+		
 		//구매화면 
 		advertisingImage.setBounds(0, 0, 600, 140);
 		advertisingImage.setIcon(new ImageIcon("./otherimages/T-rax버거광고(구입창).jpg"));
 		mainPurchaseScene.add(advertisingImage);
-		
-		JButton hamburgerButton = new JButton();
-		JButton hamburgerSetButton = new JButton();
-		JButton drinkButton = new JButton();
-		JButton dessertButton = new JButton();
 		
 		hamburgerSetButton.setBounds(90, 150, 100, 40);
 		hamburgerSetButton.setText("햄버거 세트");
@@ -201,6 +238,7 @@ public class Main {
 				OrderStatusText.clear();
 				number = 0;
 				OrderStatusVerticalLength = -40;
+				eatingPlace = "";
 				
 				System.out.println(OrderStatusText.size());
 			}
