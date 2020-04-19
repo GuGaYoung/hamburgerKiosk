@@ -445,7 +445,7 @@ public class Main {
 					OrderStatusText.get(textNumber).setFont((new Font("굴림체", Font.BOLD, 15)));
 					
 					cancelButton.get(textNumber).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
-					quantityChangeButton.get(textNumber).setIcon(new ImageIcon("./otherimages/change.jpg"));
+					quantityChangeButton.get(textNumber).setIcon(new ImageIcon("./otherimages/plus.jpg"));
 					
 					OrderStatusBackGround.add(OrderStatusText.get(textNumber));
 					OrderStatusBackGround.add(cancelButton.get(textNumber));
