@@ -594,6 +594,20 @@ public class Main {
 								} else if (i == 6) {
 									softCone.buy();
 								}
+							}else if (menupage == 6) {
+								if (i == 0) {
+									iceAmericano.buy();
+								} else if (i == 1) {
+									cider.buy();
+								} else if (i == 2) {
+									cola.buy();
+								} else if (i == 3) {
+									americano.buy();
+								} else if (i == 4) {
+									caffeLatte.buy();
+								} else if (i == 5) {
+									iceCaffeLatte.buy();
+								}
 							}
 						}
 					}
