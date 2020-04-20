@@ -580,7 +580,8 @@ public class Main {
 							if (menupage == 0) {
 								if (i == 0) {
 									doubleX2Set.buy();
-									//changeSetMenu.changeSetMenu("더블X2 세트", 1, 7500, "사이다", "롱치즈스틱");
+									changeSetMenu.changeSetMenu("더블X2 세트", 1, 7500, "사이다", "롱치즈스틱");
+									changeSetMenu.changeSetMenu("더블X2 세트", 1, 7500, "사이다", "롱치즈스틱");
 									
 								} else if (i == 1) {
 									wagyuEdition2Set.buy();

@@ -1,39 +1,56 @@
 
 public class ChangeSetMenu {
 	int additionalPrice; //추가금액
+	int nowDrinksPrice = 0;
+	int nowDessertsPrice = 0;
 	String drinks = "";
 	String desserts = "";
-	/*
-	 * cider = new Menu("사이다", 1700, 1); Menu cola = new Menu("콜라", 1700, 1); Menu
-	 * americano = new Menu("아메리카노", 2000, 1); Menu iceAmericano = new
-	 * Menu("아이스 아메리카노", 2000, 1); Menu caffeLatte = new Menu("카페라떼", 2000, 1); Menu
-	 * iceCaffeLatte
-	 */
-	
+
 	public void changeSetMenu(String hamburgerSetName, int hamburgerSetAmount, int hamburberPrice, String drinksName, String dessertsName) {
 		
+		//확인을 눌렀을 때!
 		if(drinksName == "사이다") {
 			additionalPrice = 0;
+			drinks = "사이다";
 			
 		}else if(drinksName == "콜라"){
 			additionalPrice = 0;
+			drinks = "콜라";
 			
 		}else if(drinksName == "아메리카노"){
 			additionalPrice = 300;
+			drinks = "아메리카노";
 			
 		}else if(drinksName == "아이스 아메리카노"){
 			additionalPrice = 300;
+			drinks = "아이스 아메리카노";
 			
 		}else if(drinksName == "카페라떼"){
 			additionalPrice = 700;
+			drinks = "카페라떼";
 			
 		}else if(drinksName == "아이스 카페라떼"){
 			additionalPrice = 700;
+			drinks = "아이스 카페라떼";
 			
 		}
-		Main.totalPrice = Main.totalPrice + additionalPrice;
-		hamburberPrice = hamburberPrice + additionalPrice;
 		
+		//이전에 골랐던 음료의 금액과 현재 고른 음료와 다를 경우 차액만큼 더하거나 뺀다
+		if(additionalPrice < nowDrinksPrice) {
+			Main.totalPrice = Main.totalPrice + (nowDrinksPrice - additionalPrice);
+			hamburberPrice = hamburberPrice + (nowDrinksPrice - additionalPrice);
+			
+		}else if(additionalPrice > nowDrinksPrice) {
+			Main.totalPrice = Main.totalPrice + (additionalPrice - nowDrinksPrice);
+			hamburberPrice = hamburberPrice + (additionalPrice - nowDrinksPrice);
+		}
+		
+		System.out.println("additionalPrice" + additionalPrice);
+		System.out.println("nowDrinksPrice" + nowDrinksPrice);
+		System.out.println("hamburberPrice" + hamburberPrice);
+		System.out.println("Main.totalPrice" + Main.totalPrice);
+		
+		nowDrinksPrice = additionalPrice;
 		System.out.println(drinksName + "로 음료 변경 추가금액 : " + additionalPrice);
 		
 
@@ -68,8 +85,23 @@ public class ChangeSetMenu {
 			additionalPrice = 1500;
 			
 		}
-		Main.totalPrice = Main.totalPrice + additionalPrice;
-		hamburberPrice = hamburberPrice + additionalPrice;
+		
+		//이전에 골랐던 음료의 금액과 현재 고른 음료와 다를 경우 차액만큼 더하거나 뺀다
+		if(additionalPrice < nowDessertsPrice) {
+			Main.totalPrice = Main.totalPrice + (nowDessertsPrice - additionalPrice);
+			hamburberPrice = hamburberPrice + (nowDessertsPrice - additionalPrice);
+			
+		}else if(additionalPrice > nowDessertsPrice) {
+			Main.totalPrice = Main.totalPrice + (additionalPrice - nowDessertsPrice);
+			hamburberPrice = hamburberPrice + (additionalPrice - nowDessertsPrice);
+		}
+		nowDessertsPrice = additionalPrice;
+		System.out.println(dessertsName + "로 디저트 변경 추가금액 : " + additionalPrice);
+			
+		System.out.println("additionalPrice" + additionalPrice);
+		System.out.println("nowDessertsPrice" + nowDessertsPrice);
+		System.out.println("hamburberPrice" + hamburberPrice);
+		System.out.println("Main.totalPrice" + Main.totalPrice);
 		
 		if(drinksName != "") {
 			//음료수만 변경됬다면
@@ -87,10 +119,8 @@ public class ChangeSetMenu {
 			Main.OrderStatusText.get(Main.textNumber).setText(hamburgerSetName+" "+hamburgerSetAmount+"개 "+ hamburberPrice + 
 					" 디저트 :" + dessertsName);
 		}
-
 		
-		System.out.println(drinksName + "로 디저트 변경 추가금액 : " + additionalPrice);
-		
+		Main.amountText.setText(Main.totalPrice+"원");
 	}
 
 }
