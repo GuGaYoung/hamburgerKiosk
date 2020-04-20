@@ -371,10 +371,13 @@ public class Main {
 				textNumber = 0;
 				OrderStatusVerticalLength = -40;
 
+				orderProductName.clear();
 				totalAmount = 0;
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
+				
+				System.out.println("전체 취소했습니다.");
 			}
 		});
 		mainPurchaseScene.add(cancelPageButton);
