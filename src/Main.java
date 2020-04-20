@@ -64,6 +64,14 @@ public class Main {
 	JLabel chooseEatingPlaceText = new JLabel();
 	//JTextArea textArea = new JTextArea();
 	
+	JLabel numberChangeBackGround = new JLabel();
+	JLabel howManyAddText = new JLabel();
+	JLabel howManyText = new JLabel();
+	JButton oneThing = new JButton();
+	JButton fiveThing = new JButton();
+	JButton TenThing = new JButton();
+	JButton checkButton = new JButton();//확인버튼
+	
 	ArrayList<JLabel> OrderStatusText = new ArrayList<>();
 	ArrayList<JButton> cancelButton = new ArrayList<>();
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); //수량변경
@@ -110,6 +118,11 @@ public class Main {
 		frame.getContentPane().add(packagingDeliveringScene);
 		packagingDeliveringScene.setLayout(null);
 		packagingDeliveringScene.setVisible(false);
+		
+		numberChangeBackGround.setBounds(50, 300, 490, 190);
+		numberChangeBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
+		mainPurchaseScene.add(numberChangeBackGround);
+		numberChangeBackGround.setVisible(false);
 		
 		mainPurchaseScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
@@ -500,7 +513,11 @@ public class Main {
 						
 						quantityChangeButton.get(i).addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								
+								for (int i = 0; i < OrderStatusText.size(); i++) {
+									if (e.getSource() == quantityChangeButton.get(i)) {
+										numberChangeBackGround.setVisible(true);
+									}
+								}
 							}
 						});
 					}
@@ -513,6 +530,57 @@ public class Main {
 		mainPurchaseScene.add(OrderStatusBackGround);
 		
 
+		
+		howManyAddText.setBounds(140, -20, 300, 100);
+		howManyAddText.setText("몇개 추가하시겠습니까?");
+		howManyAddText.setFont(new Font("굴림", Font.BOLD, 20));
+		numberChangeBackGround.add(howManyAddText);
+		
+		howManyText.setBounds(210, 80, 300, 100);
+		howManyText.setText("현재 : 1 개");
+		howManyText.setFont(new Font("굴림", Font.BOLD, 15));
+		numberChangeBackGround.add(howManyText);
+		
+			oneThing.setText("1개");
+			oneThing.setFont(new Font("굴림", Font.BOLD, 20));
+			oneThing.setBounds(70, 60, 100, 50);
+			oneThing.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+				}
+			});
+			numberChangeBackGround.add(oneThing);
+			
+			fiveThing.setText("5개");
+			fiveThing.setFont(new Font("굴림", Font.BOLD, 20));
+			fiveThing.setBounds(200, 60, 100, 50);
+			fiveThing.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+				}
+			});
+			numberChangeBackGround.add(fiveThing);
+			
+			TenThing.setText("10개");
+			TenThing.setFont(new Font("굴림", Font.BOLD, 20));
+			TenThing.setBounds(330, 60, 100, 50);
+			TenThing.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+				}
+			});
+			numberChangeBackGround.add(TenThing);
+			
+		checkButton.setText("확인");
+		checkButton.setFont(new Font("굴림", Font.BOLD, 20));
+		checkButton.setBounds(200, 150, 100, 30);
+		checkButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numberChangeBackGround.setVisible(false);
+			}
+		});
+		numberChangeBackGround.add(checkButton);
+			
 		
 		changeMenu();
 		changefirstScene.start();
