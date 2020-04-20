@@ -1077,7 +1077,8 @@ public class Main {
 		checkCancelButton.setText("취소");
 		checkCancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				paymentCheckScene.setVisible(false);
+				mainPurchaseScene.setVisible(true);
 			}
 		});
 		paymentCheckScene.add(checkCancelButton);
