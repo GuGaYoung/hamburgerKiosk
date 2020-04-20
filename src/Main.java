@@ -51,7 +51,10 @@ public class Main {
 		}
 	};
 	
-	JLabel paymentCheckText = new JLabel();
+	//JLabel paymentCheckText = new JLabel();
+	JLabel paymentCheckList = new JLabel();
+	JButton checkOKButton = new JButton();
+	JButton checkCancelButton = new JButton();
 
 	JLabel pressKeyText = new JLabel();
 	JButton packagingButton = new JButton();
@@ -1056,10 +1059,36 @@ public class Main {
 
 		// 결제하기 전 체크 창
 		paymentCheckScene.setBounds(0, 0, 600, 850);
-		paymentCheckScene.setBackground(Color.white);
+		//paymentCheckScene.setBackground(Color.white);
 		paymentCheckScene.setLayout(null);
 		paymentCheckScene.setVisible(false);
 		frame.getContentPane().add(paymentCheckScene);
+
+		checkOKButton.setBounds(150, 500, 100, 30);
+		checkOKButton.setText("결제하기");
+		checkOKButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		paymentCheckScene.add(checkOKButton);
+		
+		checkCancelButton.setBounds(350, 500, 100, 30);
+		checkCancelButton.setText("취소");
+		checkCancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		paymentCheckScene.add(checkCancelButton);
+		
+		paymentCheckList.setBounds(0, 0, 600, 300);
+		paymentCheckList.setBackground(Color.pink);
+		paymentCheckList.setLayout(null);
+		paymentCheckList.setVisible(true);
+		paymentCheckScene.add(paymentCheckList);
+		
+		//paymentCheckScene.add(OrderStatusBackGround);
 		
 		/*paymentCheckText.setBounds(100, 100, 600, 500);
 		paymentCheckText.setBackground(Color.white);
