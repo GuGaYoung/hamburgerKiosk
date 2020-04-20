@@ -345,7 +345,14 @@ public class Main {
 				OrderStatusVerticalLength = -40;
 				eatingPlace = "";
 
+				orderProductName.clear();
+				totalAmount = 0;
+				totalPrice = 0;
+				numberText.setText(totalAmount + "개");
+				amountText.setText(totalPrice + "원");
+				
 				System.out.println(OrderStatusText.size());
+				System.out.println(orderProductName.toString());
 			}
 		});
 		mainPurchaseScene.add(goFirstScreenButton);
@@ -377,6 +384,7 @@ public class Main {
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
 
+				System.out.println(orderProductName.toString());
 				System.out.println("전체 취소했습니다.");
 			}
 		});
@@ -1497,26 +1505,6 @@ public class Main {
 												break;
 											}
 										}
-
-										// System.out.println("삭제했습니다");
-
-										if (OrderStatusText.size() == 0) {
-
-										} else {
-											for (int j = 0; j < OrderStatusText.size(); j++) {
-												if (i + j < OrderStatusText.size()) {
-													OrderStatusText.get(i + j).setLocation(
-															OrderStatusText.get(i + j).getX(),
-															OrderStatusText.get(i + j).getY() - 20);
-													cancelButton.get(i + j).setLocation(cancelButton.get(i + j).getX(),
-															cancelButton.get(i + j).getY() - 20);
-													quantityChangeButton.get(i + j).setLocation(
-															quantityChangeButton.get(i + j).getX(),
-															quantityChangeButton.get(i + j).getY() - 20);
-												}
-											}
-										}
-
 									}
 								}
 							}
@@ -1535,17 +1523,6 @@ public class Main {
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(OrderStatusBackGround);
-
-		/*
-		 * for (int j = 0; j < orderProductName.size(); j++) {
-		 * System.out.println(orderProductName.get(j)); }
-		 */
-
-		/*
-		 * for(int i = 0; i < menuImages.length; i++) {
-		 * 
-		 * }
-		 */
 
 		changeMenu();
 		changefirstScene.start();
