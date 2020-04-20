@@ -68,6 +68,8 @@ public class Main {
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); // 수량변경
 	JLabel OrderStatusBackGround = new JLabel();
 
+	static ArrayList<String> orderProductName = new ArrayList<String>();
+	
 	int menupage = 0;
 	int menuHorizontalLength = 50;
 	int menuVerticalLength = 0;
@@ -78,8 +80,10 @@ public class Main {
 	static int textNumber = 0;
 	static int totalAmount = 0;
 	static int totalPrice = 0;
-	int amount = 0;
+	//int amount = 0;
 
+	//static String orderProductName = "";
+	
 	String eatingPlace = "";// 매장에서 먹을 건지 포장 할 건지
 
 	int OrderStatusVerticalLength = -40;
@@ -107,6 +111,67 @@ public class Main {
 			}
 		});
 
+		/*Menu[] menu = new Menu[50];
+		
+		// 세트메뉴 
+		menu[0] = new Menu("더블X2 세트", 7500, 1);
+		menu[1] = new Menu("와규에디션2 세트", 7600, 1);
+		menu[2] = new Menu("AZ버거 세트", 8300, 1);
+		menu[3] = new Menu("한우불고기 콤보", 8000, 1);
+		menu[4] = new Menu("한우불고기 세트", 8700, 1);
+		menu[5] = new Menu("모짜렐라 인 더 버거 세트", 7700, 1);
+		menu[6] = new Menu("원조빅불 세트", 7600, 1);
+		menu[7] = new Menu("핫크리스피버거 세트", 6700, 1);
+		menu[8] = new Menu("불고기버거 세트", 5900, 1);
+		menu[9] = new Menu("리아미라클버거 세트", 7400, 1);
+		menu[10] = new Menu("새우버거 세트", 5900, 1);
+		menu[11] = new Menu("치킨버거 세트", 5100, 1);
+		menu[12] = new Menu("T-Rex 버거 세트", 5900, 1);
+		menu[13] = new Menu("클래식치즈버거 세트", 6400, 1);
+		menu[14] = new Menu("데리버거 세트", 4900, 1);
+		
+		// 햄버거 메뉴
+		menu[15] = new Menu("와규에디션2", 5800, 1);
+		menu[16] = new Menu("더블X2 세트", 7500, 1);
+		menu[17] = new Menu("모짤렐라 인 더 버거", 6000, 1);
+		menu[18] = new Menu("AZ버거", 6600, 1);
+		menu[19] = new Menu("원조빅불", 5800, 1);
+		menu[20] = new Menu("핫크리스피버거", 4900, 1);
+		menu[21] = new Menu("한우 불고기 버거", 7000, 1);
+		menu[22] = new Menu("리아미라클버거", 5600, 1);
+		menu[23] = new Menu("새우버거", 3900, 1);
+		menu[24] = new Menu("치킨버거", 2900, 1);
+		menu[25] = new Menu("T-Rex", 3700, 1);
+		menu[26] = new Menu("클래식 치즈버거", 4400, 1);
+		menu[27] = new Menu("데리버거", 2500, 1);
+		
+		// 디저트 메뉴
+		menu[28] = new Menu("치즈인더에그", 3000, 1);
+		menu[29] = new Menu("지파이 하바네로", 4300, 1);
+		menu[30] = new Menu("지파이 고소한맛", 3400, 1);
+		menu[31] = new Menu("치킨너겟", 1200, 1);
+		menu[32] = new Menu("롱 치즈스틱", 1800, 1);
+		menu[33] = new Menu("콘샐러드", 1700, 1);
+		menu[34] = new Menu("선데이아이스크림", 1500, 1);
+		menu[35] = new Menu("쉑쉑치킨", 2500, 1);
+		menu[36] = new Menu("양념감자", 2000, 1);
+		menu[37] = new Menu("오징어링", 2200, 1);
+		menu[38] = new Menu("치즈스틱", 2000, 1);
+		menu[39] = new Menu("포테이토", 1500, 1);
+		menu[40] = new Menu("토네이도(초코쿠키)", 2300, 1);
+		menu[41] = new Menu("토네이도(녹차)", 2300, 1);
+		menu[42] = new Menu("토네이도(스트로베리)", 2400, 1);
+		menu[43] = new Menu("소프트콘", 700, 1);
+		
+		// 음료수 메뉴
+		menu[44] = new Menu("아이스 아메리카노", 2000, 1);
+		menu[45] = new Menu("사이다", 1700, 1);
+		menu[46] = new Menu("콜라", 1700, 1);
+		menu[47] = new Menu("아메리카노", 2000, 1);
+		menu[48] = new Menu("카페라떼", 2000, 1);
+		menu[49] = new Menu("아이스카페라떼", 2000, 1); */
+
+		
 		// 세트메뉴
 		Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
 		Menu doubleX2Set = new Menu("더블X2 세트", 7500, 1);
@@ -165,7 +230,7 @@ public class Main {
 		Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
 		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
 		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
-
+		 
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
 		packagingDeliveringScene.setLayout(null);
@@ -649,6 +714,241 @@ public class Main {
 										quantityChangeButton.remove(i);
 
 										textNumber--;
+										
+										for(int j = 0; j< orderProductName.size(); j++) {
+												if(orderProductName.get(i).equals(doubleX2Set.productName)) {
+													totalAmount -= doubleX2Set.amount;
+													totalPrice -= doubleX2Set.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(doubleX2Set.productName);
+													
+													System.out.println("더블X2세트 갯수: "+doubleX2Set.amount+"더블X2세트 가격: "+doubleX2Set.price);
+													System.out.println("총 가격: "+(totalPrice+doubleX2Set.price)+"에서  더블X2세트 가격: "+doubleX2Set.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(wagyuEdition2Set.productName)) {
+													totalAmount -= wagyuEdition2Set.amount;
+													totalPrice -= wagyuEdition2Set.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(wagyuEdition2Set.productName);
+													
+													System.out.println("와규에디션2세트 갯수: "+wagyuEdition2Set.amount+"와규에디션2세트 가격: "+wagyuEdition2Set.price);
+													System.out.println("총 가격: "+(totalPrice+wagyuEdition2Set.price)+"에서  와규에디션2세트 가격: "+wagyuEdition2Set.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(AZBurgerSet.productName)) {
+													totalAmount -= AZBurgerSet.amount;
+													totalPrice -= AZBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(AZBurgerSet.productName);
+													
+													System.out.println("아재버거세트 갯수: "+AZBurgerSet.amount+"아재버거세트 가격: "+AZBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+AZBurgerSet.price)+"에서  아재버거세트 가격: "+AZBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(hanwooBulgogiCombo.productName)) {
+													totalAmount -= hanwooBulgogiCombo.amount;
+													totalPrice -= hanwooBulgogiCombo.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(hanwooBulgogiCombo.productName);
+													
+													System.out.println("한우불고기 콤보 갯수: "+hanwooBulgogiCombo.amount+"한우불고기 콤보 가격: "+AZBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+hanwooBulgogiCombo.price)+"에서  한우불고기 콤보 가격: "+AZBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(hanwooBulgogiBurgerSet.productName)) {
+													totalAmount -= hanwooBulgogiBurgerSet.amount;
+													totalPrice -= hanwooBulgogiBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(hanwooBulgogiBurgerSet.productName);
+													
+													System.out.println("한우불고기 세트 갯수: "+hanwooBulgogiBurgerSet.amount+"한우불고기 세트 가격: "+hanwooBulgogiBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+hanwooBulgogiBurgerSet.price)+"에서  한우불고기 세트 가격: "+hanwooBulgogiBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(mozzarellaInTheBurgerSet.productName)) {
+													totalAmount -= mozzarellaInTheBurgerSet.amount;
+													totalPrice -= mozzarellaInTheBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(mozzarellaInTheBurgerSet.productName);
+													
+													System.out.println("모짜렐라 인 더 버거 세트 갯수: "+mozzarellaInTheBurgerSet.amount+"모짜렐라 인 더 버거 세트 가격: "+mozzarellaInTheBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+mozzarellaInTheBurgerSet.price)+"에서  모짜렐라 인 더 버거 세트 가격: "+mozzarellaInTheBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(bigBulgogiSet.productName)) {
+													totalAmount -= bigBulgogiSet.amount;
+													totalPrice -= bigBulgogiSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(bigBulgogiSet.productName);
+													
+													System.out.println("원조빅불 세트 갯수: "+bigBulgogiSet.amount+"원조빅불 세트 가격: "+bigBulgogiSet.price);
+													System.out.println("총 가격: "+(totalPrice+bigBulgogiSet.price)+"에서  원조빅불 세트 가격: "+bigBulgogiSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(bigBulgogiSet.productName)) {
+													totalAmount -= bigBulgogiSet.amount;
+													totalPrice -= bigBulgogiSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(bigBulgogiSet.productName);
+													
+													System.out.println("원조빅불 세트 갯수: "+bigBulgogiSet.amount+"원조빅불 세트 가격: "+bigBulgogiSet.price);
+													System.out.println("총 가격: "+(totalPrice+bigBulgogiSet.price)+"에서  원조빅불 세트 가격: "+bigBulgogiSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}	
+												
+												else if(orderProductName.get(i).equals(hotCrispyBurgerSet.productName)) {
+													totalAmount -= hotCrispyBurgerSet.amount;
+													totalPrice -= hotCrispyBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(hotCrispyBurgerSet.productName);
+													
+													System.out.println("핫크리스피버거 세트 갯수: "+hotCrispyBurgerSet.amount+"핫크리스피버거 세트 가격: "+hotCrispyBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+hotCrispyBurgerSet.price)+"에서  핫크리스피버거 세트 가격: "+hotCrispyBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}	
+												
+												else if(orderProductName.get(i).equals(bulgogiBurgerSet.productName)) {
+													totalAmount -= bulgogiBurgerSet.amount;
+													totalPrice -= bulgogiBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(bulgogiBurgerSet.productName);
+													
+													System.out.println("불고기버거 세트 갯수: "+bulgogiBurgerSet.amount+"불고기버거 세트 가격: "+bulgogiBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+bulgogiBurgerSet.price)+"에서  불고기버거 세트 가격: "+bulgogiBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(riaMiracleBurgerSet.productName)) {
+													totalAmount -= riaMiracleBurgerSet.amount;
+													totalPrice -= riaMiracleBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(riaMiracleBurgerSet.productName);
+													
+													System.out.println("리아미라클버거 세트 갯수: "+riaMiracleBurgerSet.amount+"리아미라클버거 가격: "+riaMiracleBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+riaMiracleBurgerSet.price)+"에서  리아미라클버거 가격: "+riaMiracleBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(shrimpBurgerSet.productName)) {
+													totalAmount -= shrimpBurgerSet.amount;
+													totalPrice -= shrimpBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(shrimpBurgerSet.productName);
+													
+													System.out.println("새우버거 세트 갯수: "+shrimpBurgerSet.amount+"새우버거 세트 가격: "+shrimpBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+shrimpBurgerSet.price)+"에서  새우버거 세트 가격: "+shrimpBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(chickenBurgerSet .productName)) {
+													totalAmount -= chickenBurgerSet .amount;
+													totalPrice -= chickenBurgerSet .price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(chickenBurgerSet .productName);
+													
+													System.out.println("치킨버거 세트 갯수: "+chickenBurgerSet .amount+"치킨버거 세트 가격: "+chickenBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+chickenBurgerSet.price)+"에서  치킨버거 세트 가격: "+chickenBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(T_RexBurgerSet.productName)) {
+													totalAmount -= T_RexBurgerSet.amount;
+													totalPrice -= T_RexBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(T_RexBurgerSet .productName);
+													
+													System.out.println("T-Rex 버거 세트 갯수: "+T_RexBurgerSet.amount+"T-Rex 버거 세트 가격: "+T_RexBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+T_RexBurgerSet.price)+"에서  T-Rex 버거 세트 가격: "+T_RexBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(classicCheeseBurgerSet.productName)) {
+													totalAmount -= classicCheeseBurgerSet.amount;
+													totalPrice -= classicCheeseBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(classicCheeseBurgerSet .productName);
+													
+													System.out.println("클래식치즈버거 세트 갯수: "+classicCheeseBurgerSet.amount+"클래식치즈버거 세트 가격: "+classicCheeseBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+classicCheeseBurgerSet.price)+"에서  클래식치즈버거 세트 가격: "+classicCheeseBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+												
+												else if(orderProductName.get(i).equals(teriBurgerSet.productName)) {
+													totalAmount -= teriBurgerSet.amount;
+													totalPrice -= teriBurgerSet.price;
+													numberText.setText(totalAmount+"개");
+													amountText.setText(totalPrice+"원");
+													orderProductName.remove(teriBurgerSet .productName);
+													
+													System.out.println("데리버거 세트 갯수: "+teriBurgerSet.amount+"데리버거 세트 가격: "+teriBurgerSet.price);
+													System.out.println("총 가격: "+(totalPrice+teriBurgerSet.price)+"에서  데리버거 세트 가격: "+teriBurgerSet.price+"을 뺀 값은 "+totalPrice);
+													System.out.println(orderProductName.toString());
+													break;
+												}
+										}
+										
+										System.out.println("삭제했습니다");
+										
+										if(OrderStatusText.size() == 0) {
+											
+										}else {
+											for(int j = 0; j < OrderStatusText.size(); j++) {
+												if(i + j < OrderStatusText.size()) {
+													OrderStatusText.get(i + j).setLocation(OrderStatusText.get(i + j).getX(), OrderStatusText.get(i + j).getY() - 20);
+													cancelButton.get(i + j).setLocation(cancelButton.get(i + j).getX(), cancelButton.get(i + j).getY() - 20);
+													quantityChangeButton.get(i + j).setLocation(quantityChangeButton.get(i + j).getX(), quantityChangeButton.get(i + j).getY() - 20);		
+												}
+											}
+										}
+										
+										/*for(int k = 0; k < menu.length; k++) {
+											if(orderProductName == menu[k].productName) {
+												totalAmount -= menu[k].amount;
+												totalPrice -= menu[k].price;
+												numberText.setText(totalAmount+"개");
+												amountText.setText(totalPrice+"원");
+												System.out.println("제품이름 : "+menu[k].productName+" "+menu[k].productName+" 갯수: "+menu[k].amount+" "+menu[k].productName+" 가격: "+menu[k].price);
+											}
+										}*/
+
 									}
 								}
 							}
@@ -667,7 +967,11 @@ public class Main {
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(OrderStatusBackGround);
-
+		
+		/*for (int j = 0; j < orderProductName.size(); j++) {
+			   System.out.println(orderProductName.get(j));
+		}*/
+		
 		/*
 		 * for(int i = 0; i < menuImages.length; i++) {
 		 * 
