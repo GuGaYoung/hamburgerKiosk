@@ -68,7 +68,7 @@ public class Main {
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); // 수량변경
 	JLabel OrderStatusBackGround = new JLabel();
 
-	static ArrayList<String> orderProductName = new ArrayList<String>();
+	static ArrayList<String> orderProductName = new ArrayList<String>();	//주문한 제품 이름을 받는 배열
 
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -78,11 +78,9 @@ public class Main {
 	int menuHorizontalInterval = 170;
 
 	static int textNumber = 0;
-	static int totalAmount = 0;
-	static int totalPrice = 0;
+	static int totalAmount = 0; //주문 총 양
+	static int totalPrice = 0; //주문 총 금액
 	// int amount = 0;
-
-	// static String orderProductName = "";
 
 	String eatingPlace = "";// 매장에서 먹을 건지 포장 할 건지
 
