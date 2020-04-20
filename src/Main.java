@@ -136,6 +136,8 @@ public class Main {
 			public void mouseClicked(MouseEvent e) {
 				firstScene.setVisible(false);
 				packagingDeliveringScene.setVisible(true);
+				isertCardButton.setEnabled(true);
+				insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
 			}
 		});
 
@@ -1088,6 +1090,7 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				paymentCheckSceneImage.setVisible(false);
 				cardPaymentSceneImage.setVisible(true);
+				isertCardButton.setEnabled(true);
 			}
 		});
 		paymentCheckSceneImage.add(checkOKButton);
@@ -1120,11 +1123,47 @@ public class Main {
 		isertCardButton.setText("카드 투입");
 		isertCardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//paymentCheckScene.setVisible(false);
-				//mainPurchaseScene.setVisible(true);
-				/*firstScene.setVisible(true);
+				insertCardImage.setIcon(new ImageIcon("./otherimages/카드결제중.png"));
+				isertCardButton.setEnabled(false);
+				/*
+				try {
+					Thread.sleep(2000);
+					insertCardImage.setIcon(new ImageIcon("./otherimages/더블x2버거광고.jpg"));
+					firstScene.setVisible(true);
+					mainPurchaseScene.setVisible(false);
+					paymentCheckScene.setVisible(false);
+					isertCardButton.setEnabled(false);
+					
+
+					for (int i = 0; i < OrderStatusText.size(); i++) {
+						OrderStatusText.get(i).setLocation(1000, 1000);
+						cancelButton.get(i).setLocation(1000, 1000);
+						quantityChangeButton.get(i).setLocation(1000, 1000);
+						// OrderStatusText.remove(i);
+					}
+
+					OrderStatusText.clear();
+					textNumber = 0;
+					OrderStatusVerticalLength = -40;
+					eatingPlace = "";
+
+					orderProductName.clear();
+					totalAmount = 0;
+					totalPrice = 0;
+					numberText.setText(totalAmount + "개");
+					amountText.setText(totalPrice + "원");
+					
+					System.out.println(OrderStatusText.size());
+					System.out.println(orderProductName.toString());
+				} catch (InterruptedException e1) {
+					System.out.println(e1.getMessage());
+				}*/
+				
+			/*
+				firstScene.setVisible(true);
 				mainPurchaseScene.setVisible(false);
 				paymentCheckScene.setVisible(false);
+				isertCardButton.setEnabled(false);
 
 				for (int i = 0; i < OrderStatusText.size(); i++) {
 					OrderStatusText.get(i).setLocation(1000, 1000);
@@ -1145,7 +1184,8 @@ public class Main {
 				amountText.setText(totalPrice + "원");
 				
 				System.out.println(OrderStatusText.size());
-				System.out.println(orderProductName.toString()); */
+				System.out.println(orderProductName.toString());
+				*/
 			}
 		});
 		cardPaymentSceneImage.add(isertCardButton);
