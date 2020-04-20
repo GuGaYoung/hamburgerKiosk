@@ -43,7 +43,15 @@ public class Main {
 		}
 	};
 	
-	JPanel paymentScene = new JPanel();
+	JPanel paymentCheckScene = new JPanel() {
+		public void paintComponent(Graphics g) {
+			Dimension d = getSize();
+			ImageIcon image = new ImageIcon("./otherimages/결제확인창.png");
+			g.drawImage(image.getImage(), 0, 0, d.width, d.height, this);
+		}
+	};
+	
+	JLabel paymentCheckText = new JLabel();
 
 	JLabel pressKeyText = new JLabel();
 	JButton packagingButton = new JButton();
@@ -385,7 +393,7 @@ public class Main {
 		paymentButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mainPurchaseScene.setVisible(false);
-				paymentScene.setVisible(true);
+				paymentCheckScene.setVisible(true);
 			}
 		});
 		mainPurchaseScene.add(paymentButton);
@@ -1046,12 +1054,21 @@ public class Main {
 		changeMenu();
 		changefirstScene.start();
 
-		// 결제창
-		paymentScene.setBounds(0, 0, 600, 850);
-		paymentScene.setBackground(Color.white);
-		frame.getContentPane().add(paymentScene);
-		paymentScene.setLayout(null);
-		paymentScene.setVisible(false);
+		// 결제하기 전 체크 창
+		paymentCheckScene.setBounds(0, 0, 600, 850);
+		paymentCheckScene.setBackground(Color.white);
+		paymentCheckScene.setLayout(null);
+		paymentCheckScene.setVisible(false);
+		frame.getContentPane().add(paymentCheckScene);
+		
+		/*paymentCheckText.setBounds(100, 100, 600, 500);
+		paymentCheckText.setBackground(Color.white);
+		paymentCheckText.setText("결제 확인을 해주세요.");
+		paymentCheckText.setFont(new Font("굴림", Font.BOLD, 20));
+		paymentCheckScene.setLayout(null);
+		paymentCheckScene.setVisible(true);
+		paymentCheckScene.add(paymentCheckText);
+		*/
 	}
 
 	public void changeMenu() {
