@@ -376,7 +376,7 @@ public class Main {
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
-				
+
 				System.out.println("전체 취소했습니다.");
 			}
 		});
@@ -695,6 +695,9 @@ public class Main {
 
 										textNumber--;
 
+										System.out.println("삭제했습니다.");
+										System.out.print("판매할 ");
+
 										// 햄버거 세트 삭제 기능
 										for (int j = 0; j < orderProductName.size(); j++) {
 											if (orderProductName.get(i).equals(doubleX2Set.productName)) {
@@ -952,15 +955,15 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(wagyuEdition2.productName);
 
-												System.out.println("와규에디션2 갯수: " + wagyuEdition2.amount
-														+ "와규에디션2 가격: " + wagyuEdition2.price);
+												System.out.println("와규에디션2 갯수: " + wagyuEdition2.amount + "와규에디션2 가격: "
+														+ wagyuEdition2.price);
 												System.out.println("총 가격: " + (totalPrice + wagyuEdition2.price)
 														+ "에서  와규에디션2세트 가격: " + wagyuEdition2.price + "을 뺀 값은 "
 														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											else if (orderProductName.get(i).equals(doubleX2.productName)) {
 												totalAmount -= doubleX2.amount;
 												totalPrice -= doubleX2.price;
@@ -968,27 +971,27 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(doubleX2.productName);
 
-												System.out.println("더블X2 갯수: " + doubleX2.amount + "더블X2 가격: "
-														+ doubleX2.price);
 												System.out.println(
-														"총 가격: " + (totalPrice + doubleX2.price) + "에서  더블X2 가격: "
-																+ doubleX2.price + "을 뺀 값은 " + totalPrice);
+														"더블X2 갯수: " + doubleX2.amount + "더블X2 가격: " + doubleX2.price);
+												System.out.println("총 가격: " + (totalPrice + doubleX2.price)
+														+ "에서  더블X2 가격: " + doubleX2.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i).equals(mozzarellaInTheBurger.productName)) {
+											else if (orderProductName.get(i)
+													.equals(mozzarellaInTheBurger.productName)) {
 												totalAmount -= mozzarellaInTheBurger.amount;
 												totalPrice -= mozzarellaInTheBurger.price;
 												numberText.setText(totalAmount + "개");
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(mozzarellaInTheBurger.productName);
 
-												System.out.println("모짤렐라 인 더 버거 갯수: " + mozzarellaInTheBurger.amount + "모짤렐라 인 더 버거 가격: "
-														+ mozzarellaInTheBurger.price);
-												System.out.println(
-														"총 가격: " + (totalPrice + mozzarellaInTheBurger.price) + "에서  모짤렐라 인 더 버거 가격: "
-																+ mozzarellaInTheBurger.price + "을 뺀 값은 " + totalPrice);
+												System.out.println("모짤렐라 인 더 버거 갯수: " + mozzarellaInTheBurger.amount
+														+ "모짤렐라 인 더 버거 가격: " + mozzarellaInTheBurger.price);
+												System.out.println("총 가격: " + (totalPrice + mozzarellaInTheBurger.price)
+														+ "에서  모짤렐라 인 더 버거 가격: " + mozzarellaInTheBurger.price
+														+ "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1000,48 +1003,41 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(AZBurger.productName);
 
-												System.out.println("AZ버거 갯수: " + AZBurger.amount
-														+ "AZ버거 가격: " + AZBurger.price);
+												System.out.println(
+														"AZ버거 갯수: " + AZBurger.amount + "AZ버거 가격: " + AZBurger.price);
 												System.out.println("총 가격: " + (totalPrice + AZBurger.price)
-														+ "에서  AZ버거 가격: " + AZBurger.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  AZ버거 가격: " + AZBurger.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i)
-													.equals(bigBulgogi.productName)) {
+											else if (orderProductName.get(i).equals(bigBulgogi.productName)) {
 												totalAmount -= bigBulgogi.amount;
 												totalPrice -= bigBulgogi.price;
 												numberText.setText(totalAmount + "개");
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(bigBulgogi.productName);
 
-												System.out.println("원조빅불 갯수: " + bigBulgogi.amount
-														+ "원조빅불 가격: " + bigBulgogi.price);
-												System.out
-														.println("총 가격: " + (totalPrice + bigBulgogi.price)
-																+ "에서  원조빅불 가격: " + bigBulgogi.price
-																+ "을 뺀 값은 " + totalPrice);
+												System.out.println("원조빅불 갯수: " + bigBulgogi.amount + "원조빅불 가격: "
+														+ bigBulgogi.price);
+												System.out.println("총 가격: " + (totalPrice + bigBulgogi.price)
+														+ "에서  원조빅불 가격: " + bigBulgogi.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i)
-													.equals(hotCrispyBurger.productName)) {
+											else if (orderProductName.get(i).equals(hotCrispyBurger.productName)) {
 												totalAmount -= hotCrispyBurger.amount;
 												totalPrice -= hotCrispyBurger.price;
 												numberText.setText(totalAmount + "개");
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(hotCrispyBurger.productName);
 
-												System.out.println("핫크리스피버거 갯수: "
-														+ hotCrispyBurger.amount + "핫크리스피버거 가격: "
-														+ hotCrispyBurger.price);
-												System.out.println("총 가격: "
-														+ (totalPrice + hotCrispyBurger.price)
-														+ "에서  핫크리스피버거 가격: " + hotCrispyBurger.price
-														+ "을 뺀 값은 " + totalPrice);
+												System.out.println("핫크리스피버거 갯수: " + hotCrispyBurger.amount
+														+ "핫크리스피버거 가격: " + hotCrispyBurger.price);
+												System.out.println("총 가격: " + (totalPrice + hotCrispyBurger.price)
+														+ "에서  핫크리스피버거 가격: " + hotCrispyBurger.price + "을 뺀 값은 "
+														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1085,11 +1081,11 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(shrimpBurger.productName);
 
-												System.out.println("새우버거 갯수: " + shrimpBurger.amount
-														+ "새우버거 가격: " + shrimpBurger.price);
-												System.out.println("총 가격: " + (totalPrice + shrimpBurger.price)
-														+ "에서  새우버거 가격: " + shrimpBurger.price + "을 뺀 값은 "
-														+ totalPrice);
+												System.out.println("새우버거 갯수: " + shrimpBurger.amount + "새우버거 가격: "
+														+ shrimpBurger.price);
+												System.out.println(
+														"총 가격: " + (totalPrice + shrimpBurger.price) + "에서  새우버거 가격: "
+																+ shrimpBurger.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1101,11 +1097,11 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(chickenBurger.productName);
 
-												System.out.println("치킨버거 갯수: " + chickenBurger.amount
-														+ "치킨버거 가격: " + chickenBurger.price);
-												System.out.println("총 가격: " + (totalPrice + chickenBurger.price)
-														+ "에서  치킨버거 가격: " + chickenBurger.price + "을 뺀 값은 "
-														+ totalPrice);
+												System.out.println("치킨버거 갯수: " + chickenBurger.amount + "치킨버거 가격: "
+														+ chickenBurger.price);
+												System.out.println(
+														"총 가격: " + (totalPrice + chickenBurger.price) + "에서  치킨버거 가격: "
+																+ chickenBurger.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1117,11 +1113,11 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(T_RexBurger.productName);
 
-												System.out.println("T-Rex 갯수: " + T_RexBurger.amount
-														+ "T-Rex 가격: " + T_RexBurger.price);
-												System.out.println("총 가격: " + (totalPrice + T_RexBurger.price)
-														+ "에서  T-Rex 가격: " + T_RexBurger.price + "을 뺀 값은 "
-														+ totalPrice);
+												System.out.println("T-Rex 갯수: " + T_RexBurger.amount + "T-Rex 가격: "
+														+ T_RexBurger.price);
+												System.out.println(
+														"총 가격: " + (totalPrice + T_RexBurger.price) + "에서  T-Rex 가격: "
+																+ T_RexBurger.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1149,15 +1145,14 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(teriBurger.productName);
 
-												System.out.println("데리버거 갯수: " + teriBurger.amount
-														+ "데리버거 가격: " + teriBurger.price);
+												System.out.println("데리버거 갯수: " + teriBurger.amount + "데리버거 가격: "
+														+ teriBurger.price);
 												System.out.println("총 가격: " + (totalPrice + teriBurger.price)
-														+ "에서  데리버거 가격: " + teriBurger.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  데리버거 가격: " + teriBurger.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											// 디저트 삭제 기능
 											else if (orderProductName.get(i).equals(cheeseInTheEgg.productName)) {
 												totalAmount -= cheeseInTheEgg.amount;
@@ -1166,8 +1161,8 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(cheeseInTheEgg.productName);
 
-												System.out.println("치즈인더에그 갯수: " + cheeseInTheEgg.amount
-														+ "치즈인더에그 가격: " + cheeseInTheEgg.price);
+												System.out.println("치즈인더에그 갯수: " + cheeseInTheEgg.amount + "치즈인더에그 가격: "
+														+ cheeseInTheEgg.price);
 												System.out.println("총 가격: " + (totalPrice + cheeseInTheEgg.price)
 														+ "에서  치즈인더에그 가격: " + cheeseInTheEgg.price + "을 뺀 값은 "
 														+ totalPrice);
@@ -1182,11 +1177,11 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(jipieHabanero_L.productName);
 
-												System.out.println("지파이 하바네로 갯수: " + jipieHabanero_L.amount + "지파이 하바네로 가격: "
-														+ jipieHabanero_L.price);
-												System.out.println(
-														"총 가격: " + (totalPrice + jipieHabanero_L.price) + "에서  지파이 하바네로 가격: "
-																+ jipieHabanero_L.price + "을 뺀 값은 " + totalPrice);
+												System.out.println("지파이 하바네로 갯수: " + jipieHabanero_L.amount
+														+ "지파이 하바네로 가격: " + jipieHabanero_L.price);
+												System.out.println("총 가격: " + (totalPrice + jipieHabanero_L.price)
+														+ "에서  지파이 하바네로 가격: " + jipieHabanero_L.price + "을 뺀 값은 "
+														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1198,48 +1193,42 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(jipie_S.productName);
 
-												System.out.println("지파이 고소한맛 갯수: " + jipie_S.amount
-														+ "지파이 고소한맛 가격: " + jipie_S.price);
+												System.out.println("지파이 고소한맛 갯수: " + jipie_S.amount + "지파이 고소한맛 가격: "
+														+ jipie_S.price);
 												System.out.println("총 가격: " + (totalPrice + jipie_S.price)
-														+ "에서  지파이 고소한맛 가격: " + jipie_S.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  지파이 고소한맛 가격: " + jipie_S.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i)
-													.equals(chickenNugget.productName)) {
+											else if (orderProductName.get(i).equals(chickenNugget.productName)) {
 												totalAmount -= chickenNugget.amount;
 												totalPrice -= chickenNugget.price;
 												numberText.setText(totalAmount + "개");
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(chickenNugget.productName);
 
-												System.out.println("치킨너겟 갯수: " + chickenNugget.amount
-														+ "치킨너겟 가격: " + chickenNugget.price);
-												System.out
-														.println("총 가격: " + (totalPrice + chickenNugget.price)
-																+ "에서  치킨너겟 가격: " + chickenNugget.price
-																+ "을 뺀 값은 " + totalPrice);
+												System.out.println("치킨너겟 갯수: " + chickenNugget.amount + "치킨너겟 가격: "
+														+ chickenNugget.price);
+												System.out.println(
+														"총 가격: " + (totalPrice + chickenNugget.price) + "에서  치킨너겟 가격: "
+																+ chickenNugget.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i)
-													.equals(longCheeseStick.productName)) {
+											else if (orderProductName.get(i).equals(longCheeseStick.productName)) {
 												totalAmount -= longCheeseStick.amount;
 												totalPrice -= longCheeseStick.price;
 												numberText.setText(totalAmount + "개");
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(longCheeseStick.productName);
 
-												System.out.println("롱 치즈스틱 갯수: "
-														+ longCheeseStick.amount + "롱 치즈스틱 가격: "
-														+ longCheeseStick.price);
-												System.out.println("총 가격: "
-														+ (totalPrice + longCheeseStick.price)
-														+ "에서  롱 치즈스틱 가격: " + longCheeseStick.price
-														+ "을 뺀 값은 " + totalPrice);
+												System.out.println("롱 치즈스틱 갯수: " + longCheeseStick.amount
+														+ "롱 치즈스틱 가격: " + longCheeseStick.price);
+												System.out.println("총 가격: " + (totalPrice + longCheeseStick.price)
+														+ "에서  롱 치즈스틱 가격: " + longCheeseStick.price + "을 뺀 값은 "
+														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1251,11 +1240,10 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(coneSalad.productName);
 
-												System.out.println("콘샐러드 갯수: " + coneSalad.amount
-														+ "콘샐러드 가격: " + coneSalad.price);
+												System.out.println(
+														"콘샐러드 갯수: " + coneSalad.amount + "콘샐러드 가격: " + coneSalad.price);
 												System.out.println("총 가격: " + (totalPrice + coneSalad.price)
-														+ "에서  콘샐러드 가격: " + coneSalad.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  콘샐러드 가격: " + coneSalad.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1283,8 +1271,8 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(shakeShakeChicken.productName);
 
-												System.out.println("쉑쉑치킨 갯수: " + shakeShakeChicken.amount
-														+ "쉑쉑치킨 가격: " + shakeShakeChicken.price);
+												System.out.println("쉑쉑치킨 갯수: " + shakeShakeChicken.amount + "쉑쉑치킨 가격: "
+														+ shakeShakeChicken.price);
 												System.out.println("총 가격: " + (totalPrice + shakeShakeChicken.price)
 														+ "에서  쉑쉑치킨 가격: " + shakeShakeChicken.price + "을 뺀 값은 "
 														+ totalPrice);
@@ -1299,8 +1287,8 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(seasoningPotato.productName);
 
-												System.out.println("양념감자 갯수: " + seasoningPotato.amount
-														+ "양념감자 가격: " + seasoningPotato.price);
+												System.out.println("양념감자 갯수: " + seasoningPotato.amount + "양념감자 가격: "
+														+ seasoningPotato.price);
 												System.out.println("총 가격: " + (totalPrice + seasoningPotato.price)
 														+ "에서  양념감자 가격: " + seasoningPotato.price + "을 뺀 값은 "
 														+ totalPrice);
@@ -1315,11 +1303,10 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(squidRing.productName);
 
-												System.out.println("오징어링 갯수: " + squidRing.amount
-														+ "오징어링 가격: " + squidRing.price);
+												System.out.println(
+														"오징어링 갯수: " + squidRing.amount + "오징어링 가격: " + squidRing.price);
 												System.out.println("총 가격: " + (totalPrice + squidRing.price)
-														+ "에서  오징어링 가격: " + squidRing.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  오징어링 가격: " + squidRing.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1331,8 +1318,8 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(naturalCheeseStick.productName);
 
-												System.out.println("치즈스틱 갯수: " + naturalCheeseStick.amount
-														+ "치즈스틱 가격: " + naturalCheeseStick.price);
+												System.out.println("치즈스틱 갯수: " + naturalCheeseStick.amount + "치즈스틱 가격: "
+														+ naturalCheeseStick.price);
 												System.out.println("총 가격: " + (totalPrice + naturalCheeseStick.price)
 														+ "에서  치즈스틱 가격: " + naturalCheeseStick.price + "을 뺀 값은 "
 														+ totalPrice);
@@ -1347,17 +1334,15 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(potato.productName);
 
-												System.out.println("포테이토 갯수: " + potato.amount
-														+ "포테이토 가격: " + potato.price);
+												System.out.println(
+														"포테이토 갯수: " + potato.amount + "포테이토 가격: " + potato.price);
 												System.out.println("총 가격: " + (totalPrice + potato.price)
-														+ "에서  포테이토 가격: " + potato.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  포테이토 가격: " + potato.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i)
-													.equals(chocoCookieTornado.productName)) {
+											else if (orderProductName.get(i).equals(chocoCookieTornado.productName)) {
 												totalAmount -= chocoCookieTornado.amount;
 												totalPrice -= chocoCookieTornado.price;
 												numberText.setText(totalAmount + "개");
@@ -1366,10 +1351,9 @@ public class Main {
 
 												System.out.println("토네이도(초코쿠키) 갯수: " + chocoCookieTornado.amount
 														+ "토네이도(초코쿠키) 가격: " + chocoCookieTornado.price);
-												System.out
-														.println("총 가격: " + (totalPrice + chocoCookieTornado.price)
-																+ "에서  토네이도(초코쿠키) 가격: " + chocoCookieTornado.price
-																+ "을 뺀 값은 " + totalPrice);
+												System.out.println("총 가격: " + (totalPrice + chocoCookieTornado.price)
+														+ "에서  토네이도(초코쿠키) 가격: " + chocoCookieTornado.price + "을 뺀 값은 "
+														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1389,7 +1373,7 @@ public class Main {
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											else if (orderProductName.get(i).equals(strawberryTornado.productName)) {
 												totalAmount -= strawberryTornado.amount;
 												totalPrice -= strawberryTornado.price;
@@ -1405,7 +1389,7 @@ public class Main {
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											else if (orderProductName.get(i).equals(softCone.productName)) {
 												totalAmount -= softCone.amount;
 												totalPrice -= softCone.price;
@@ -1413,15 +1397,14 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(softCone.productName);
 
-												System.out.println("소프트콘 갯수: " + softCone.amount
-														+ "소프트콘 가격: " + softCone.price);
+												System.out.println(
+														"소프트콘 갯수: " + softCone.amount + "소프트콘 가격: " + softCone.price);
 												System.out.println("총 가격: " + (totalPrice + softCone.price)
-														+ "에서  소프트콘 가격: " + softCone.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  소프트콘 가격: " + softCone.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											// 드링크 삭제 기능
 											else if (orderProductName.get(i).equals(iceAmericano.productName)) {
 												totalAmount -= iceAmericano.amount;
@@ -1446,29 +1429,24 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(cider.productName);
 
-												System.out.println("사이다 갯수: " + cider.amount
-														+ "사이다 가격: " + cider.price);
+												System.out
+														.println("사이다 갯수: " + cider.amount + "사이다 가격: " + cider.price);
 												System.out.println("총 가격: " + (totalPrice + cider.price)
-														+ "에서  사이다 가격: " + cider.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  사이다 가격: " + cider.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
 
-											else if (orderProductName.get(i)
-													.equals(cola.productName)) {
+											else if (orderProductName.get(i).equals(cola.productName)) {
 												totalAmount -= cola.amount;
 												totalPrice -= cola.price;
 												numberText.setText(totalAmount + "개");
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(cola.productName);
 
-												System.out.println("콜라 갯수: " + cola.amount
-														+ "콜라 가격: " + cola.price);
-												System.out
-														.println("총 가격: " + (totalPrice + cola.price)
-																+ "에서  콜라 가격: " + cola.price
-																+ "을 뺀 값은 " + totalPrice);
+												System.out.println("콜라 갯수: " + cola.amount + "콜라 가격: " + cola.price);
+												System.out.println("총 가격: " + (totalPrice + cola.price) + "에서  콜라 가격: "
+														+ cola.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
@@ -1480,15 +1458,14 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(americano.productName);
 
-												System.out.println("아메리카노 갯수: " + americano.amount
-														+ "아메리카노 가격: " + americano.price);
+												System.out.println("아메리카노 갯수: " + americano.amount + "아메리카노 가격: "
+														+ americano.price);
 												System.out.println("총 가격: " + (totalPrice + americano.price)
-														+ "에서  아메리카노 가격: " + americano.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  아메리카노 가격: " + americano.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											else if (orderProductName.get(i).equals(caffeLatte.productName)) {
 												totalAmount -= caffeLatte.amount;
 												totalPrice -= caffeLatte.price;
@@ -1496,15 +1473,14 @@ public class Main {
 												amountText.setText(totalPrice + "원");
 												orderProductName.remove(caffeLatte.productName);
 
-												System.out.println("카페라떼 갯수: " + caffeLatte.amount
-														+ "카페라떼 가격: " + caffeLatte.price);
+												System.out.println("카페라떼 갯수: " + caffeLatte.amount + "카페라떼 가격: "
+														+ caffeLatte.price);
 												System.out.println("총 가격: " + (totalPrice + caffeLatte.price)
-														+ "에서  카페라떼 가격: " + caffeLatte.price + "을 뺀 값은 "
-														+ totalPrice);
+														+ "에서  카페라떼 가격: " + caffeLatte.price + "을 뺀 값은 " + totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
-											
+
 											else if (orderProductName.get(i).equals(iceCaffeLatte.productName)) {
 												totalAmount -= iceCaffeLatte.amount;
 												totalPrice -= iceCaffeLatte.price;
@@ -1522,7 +1498,7 @@ public class Main {
 											}
 										}
 
-										System.out.println("삭제했습니다");
+										// System.out.println("삭제했습니다");
 
 										if (OrderStatusText.size() == 0) {
 
@@ -1540,7 +1516,6 @@ public class Main {
 												}
 											}
 										}
-
 
 									}
 								}
