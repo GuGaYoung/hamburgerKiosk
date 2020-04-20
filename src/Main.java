@@ -43,16 +43,21 @@ public class Main {
 		}
 	};
 	
-	JPanel paymentCheckScene = new JPanel() {
+	/*JPanel paymentCheckScene = new JPanel() {
 		public void paintComponent(Graphics g) {
 			Dimension d = getSize();
 			ImageIcon image = new ImageIcon("./otherimages/결제확인창.png");
 			g.drawImage(image.getImage(), 0, 0, d.width, d.height, this);
 		}
-	};
+	};*/
 	
 	//JLabel paymentCheckText = new JLabel();
+	JPanel paymentCheckScene = new JPanel();
+	JLabel paymentCheckSceneImage = new JLabel();
 	JLabel paymentCheckList = new JLabel();
+	JLabel cardPaymentSceneImage = new JLabel();
+	JLabel insertCardImage = new JLabel();
+	JButton isertCardButton = new JButton();
 	JButton checkOKButton = new JButton();
 	JButton checkCancelButton = new JButton();
 
@@ -87,6 +92,7 @@ public class Main {
 	
 	// JTextArea textArea = new JTextArea();
 	static ArrayList<JLabel> OrderStatusText = new ArrayList<>();
+	//static ArrayList<JLabel> OrderCheckText = new ArrayList<>();
 
 	ArrayList<JButton> cancelButton = new ArrayList<>();
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); // 수량변경
@@ -1059,19 +1065,32 @@ public class Main {
 
 		// 결제하기 전 체크 창
 		paymentCheckScene.setBounds(0, 0, 600, 850);
-		//paymentCheckScene.setBackground(Color.white);
 		paymentCheckScene.setLayout(null);
 		paymentCheckScene.setVisible(false);
 		frame.getContentPane().add(paymentCheckScene);
+		
+		paymentCheckSceneImage.setBounds(0, 0, 600, 850);
+		paymentCheckSceneImage.setLayout(null);
+		paymentCheckSceneImage.setVisible(true);
+		paymentCheckSceneImage.setIcon(new ImageIcon("./otherimages/결제확인창.png"));
+		paymentCheckScene.add(paymentCheckSceneImage);
+		
+		//결제하기 눌렀을때 카드 결제창
+		cardPaymentSceneImage.setBounds(0, 0, 600, 850);
+		cardPaymentSceneImage.setLayout(null);
+		cardPaymentSceneImage.setVisible(false);
+		cardPaymentSceneImage.setIcon(new ImageIcon("./otherimages/카드삽입창.png"));
+		paymentCheckScene.add(cardPaymentSceneImage);
 
 		checkOKButton.setBounds(150, 500, 100, 30);
 		checkOKButton.setText("결제하기");
 		checkOKButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				paymentCheckSceneImage.setVisible(false);
+				cardPaymentSceneImage.setVisible(true);
 			}
 		});
-		paymentCheckScene.add(checkOKButton);
+		paymentCheckSceneImage.add(checkOKButton);
 		
 		checkCancelButton.setBounds(350, 500, 100, 30);
 		checkCancelButton.setText("취소");
@@ -1081,24 +1100,56 @@ public class Main {
 				mainPurchaseScene.setVisible(true);
 			}
 		});
-		paymentCheckScene.add(checkCancelButton);
+		paymentCheckSceneImage.add(checkCancelButton);
 		
-		paymentCheckList.setBounds(0, 0, 600, 300);
+		paymentCheckList.setBounds(100, 220, 400, 250);
+		//paymentCheckList.setText("보이나요...?");
 		paymentCheckList.setBackground(Color.pink);
+		paymentCheckList.setOpaque(true); //레이블 백그라운드 색이 보여지기 위해서 필요함
 		paymentCheckList.setLayout(null);
 		paymentCheckList.setVisible(true);
-		paymentCheckScene.add(paymentCheckList);
+		paymentCheckSceneImage.add(paymentCheckList);
 		
-		//paymentCheckScene.add(OrderStatusBackGround);
+		insertCardImage.setBounds(100, 220, 400, 300);
+		insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
+		insertCardImage.setLayout(null);
+		insertCardImage.setVisible(true);
+		cardPaymentSceneImage.add(insertCardImage);
 		
-		/*paymentCheckText.setBounds(100, 100, 600, 500);
-		paymentCheckText.setBackground(Color.white);
-		paymentCheckText.setText("결제 확인을 해주세요.");
-		paymentCheckText.setFont(new Font("굴림", Font.BOLD, 20));
-		paymentCheckScene.setLayout(null);
-		paymentCheckScene.setVisible(true);
-		paymentCheckScene.add(paymentCheckText);
-		*/
+		isertCardButton.setBounds(100, 520, 400, 100);
+		isertCardButton.setText("카드 투입");
+		isertCardButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//paymentCheckScene.setVisible(false);
+				//mainPurchaseScene.setVisible(true);
+				/*firstScene.setVisible(true);
+				mainPurchaseScene.setVisible(false);
+				paymentCheckScene.setVisible(false);
+
+				for (int i = 0; i < OrderStatusText.size(); i++) {
+					OrderStatusText.get(i).setLocation(1000, 1000);
+					cancelButton.get(i).setLocation(1000, 1000);
+					quantityChangeButton.get(i).setLocation(1000, 1000);
+					// OrderStatusText.remove(i);
+				}
+
+				OrderStatusText.clear();
+				textNumber = 0;
+				OrderStatusVerticalLength = -40;
+				eatingPlace = "";
+
+				orderProductName.clear();
+				totalAmount = 0;
+				totalPrice = 0;
+				numberText.setText(totalAmount + "개");
+				amountText.setText(totalPrice + "원");
+				
+				System.out.println(OrderStatusText.size());
+				System.out.println(orderProductName.toString()); */
+			}
+		});
+		cardPaymentSceneImage.add(isertCardButton);
+		
 	}
 
 	public void changeMenu() {
