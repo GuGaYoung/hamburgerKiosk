@@ -750,9 +750,9 @@ public class Main {
 												orderProductName.remove(hanwooBulgogiCombo.productName);
 
 												System.out.println("한우불고기 콤보 갯수: " + hanwooBulgogiCombo.amount
-														+ "한우불고기 콤보 가격: " + AZBurgerSet.price);
+														+ "한우불고기 콤보 가격: " + hanwooBulgogiCombo.price);
 												System.out.println("총 가격: " + (totalPrice + hanwooBulgogiCombo.price)
-														+ "에서  한우불고기 콤보 가격: " + AZBurgerSet.price + "을 뺀 값은 "
+														+ "에서  한우불고기 콤보 가격: " + hanwooBulgogiCombo.price + "을 뺀 값은 "
 														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
@@ -791,22 +791,6 @@ public class Main {
 														+ (totalPrice + mozzarellaInTheBurgerSet.price)
 														+ "에서  모짜렐라 인 더 버거 세트 가격: " + mozzarellaInTheBurgerSet.price
 														+ "을 뺀 값은 " + totalPrice);
-												System.out.println(orderProductName.toString());
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(bigBulgogiSet.productName)) {
-												totalAmount -= bigBulgogiSet.amount;
-												totalPrice -= bigBulgogiSet.price;
-												numberText.setText(totalAmount + "개");
-												amountText.setText(totalPrice + "원");
-												orderProductName.remove(bigBulgogiSet.productName);
-
-												System.out.println("원조빅불 세트 갯수: " + bigBulgogiSet.amount
-														+ "원조빅불 세트 가격: " + bigBulgogiSet.price);
-												System.out.println("총 가격: " + (totalPrice + bigBulgogiSet.price)
-														+ "에서  원조빅불 세트 가격: " + bigBulgogiSet.price + "을 뺀 값은 "
-														+ totalPrice);
 												System.out.println(orderProductName.toString());
 												break;
 											}
