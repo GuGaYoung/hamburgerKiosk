@@ -713,8 +713,8 @@ public class Main {
 					System.out.println(OrderStatusVerticalLength);
 					
 					OrderStatusText.get(textNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
-					cancelButton.get(textNumber).setBounds(200, OrderStatusVerticalLength + 43, 20, 20);
-					quantityChangeButton.get(textNumber).setBounds(150, OrderStatusVerticalLength + 43, 20, 20);
+					cancelButton.get(textNumber).setBounds(400, OrderStatusVerticalLength + 43, 20, 20);
+					quantityChangeButton.get(textNumber).setBounds(350, OrderStatusVerticalLength + 43, 20, 20);
 					
 					textNumber++;
 
