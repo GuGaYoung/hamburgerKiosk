@@ -42,6 +42,8 @@ public class Main {
 			g.drawImage(image.getImage(), 0, 0, d.width, d.height, this);
 		}
 	};
+	
+	JPanel paymentScene = new JPanel();
 
 	JLabel pressKeyText = new JLabel();
 	JButton packagingButton = new JButton();
@@ -119,44 +121,6 @@ public class Main {
 				packagingDeliveringScene.setVisible(true);
 			}
 		});
-
-		/*
-		 * Menu[] menu = new Menu[50];
-		 * 
-		 * // 세트메뉴 menu[0] = new Menu("더블X2 세트", 7500, 1); menu[1] = new
-		 * Menu("와규에디션2 세트", 7600, 1); menu[2] = new Menu("AZ버거 세트", 8300, 1); menu[3] =
-		 * new Menu("한우불고기 콤보", 8000, 1); menu[4] = new Menu("한우불고기 세트", 8700, 1);
-		 * menu[5] = new Menu("모짜렐라 인 더 버거 세트", 7700, 1); menu[6] = new Menu("원조빅불 세트",
-		 * 7600, 1); menu[7] = new Menu("핫크리스피버거 세트", 6700, 1); menu[8] = new
-		 * Menu("불고기버거 세트", 5900, 1); menu[9] = new Menu("리아미라클버거 세트", 7400, 1);
-		 * menu[10] = new Menu("새우버거 세트", 5900, 1); menu[11] = new Menu("치킨버거 세트", 5100,
-		 * 1); menu[12] = new Menu("T-Rex 버거 세트", 5900, 1); menu[13] = new
-		 * Menu("클래식치즈버거 세트", 6400, 1); menu[14] = new Menu("데리버거 세트", 4900, 1);
-		 * 
-		 * // 햄버거 메뉴 menu[15] = new Menu("와규에디션2", 5800, 1); menu[16] = new
-		 * Menu("더블X2 세트", 7500, 1); menu[17] = new Menu("모짤렐라 인 더 버거", 6000, 1);
-		 * menu[18] = new Menu("AZ버거", 6600, 1); menu[19] = new Menu("원조빅불", 5800, 1);
-		 * menu[20] = new Menu("핫크리스피버거", 4900, 1); menu[21] = new Menu("한우 불고기 버거",
-		 * 7000, 1); menu[22] = new Menu("리아미라클버거", 5600, 1); menu[23] = new
-		 * Menu("새우버거", 3900, 1); menu[24] = new Menu("치킨버거", 2900, 1); menu[25] = new
-		 * Menu("T-Rex", 3700, 1); menu[26] = new Menu("클래식 치즈버거", 4400, 1); menu[27] =
-		 * new Menu("데리버거", 2500, 1);
-		 * 
-		 * // 디저트 메뉴 menu[28] = new Menu("치즈인더에그", 3000, 1); menu[29] = new
-		 * Menu("지파이 하바네로", 4300, 1); menu[30] = new Menu("지파이 고소한맛", 3400, 1); menu[31]
-		 * = new Menu("치킨너겟", 1200, 1); menu[32] = new Menu("롱 치즈스틱", 1800, 1); menu[33]
-		 * = new Menu("콘샐러드", 1700, 1); menu[34] = new Menu("선데이아이스크림", 1500, 1);
-		 * menu[35] = new Menu("쉑쉑치킨", 2500, 1); menu[36] = new Menu("양념감자", 2000, 1);
-		 * menu[37] = new Menu("오징어링", 2200, 1); menu[38] = new Menu("치즈스틱", 2000, 1);
-		 * menu[39] = new Menu("포테이토", 1500, 1); menu[40] = new Menu("토네이도(초코쿠키)", 2300,
-		 * 1); menu[41] = new Menu("토네이도(녹차)", 2300, 1); menu[42] = new
-		 * Menu("토네이도(스트로베리)", 2400, 1); menu[43] = new Menu("소프트콘", 700, 1);
-		 * 
-		 * // 음료수 메뉴 menu[44] = new Menu("아이스 아메리카노", 2000, 1); menu[45] = new
-		 * Menu("사이다", 1700, 1); menu[46] = new Menu("콜라", 1700, 1); menu[47] = new
-		 * Menu("아메리카노", 2000, 1); menu[48] = new Menu("카페라떼", 2000, 1); menu[49] = new
-		 * Menu("아이스카페라떼", 2000, 1);
-		 */
 
 		// 세트메뉴
 		Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
@@ -420,7 +384,8 @@ public class Main {
 		paymentButton.setBorderPainted(false);
 		paymentButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				mainPurchaseScene.setVisible(false);
+				paymentScene.setVisible(true);
 			}
 		});
 		mainPurchaseScene.add(paymentButton);
@@ -1081,6 +1046,12 @@ public class Main {
 		changeMenu();
 		changefirstScene.start();
 
+		// 결제창
+		paymentScene.setBounds(0, 0, 600, 850);
+		paymentScene.setBackground(Color.white);
+		frame.getContentPane().add(paymentScene);
+		paymentScene.setLayout(null);
+		paymentScene.setVisible(false);
 	}
 
 	public void changeMenu() {
