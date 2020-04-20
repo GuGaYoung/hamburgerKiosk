@@ -1418,6 +1418,105 @@ public class Main {
 												System.out.println(orderProductName.toString());
 												break;
 											}
+											
+											// 드링크 삭제 기능
+											else if (orderProductName.get(i).equals(iceAmericano.productName)) {
+												totalAmount -= iceAmericano.amount;
+												totalPrice -= iceAmericano.price;
+												numberText.setText(totalAmount + "개");
+												amountText.setText(totalPrice + "원");
+												orderProductName.remove(iceAmericano.productName);
+
+												System.out.println("아이스 아메리카노 갯수: " + iceAmericano.amount
+														+ "아이스 아메리카노 가격: " + iceAmericano.price);
+												System.out.println("총 가격: " + (totalPrice + iceAmericano.price)
+														+ "에서  아이스 아메리카노 가격: " + iceAmericano.price + "을 뺀 값은 "
+														+ totalPrice);
+												System.out.println(orderProductName.toString());
+												break;
+											}
+
+											else if (orderProductName.get(i).equals(cider.productName)) {
+												totalAmount -= cider.amount;
+												totalPrice -= cider.price;
+												numberText.setText(totalAmount + "개");
+												amountText.setText(totalPrice + "원");
+												orderProductName.remove(cider.productName);
+
+												System.out.println("사이다 갯수: " + cider.amount
+														+ "사이다 가격: " + cider.price);
+												System.out.println("총 가격: " + (totalPrice + cider.price)
+														+ "에서  사이다 가격: " + cider.price + "을 뺀 값은 "
+														+ totalPrice);
+												System.out.println(orderProductName.toString());
+												break;
+											}
+
+											else if (orderProductName.get(i)
+													.equals(cola.productName)) {
+												totalAmount -= cola.amount;
+												totalPrice -= cola.price;
+												numberText.setText(totalAmount + "개");
+												amountText.setText(totalPrice + "원");
+												orderProductName.remove(cola.productName);
+
+												System.out.println("콜라 갯수: " + cola.amount
+														+ "콜라 가격: " + cola.price);
+												System.out
+														.println("총 가격: " + (totalPrice + cola.price)
+																+ "에서  콜라 가격: " + cola.price
+																+ "을 뺀 값은 " + totalPrice);
+												System.out.println(orderProductName.toString());
+												break;
+											}
+
+											else if (orderProductName.get(i).equals(americano.productName)) {
+												totalAmount -= americano.amount;
+												totalPrice -= americano.price;
+												numberText.setText(totalAmount + "개");
+												amountText.setText(totalPrice + "원");
+												orderProductName.remove(americano.productName);
+
+												System.out.println("아메리카노 갯수: " + americano.amount
+														+ "아메리카노 가격: " + americano.price);
+												System.out.println("총 가격: " + (totalPrice + americano.price)
+														+ "에서  아메리카노 가격: " + americano.price + "을 뺀 값은 "
+														+ totalPrice);
+												System.out.println(orderProductName.toString());
+												break;
+											}
+											
+											else if (orderProductName.get(i).equals(caffeLatte.productName)) {
+												totalAmount -= caffeLatte.amount;
+												totalPrice -= caffeLatte.price;
+												numberText.setText(totalAmount + "개");
+												amountText.setText(totalPrice + "원");
+												orderProductName.remove(caffeLatte.productName);
+
+												System.out.println("카페라떼 갯수: " + caffeLatte.amount
+														+ "카페라떼 가격: " + caffeLatte.price);
+												System.out.println("총 가격: " + (totalPrice + caffeLatte.price)
+														+ "에서  카페라떼 가격: " + caffeLatte.price + "을 뺀 값은 "
+														+ totalPrice);
+												System.out.println(orderProductName.toString());
+												break;
+											}
+											
+											else if (orderProductName.get(i).equals(iceCaffeLatte.productName)) {
+												totalAmount -= iceCaffeLatte.amount;
+												totalPrice -= iceCaffeLatte.price;
+												numberText.setText(totalAmount + "개");
+												amountText.setText(totalPrice + "원");
+												orderProductName.remove(iceCaffeLatte.productName);
+
+												System.out.println("아이스카페라떼 갯수: " + iceCaffeLatte.amount
+														+ "아이스카페라떼 가격: " + iceCaffeLatte.price);
+												System.out.println("총 가격: " + (totalPrice + iceCaffeLatte.price)
+														+ "에서  아이스카페라떼 가격: " + iceCaffeLatte.price + "을 뺀 값은 "
+														+ totalPrice);
+												System.out.println(orderProductName.toString());
+												break;
+											}
 										}
 
 										System.out.println("삭제했습니다");
