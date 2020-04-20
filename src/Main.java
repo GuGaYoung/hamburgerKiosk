@@ -217,6 +217,8 @@ public class Main {
 		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
 		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
 
+		ChangeSetMenu changeSetMenu = new ChangeSetMenu();
+		
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
 		packagingDeliveringScene.setLayout(null);
@@ -578,6 +580,8 @@ public class Main {
 							if (menupage == 0) {
 								if (i == 0) {
 									doubleX2Set.buy();
+									//changeSetMenu.changeSetMenu("더블X2 세트", 1, 7500, "사이다", "롱치즈스틱");
+									
 								} else if (i == 1) {
 									wagyuEdition2Set.buy();
 								} else if (i == 2) {
