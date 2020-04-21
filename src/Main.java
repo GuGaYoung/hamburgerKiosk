@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -68,6 +69,9 @@ public class Main {
 	JButton ingerdientsPreviousPageButton = new JButton();
 	JButton ingerdientsDessertButton = new JButton();
 	JButton ingerdientsDrinkButton = new JButton();
+	
+	String dessertSelect = "";
+	String drinkSelect = "";
 
 	JLabel pressKeyText = new JLabel();
 	JButton packagingButton = new JButton();
@@ -98,7 +102,7 @@ public class Main {
 	JButton TenThing = new JButton();
 	JButton checkButton = new JButton();// 확인버튼
 
-	String restart = "";
+	//String restart = "";
 
 	// JTextArea textArea = new JTextArea();
 	static ArrayList<JLabel> OrderStatusText = new ArrayList<>();
@@ -158,7 +162,7 @@ public class Main {
 				packagingDeliveringScene.setVisible(true);
 				isertCardButton.setEnabled(true);
 				insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
-				restart = "";
+				//restart = "";
 			}
 		});
 
@@ -220,7 +224,7 @@ public class Main {
 		Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
 		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
 		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
-
+		
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
 		packagingDeliveringScene.setLayout(null);
@@ -266,6 +270,7 @@ public class Main {
 
 				packagingDeliveringScene.setVisible(false);
 				mainPurchaseScene.setVisible(true);
+				isertCardButton.setVisible(false);
 			}
 		});
 		packagingDeliveringScene.add(packagingButton);
@@ -278,6 +283,7 @@ public class Main {
 
 				packagingDeliveringScene.setVisible(false);
 				mainPurchaseScene.setVisible(true);
+				isertCardButton.setVisible(false);
 			}
 		});
 		packagingDeliveringScene.add(deliveringButton);
@@ -440,17 +446,22 @@ public class Main {
 		paymentButton.setBorderPainted(false);
 		paymentButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainPurchaseScene.setVisible(false);
-				paymentCheckScene.setVisible(true);
+				if(dessertSelect != "" && drinkSelect != "") {
+					mainPurchaseScene.setVisible(false);
+					//cardPaymentSceneImage.setVisible(true);
+					paymentCheckScene.setVisible(true);
+					isertCardButton.setVisible(true);
+					// 결제확인 창에 출력됌
+					textArea.setVisible(true);
 
-				// 결제확인 창에 출력됌
-				textArea.setVisible(true);
-
-				for (int i = 0; i < orderProduct.size(); i++) {
-					textArea.append(orderProduct.get(i) + "\n");
-					System.out.println(orderProduct.get(i) + "\n");
+					for (int i = 0; i < orderProduct.size(); i++) {
+						textArea.append(orderProduct.get(i) + "\n");
+						System.out.println(orderProduct.get(i) + "\n");
+					}
+				}else {
+					JOptionPane.showMessageDialog(frame, "세트 구성품을 선택하지 않았습니다.", "SYSTEM",
+							JOptionPane.INFORMATION_MESSAGE);
 				}
-
 			}
 		});
 		mainPurchaseScene.add(paymentButton);
@@ -1185,6 +1196,8 @@ public class Main {
 							}
 						});
 					}
+					
+					
 				}
 			});
 		}
@@ -1202,95 +1215,117 @@ public class Main {
 									ingerdientsNextPage();
 									ingerdientsProductName.add("포테이토");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								}else if (i == 1) {
 									System.out.println("콘샐러드");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("콘샐러드");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 2) {
 									System.out.println("롱치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("롱치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 3) {
 									System.out.println("양념감자");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("양념감자");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 4) {
 									System.out.println("오징어링");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("오징어링");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 5) {
 									System.out.println("치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 6) {
 									System.out.println("지파이 고소한맛");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 고소한맛");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 7) {
 									System.out.println("지파이 하바네로");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 하바네로");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 8) {
 									System.out.println("쉑쉑치킨");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("쉑쉑치킨");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								} else if (i == 9) {
 									System.out.println("치즈인더에그");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈인더에그");
 									System.out.println(ingerdientsProductName.toString());
+									dessertSelect = "선택완료";
 								}
 							}else if (ingerdientsPage == 1) {
 								if (i == 0) {
 									System.out.println("콜라");
-									changeMainPurchaseScene();
 									ingerdientsProductName.add("콜라");
 									System.out.println(ingerdientsProductName.toString());
-									ingerdientsProductName.clear();
-									System.out.println(ingerdientsProductName.toString());
+									//OrderStatusText.get(textNumber).setText("세트메뉴에 콜라 추가");
+									changeMainPurchaseScene();
+									drinkSelect = "선택완료";
+									//ingerdientsProductName.clear();
+									//System.out.println(ingerdientsProductName.toString());
 								}else if (i == 1) {
 									System.out.println("사이다");
-									changeMainPurchaseScene();
 									ingerdientsProductName.add("사이다");
 									System.out.println(ingerdientsProductName.toString());
-									ingerdientsProductName.clear();
-									System.out.println(ingerdientsProductName.toString());
+									//OrderStatusText.get(textNumber).setText("세트메뉴에 사이다 추가");
+									changeMainPurchaseScene();
+									drinkSelect = "선택완료";
+									//ingerdientsProductName.clear();
+									//System.out.println(ingerdientsProductName.toString());
 								} else if (i == 2) {
 									System.out.println("아메리카노");
-									changeMainPurchaseScene();
 									ingerdientsProductName.add("아메리카노");
 									System.out.println(ingerdientsProductName.toString());
-									ingerdientsProductName.clear();
-									System.out.println(ingerdientsProductName.toString());
+									//OrderStatusText.get(textNumber).setText("세트메뉴에 아메리카노 추가");
+									changeMainPurchaseScene();
+									drinkSelect = "선택완료";
+									//ingerdientsProductName.clear();
+									//System.out.println(ingerdientsProductName.toString());
 								} else if (i == 3) {
 									System.out.println("아이스 아메리카노");
-									changeMainPurchaseScene();
 									ingerdientsProductName.add("아이스 아메리카노");
 									System.out.println(ingerdientsProductName.toString());
-									ingerdientsProductName.clear();
-									System.out.println(ingerdientsProductName.toString());
+									//OrderStatusText.get(textNumber).setText("세트메뉴에 아이스 아메리카노 추가");
+									changeMainPurchaseScene();
+									drinkSelect = "선택완료";
+									//ingerdientsProductName.clear();
+									//System.out.println(ingerdientsProductName.toString());
 								} else if (i == 4) {
 									System.out.println("카페라떼");
-									changeMainPurchaseScene();
 									ingerdientsProductName.add("카페라떼");
 									System.out.println(ingerdientsProductName.toString());
-									ingerdientsProductName.clear();
-									System.out.println(ingerdientsProductName.toString());					
+									//OrderStatusText.get(textNumber).setText("세트메뉴에 카페라떼 추가");
+									changeMainPurchaseScene();
+									drinkSelect = "선택완료";
+									//ingerdientsProductName.clear();
+									//System.out.println(ingerdientsProductName.toString());			
 								} else if (i == 5) {
 									System.out.println("아이스 카페라떼");
-									changeMainPurchaseScene();
 									ingerdientsProductName.add("아이스 카페라떼");
 									System.out.println(ingerdientsProductName.toString());
-									ingerdientsProductName.clear();
-									System.out.println(ingerdientsProductName.toString());
+									//OrderStatusText.get(textNumber).setText("세트메뉴에 아이스 카페라떼 추가");
+									changeMainPurchaseScene();
+									drinkSelect = "선택완료";
+									//ingerdientsProductName.clear();
+									//System.out.println(ingerdientsProductName.toString());
 								}
 							}
 						}
@@ -1379,10 +1414,12 @@ public class Main {
 		checkOKButton.setText("결제하기");
 		checkOKButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				paymentCheckSceneImage.setVisible(false);
 				cardPaymentSceneImage.setVisible(true);
+				isertCardButton.setVisible(true);
 				isertCardButton.setEnabled(true);
-				System.out.println("restart 값은 : " + restart);
+					//System.out.println("restart 값은 : " + restart);
 			}
 		});
 		paymentCheckSceneImage.add(checkOKButton);
@@ -1418,13 +1455,35 @@ public class Main {
 		isertCardButton.setText("카드 투입");
 		isertCardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// insertCardImage.setIcon(new ImageIcon("./otherimages/카드결제중.png"));
-				// isertCardButton.setEnabled(false);
-				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage,
-						isertCardButton);
-				changeCardPaymentImage.start();
 
+				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage, isertCardButton, firstScene, mainPurchaseScene, paymentCheckScene, cardPaymentSceneImage);
+				changeCardPaymentImage.start();
 				// 세트 추가 구입 UI 구현 후 나중에 스레드 수정해야함
+				
+				//frame = new JFrame();
+				//isertCardButton.setVisible(false);
+				
+				
+				isertCardButton.setVisible(false);
+				
+				for (int i = 0; i < OrderStatusText.size(); i++) {
+					OrderStatusText.get(i).setLocation(1000, 1000);
+					cancelButton.get(i).setLocation(1000, 1000);
+					quantityChangeButton.get(i).setLocation(1000, 1000);
+					// OrderStatusText.remove(i);
+				}
+
+				OrderStatusText.clear();
+				textNumber = 0;
+				OrderStatusVerticalLength = -40;
+				eatingPlace = "";
+
+				orderProductName.clear();
+				totalAmount = 0;
+				totalPrice = 0;
+				numberText.setText(totalAmount + "개");
+				amountText.setText(totalPrice + "원");
+				
 				/*
 				 * try { changeCardPaymentImage.join(); //Thread.sleep(1000);
 				 * firstScene.setVisible(true); mainPurchaseScene.setVisible(false);
@@ -1455,6 +1514,8 @@ public class Main {
 			}
 		});
 		cardPaymentSceneImage.add(isertCardButton);
+		
+		//isertCardButton.setVisible(false);
 
 		/*
 		 * if(restart.equals("초기화면")) { System.out.println("restart 값은 : "+restart); try
@@ -1675,6 +1736,8 @@ public class Main {
 	public void changeMainPurchaseScene() {	
 		
 		ingerdientsPage = 0;
+		ingerdientsProductName.clear();
+		System.out.println(ingerdientsProductName.toString());
 		
 		if (ingerdientsPage == 0) {
 			ingerdientsDessertButton.setBackground(Color.gray);

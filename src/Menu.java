@@ -1,3 +1,7 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JTextArea;
 
 public class Menu {
@@ -6,6 +10,7 @@ public class Menu {
 	int amount = 0;
 	
 	JTextArea textArea;
+	ArrayList<String> ingerdientsMenuImages;
 	
 	Menu(String productName, int price, int amount) {
 		this.productName = productName;
