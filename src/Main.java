@@ -44,6 +44,8 @@ public class Main {
 		}
 	};
 
+	JPanel changeIngredientsScene = new JPanel();
+
 	/*
 	 * JPanel paymentCheckScene = new JPanel() { public void paintComponent(Graphics
 	 * g) { Dimension d = getSize(); ImageIcon image = new
@@ -120,7 +122,7 @@ public class Main {
 	int OrderStatusVerticalLength = -40;
 
 	changefirstScene changefirstScene = new changefirstScene(firstScene);
-		
+
 	public Main() {
 
 		frame = new JFrame();
@@ -215,6 +217,11 @@ public class Main {
 		numberChangeBackGround.setVisible(false);
 
 		mainPurchaseScene.setBounds(0, 0, 600, 850);
+		frame.getContentPane().add(mainPurchaseScene);
+		mainPurchaseScene.setLayout(null);
+		mainPurchaseScene.setVisible(false);
+
+		changeIngredientsScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
 		mainPurchaseScene.setVisible(false);
@@ -409,7 +416,7 @@ public class Main {
 		textArea.setEditable(false);
 		textArea.setVisible(false);
 		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
-		
+
 		paymentButton.setBounds(385, 750, 100, 40);
 		paymentButton.setText("결제하기");
 		paymentButton.setFont(new Font("굴림", Font.BOLD, 10));
@@ -419,15 +426,15 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				mainPurchaseScene.setVisible(false);
 				paymentCheckScene.setVisible(true);
-				
-				//결제확인 창에 출력됌
+
+				// 결제확인 창에 출력됌
 				textArea.setVisible(true);
-				
-				for(int i = 0; i<orderProduct.size() ; i++) {
-					textArea.append(orderProduct.get(i)+"\n");
-					System.out.println(orderProduct.get(i)+"\n");
+
+				for (int i = 0; i < orderProduct.size(); i++) {
+					textArea.append(orderProduct.get(i) + "\n");
+					System.out.println(orderProduct.get(i) + "\n");
 				}
-				
+
 			}
 		});
 		mainPurchaseScene.add(paymentButton);
@@ -584,116 +591,166 @@ public class Main {
 						if (e.getSource() == menuImages[i]) {
 							if (menupage == 0) {
 								if (i == 0) {
+									changeIngredientsScene();
 									doubleX2Set.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									wagyuEdition2Set.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									AZBurgerSet.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									hanwooBulgogiCombo.buy();
 								} else if (i == 4) {
+									changeIngredientsScene();
 									hanwooBulgogiBurgerSet.buy();
 								} else if (i == 5) {
+									changeIngredientsScene();
 									mozzarellaInTheBurgerSet.buy();
 								} else if (i == 6) {
+									changeIngredientsScene();
 									bigBulgogiSet.buy();
 								} else if (i == 7) {
+									changeIngredientsScene();
 									hotCrispyBurgerSet.buy();
 								} else if (i == 8) {
+									changeIngredientsScene();
 									bulgogiBurgerSet.buy();
 								}
 							} else if (menupage == 1) {
 								if (i == 0) {
+									changeIngredientsScene();
 									riaMiracleBurgerSet.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									shrimpBurgerSet.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									chickenBurgerSet.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									T_RexBurgerSet.buy();
 								} else if (i == 4) {
+									changeIngredientsScene();
 									classicCheeseBurgerSet.buy();
 								} else if (i == 5) {
+									changeIngredientsScene();
 									teriBurgerSet.buy();
 								}
 							} else if (menupage == 2) {
 								if (i == 0) {
+									changeIngredientsScene();
 									wagyuEdition2.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									doubleX2.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									mozzarellaInTheBurger.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									AZBurger.buy();
 								} else if (i == 4) {
+									changeIngredientsScene();
 									bigBulgogi.buy();
 								} else if (i == 5) {
+									changeIngredientsScene();
 									hotCrispyBurger.buy();
 								} else if (i == 6) {
+									changeIngredientsScene();
 									hanwooBulgogi.buy();
 								} else if (i == 7) {
+									changeIngredientsScene();
 									riaMiracleBurger.buy();
 								} else if (i == 8) {
+									changeIngredientsScene();
 									shrimpBurger.buy();
 								}
 							} else if (menupage == 3) {
 								if (i == 0) {
+									changeIngredientsScene();
 									chickenBurger.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									T_RexBurger.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									classicCheeseBurger.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									teriBurger.buy();
 								}
 							} else if (menupage == 4) {
 								if (i == 0) {
+									changeIngredientsScene();
 									cheeseInTheEgg.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									jipieHabanero_L.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									jipie_S.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									chickenNugget.buy();
 								} else if (i == 4) {
+									changeIngredientsScene();
 									longCheeseStick.buy();
 								} else if (i == 5) {
+									changeIngredientsScene();
 									coneSalad.buy();
 								} else if (i == 6) {
+									changeIngredientsScene();
 									sundayIceCream.buy();
 								} else if (i == 7) {
+									changeIngredientsScene();
 									shakeShakeChicken.buy();
 								} else if (i == 8) {
+									changeIngredientsScene();
 									seasoningPotato.buy();
 								}
 							} else if (menupage == 5) {
 								if (i == 0) {
+									changeIngredientsScene();
 									squidRing.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									naturalCheeseStick.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									potato.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									chocoCookieTornado.buy();
 								} else if (i == 4) {
+									changeIngredientsScene();
 									greenTeaTornado.buy();
 								} else if (i == 5) {
+									changeIngredientsScene();
 									strawberryTornado.buy();
 								} else if (i == 6) {
+									changeIngredientsScene();
 									softCone.buy();
 								}
 							} else if (menupage == 6) {
 								if (i == 0) {
+									changeIngredientsScene();
 									iceAmericano.buy();
 								} else if (i == 1) {
+									changeIngredientsScene();
 									cider.buy();
 								} else if (i == 2) {
+									changeIngredientsScene();
 									cola.buy();
 								} else if (i == 3) {
+									changeIngredientsScene();
 									americano.buy();
 								} else if (i == 4) {
+									changeIngredientsScene();
 									caffeLatte.buy();
 								} else if (i == 5) {
+									changeIngredientsScene();
 									iceCaffeLatte.buy();
 								}
 							}
@@ -724,7 +781,7 @@ public class Main {
 					quantityChangeButton.get(textNumber).setBounds(350, OrderStatusVerticalLength + 43, 20, 20);
 
 					textNumber++;
-					
+
 					for (int i = 0; i < OrderStatusText.size(); i++) {
 						cancelButton.get(i).addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
@@ -1031,7 +1088,7 @@ public class Main {
 				}
 			});
 		}
-		
+
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(OrderStatusBackGround);
@@ -1122,26 +1179,23 @@ public class Main {
 		checkCancelButton.setBounds(350, 500, 100, 30);
 		checkCancelButton.setText("이전으로");
 		checkCancelButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {								
+			public void actionPerformed(ActionEvent e) {
 				paymentCheckScene.setVisible(false);
-				mainPurchaseScene.setVisible(true);		
-				
+				mainPurchaseScene.setVisible(true);
+
 				textArea.selectAll();
 				textArea.replaceSelection("");
 			}
 		});
 		paymentCheckSceneImage.add(checkCancelButton);
 
-
-		
-		
-		/*paymentCheckList.setBounds(100, 220, 400, 250);
-		paymentCheckList.setBackground(Color.pink);
-		paymentCheckList.setOpaque(true); // 레이블 백그라운드 색이 보여지기 위해서 필요함
-		paymentCheckList.setLayout(null);
-		paymentCheckList.setVisible(true);
-		//paymentCheckList.add(OrderStatusText));
-		paymentCheckSceneImage.add(paymentCheckList); */
+		/*
+		 * paymentCheckList.setBounds(100, 220, 400, 250);
+		 * paymentCheckList.setBackground(Color.pink); paymentCheckList.setOpaque(true);
+		 * // 레이블 백그라운드 색이 보여지기 위해서 필요함 paymentCheckList.setLayout(null);
+		 * paymentCheckList.setVisible(true); //paymentCheckList.add(OrderStatusText));
+		 * paymentCheckSceneImage.add(paymentCheckList);
+		 */
 
 		insertCardImage.setBounds(100, 220, 400, 300);
 		insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
@@ -1153,49 +1207,40 @@ public class Main {
 		isertCardButton.setText("카드 투입");
 		isertCardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//insertCardImage.setIcon(new ImageIcon("./otherimages/카드결제중.png"));
-				//isertCardButton.setEnabled(false);				
-				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage,isertCardButton);
-				changeCardPaymentImage.start();	
-				
-				//세트 추가 구입 UI 구현 후 나중에 스레드 수정해야함
-					/*try {
-						changeCardPaymentImage.join();
-						//Thread.sleep(1000);
-						firstScene.setVisible(true);
-						mainPurchaseScene.setVisible(false);
-						paymentCheckScene.setVisible(false);
+				// insertCardImage.setIcon(new ImageIcon("./otherimages/카드결제중.png"));
+				// isertCardButton.setEnabled(false);
+				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage,
+						isertCardButton);
+				changeCardPaymentImage.start();
 
-						for (int i = 0; i < OrderStatusText.size(); i++) {
-							OrderStatusText.get(i).setLocation(1000, 1000);
-							cancelButton.get(i).setLocation(1000, 1000);
-							quantityChangeButton.get(i).setLocation(1000, 1000);
-							// OrderStatusText.remove(i);
-						}
+				// 세트 추가 구입 UI 구현 후 나중에 스레드 수정해야함
+				/*
+				 * try { changeCardPaymentImage.join(); //Thread.sleep(1000);
+				 * firstScene.setVisible(true); mainPurchaseScene.setVisible(false);
+				 * paymentCheckScene.setVisible(false);
+				 * 
+				 * for (int i = 0; i < OrderStatusText.size(); i++) {
+				 * OrderStatusText.get(i).setLocation(1000, 1000);
+				 * cancelButton.get(i).setLocation(1000, 1000);
+				 * quantityChangeButton.get(i).setLocation(1000, 1000); //
+				 * OrderStatusText.remove(i); }
+				 * 
+				 * OrderStatusText.clear(); textNumber = 0; OrderStatusVerticalLength = -40;
+				 * eatingPlace = "";
+				 * 
+				 * orderProductName.clear(); totalAmount = 0; totalPrice = 0;
+				 * numberText.setText(totalAmount + "개"); amountText.setText(totalPrice + "원");
+				 * 
+				 * System.out.println(OrderStatusText.size());
+				 * System.out.println(orderProductName.toString()); } catch
+				 * (InterruptedException e1) { // TODO Auto-generated catch block
+				 * e1.printStackTrace(); }
+				 */
 
-						OrderStatusText.clear();
-						textNumber = 0;
-						OrderStatusVerticalLength = -40;
-						eatingPlace = "";
+				// } catch (InterruptedException e1) {
+				// System.out.println(e1.getMessage());
+				// }
 
-						orderProductName.clear();
-						totalAmount = 0;
-						totalPrice = 0;
-						numberText.setText(totalAmount + "개");
-						amountText.setText(totalPrice + "원");
-						
-						System.out.println(OrderStatusText.size());
-						System.out.println(orderProductName.toString());
-					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}*/
-					
-					
-				//} catch (InterruptedException e1) {
-				//	System.out.println(e1.getMessage());
-				//}
-				
 			}
 		});
 		cardPaymentSceneImage.add(isertCardButton);
@@ -1311,5 +1356,17 @@ public class Main {
 			menuImages[7].setIcon(new ImageIcon());
 			menuImages[8].setIcon(new ImageIcon());
 		}
+	}
+
+	public void changeIngredientsScene() {
+		for (int j = 0; j < menuImages.length; j++) {
+			menuImages[j].setVisible(false);
+		}
+		hamburgerSetButton.setVisible(false);
+		hamburgerButton.setVisible(false);
+		drinkButton.setVisible(false);
+		dessertButton.setVisible(false);
+		nextPageButton.setVisible(false);
+		previousPageButton.setVisible(false);
 	}
 }
