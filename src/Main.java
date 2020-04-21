@@ -88,6 +88,9 @@ public class Main {
 	int menuImageHeight = 130;
 	int menuHorizontalInterval = 170;
 
+	String hamburgerSet_dessert = "";
+	String hamburgerSet_drink = "";
+	
 	static int textNumber = 0;
 	static int totalAmount = 0; // 주문 총 양
 	static int totalPrice = 0; // 주문 총 금액
@@ -580,6 +583,9 @@ public class Main {
 							if (menupage == 0) {
 								if (i == 0) {
 									doubleX2Set.buy();
+									hamburgerSet_drink = "사이다";
+									hamburgerSet_dessert = "콘샐러드";
+									changeSetMenu.changeSetMenu(doubleX2Set, hamburgerSet_drink, hamburgerSet_dessert);
 								} else if (i == 1) {
 									wagyuEdition2Set.buy();
 								} else if (i == 2) {
@@ -1025,6 +1031,11 @@ public class Main {
 						});
 					}
 				}
+
+				private void changeSetMenu(String string, String string2) {
+					// TODO Auto-generated method stub
+					
+				}
 			});
 		}
 
@@ -1180,7 +1191,7 @@ public class Main {
 	public void addProducts(int addNum) {
 
 		if (orderProductName.get(productNum).equals(doubleX2Set.productName)) {
-			doubleX2Set.addNumOfProduct(addNum, productNum);
+			doubleX2Set.addNumOfProduct_hamburgerSet(addNum, productNum, hamburgerSet_drink, hamburgerSet_dessert);
 
 		}
 		else if (orderProductName.get(productNum).equals(wagyuEdition2Set.productName)) {
