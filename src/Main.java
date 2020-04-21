@@ -640,117 +640,82 @@ public class Main {
 								}
 							} else if (menupage == 2) {
 								if (i == 0) {
-									changeIngredientsScene();
 									wagyuEdition2.buy();
 								} else if (i == 1) {
-									changeIngredientsScene();
 									doubleX2.buy();
 								} else if (i == 2) {
-									changeIngredientsScene();
 									mozzarellaInTheBurger.buy();
 								} else if (i == 3) {
-									changeIngredientsScene();
 									AZBurger.buy();
 								} else if (i == 4) {
-									changeIngredientsScene();
 									bigBulgogi.buy();
 								} else if (i == 5) {
-									changeIngredientsScene();
 									hotCrispyBurger.buy();
 								} else if (i == 6) {
-									changeIngredientsScene();
 									hanwooBulgogi.buy();
 								} else if (i == 7) {
-									changeIngredientsScene();
 									riaMiracleBurger.buy();
 								} else if (i == 8) {
-									changeIngredientsScene();
 									shrimpBurger.buy();
 								}
 							} else if (menupage == 3) {
 								if (i == 0) {
-									changeIngredientsScene();
 									chickenBurger.buy();
 								} else if (i == 1) {
-									changeIngredientsScene();
 									T_RexBurger.buy();
 								} else if (i == 2) {
-									changeIngredientsScene();
 									classicCheeseBurger.buy();
 								} else if (i == 3) {
-									changeIngredientsScene();
 									teriBurger.buy();
 								}
 							} else if (menupage == 4) {
 								if (i == 0) {
-									changeIngredientsScene();
 									cheeseInTheEgg.buy();
 								} else if (i == 1) {
-									changeIngredientsScene();
 									jipieHabanero_L.buy();
 								} else if (i == 2) {
-									changeIngredientsScene();
 									jipie_S.buy();
 								} else if (i == 3) {
-									changeIngredientsScene();
 									chickenNugget.buy();
 								} else if (i == 4) {
-									changeIngredientsScene();
 									longCheeseStick.buy();
 								} else if (i == 5) {
-									changeIngredientsScene();
 									coneSalad.buy();
 								} else if (i == 6) {
-									changeIngredientsScene();
 									sundayIceCream.buy();
 								} else if (i == 7) {
-									changeIngredientsScene();
 									shakeShakeChicken.buy();
 								} else if (i == 8) {
-									changeIngredientsScene();
 									seasoningPotato.buy();
 								}
 							} else if (menupage == 5) {
 								if (i == 0) {
-									changeIngredientsScene();
 									squidRing.buy();
 								} else if (i == 1) {
-									changeIngredientsScene();
 									naturalCheeseStick.buy();
 								} else if (i == 2) {
-									changeIngredientsScene();
 									potato.buy();
 								} else if (i == 3) {
-									changeIngredientsScene();
 									chocoCookieTornado.buy();
 								} else if (i == 4) {
-									changeIngredientsScene();
 									greenTeaTornado.buy();
 								} else if (i == 5) {
-									changeIngredientsScene();
 									strawberryTornado.buy();
 								} else if (i == 6) {
-									changeIngredientsScene();
 									softCone.buy();
 								}
 							} else if (menupage == 6) {
 								if (i == 0) {
-									changeIngredientsScene();
 									iceAmericano.buy();
 								} else if (i == 1) {
-									changeIngredientsScene();
 									cider.buy();
 								} else if (i == 2) {
-									changeIngredientsScene();
 									cola.buy();
 								} else if (i == 3) {
-									changeIngredientsScene();
 									americano.buy();
 								} else if (i == 4) {
-									changeIngredientsScene();
 									caffeLatte.buy();
 								} else if (i == 5) {
-									changeIngredientsScene();
 									iceCaffeLatte.buy();
 								}
 							}
