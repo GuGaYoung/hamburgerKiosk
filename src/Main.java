@@ -120,8 +120,7 @@ public class Main {
 	int OrderStatusVerticalLength = -40;
 
 	changefirstScene changefirstScene = new changefirstScene(firstScene);
-	changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage,isertCardButton);
-	
+		
 	public Main() {
 
 		frame = new JFrame();
@@ -1156,41 +1155,47 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				//insertCardImage.setIcon(new ImageIcon("./otherimages/카드결제중.png"));
 				//isertCardButton.setEnabled(false);				
-				changeCardPaymentImage.start();
+				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage,isertCardButton);
+				changeCardPaymentImage.start();	
 				
-				
-				/*
-				try {
-					//changeCardPaymentImage.join();
-					//Thread.sleep(2000);
-					firstScene.setVisible(true);
-					mainPurchaseScene.setVisible(false);
-					paymentCheckScene.setVisible(false);
+				//세트 추가 구입 UI 구현 후 나중에 스레드 수정해야함
+					/*try {
+						changeCardPaymentImage.join();
+						//Thread.sleep(1000);
+						firstScene.setVisible(true);
+						mainPurchaseScene.setVisible(false);
+						paymentCheckScene.setVisible(false);
 
-					for (int i = 0; i < OrderStatusText.size(); i++) {
-						OrderStatusText.get(i).setLocation(1000, 1000);
-						cancelButton.get(i).setLocation(1000, 1000);
-						quantityChangeButton.get(i).setLocation(1000, 1000);
-						// OrderStatusText.remove(i);
-					}
+						for (int i = 0; i < OrderStatusText.size(); i++) {
+							OrderStatusText.get(i).setLocation(1000, 1000);
+							cancelButton.get(i).setLocation(1000, 1000);
+							quantityChangeButton.get(i).setLocation(1000, 1000);
+							// OrderStatusText.remove(i);
+						}
 
-					OrderStatusText.clear();
-					textNumber = 0;
-					OrderStatusVerticalLength = -40;
-					eatingPlace = "";
+						OrderStatusText.clear();
+						textNumber = 0;
+						OrderStatusVerticalLength = -40;
+						eatingPlace = "";
 
-					orderProductName.clear();
-					totalAmount = 0;
-					totalPrice = 0;
-					numberText.setText(totalAmount + "개");
-					amountText.setText(totalPrice + "원");
+						orderProductName.clear();
+						totalAmount = 0;
+						totalPrice = 0;
+						numberText.setText(totalAmount + "개");
+						amountText.setText(totalPrice + "원");
+						
+						System.out.println(OrderStatusText.size());
+						System.out.println(orderProductName.toString());
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}*/
 					
-					System.out.println(OrderStatusText.size());
-					System.out.println(orderProductName.toString());
-				} catch (InterruptedException e1) {
-					System.out.println(e1.getMessage());
-				}
-				*/
+					
+				//} catch (InterruptedException e1) {
+				//	System.out.println(e1.getMessage());
+				//}
+				
 			}
 		});
 		cardPaymentSceneImage.add(isertCardButton);
