@@ -110,6 +110,8 @@ public class Main {
 
 	static ArrayList<String> orderProductName = new ArrayList<String>(); // 주문한 제품 이름을 받는 배열
 	static ArrayList<String> orderProduct = new ArrayList<String>(); // 주문한 제품 이름,갯수,가격을 받는 배열
+	
+	ArrayList<String> ingerdientsProductName = new ArrayList<String>();
 
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -1186,6 +1188,117 @@ public class Main {
 				}
 			});
 		}
+		
+		//세트메뉴 추가 버튼
+		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
+			ingerdientsMenuImages[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					for (int i = 0; i < ingerdientsMenuImages.length; i++) {
+						if (e.getSource() == ingerdientsMenuImages[i]) {
+							if (ingerdientsPage == 0) {
+								if (i == 0) {
+									System.out.println("포테이토");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("포테이토");
+									System.out.println(ingerdientsProductName.toString());
+								}else if (i == 1) {
+									System.out.println("콘샐러드");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("콘샐러드");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 2) {
+									System.out.println("롱치즈스틱");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("롱치즈스틱");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 3) {
+									System.out.println("양념감자");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("양념감자");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 4) {
+									System.out.println("오징어링");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("오징어링");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 5) {
+									System.out.println("치즈스틱");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("치즈스틱");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 6) {
+									System.out.println("지파이 고소한맛");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("지파이 고소한맛");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 7) {
+									System.out.println("지파이 하바네로");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("지파이 하바네로");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 8) {
+									System.out.println("쉑쉑치킨");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("쉑쉑치킨");
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 9) {
+									System.out.println("치즈인더에그");
+									ingerdientsNextPage();
+									ingerdientsProductName.add("치즈인더에그");
+									System.out.println(ingerdientsProductName.toString());
+								}
+							}else if (ingerdientsPage == 1) {
+								if (i == 0) {
+									System.out.println("콜라");
+									changeMainPurchaseScene();
+									ingerdientsProductName.add("콜라");
+									System.out.println(ingerdientsProductName.toString());
+									ingerdientsProductName.clear();
+									System.out.println(ingerdientsProductName.toString());
+								}else if (i == 1) {
+									System.out.println("사이다");
+									changeMainPurchaseScene();
+									ingerdientsProductName.add("사이다");
+									System.out.println(ingerdientsProductName.toString());
+									ingerdientsProductName.clear();
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 2) {
+									System.out.println("아메리카노");
+									changeMainPurchaseScene();
+									ingerdientsProductName.add("아메리카노");
+									System.out.println(ingerdientsProductName.toString());
+									ingerdientsProductName.clear();
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 3) {
+									System.out.println("아이스 아메리카노");
+									changeMainPurchaseScene();
+									ingerdientsProductName.add("아이스 아메리카노");
+									System.out.println(ingerdientsProductName.toString());
+									ingerdientsProductName.clear();
+									System.out.println(ingerdientsProductName.toString());
+								} else if (i == 4) {
+									System.out.println("카페라떼");
+									changeMainPurchaseScene();
+									ingerdientsProductName.add("카페라떼");
+									System.out.println(ingerdientsProductName.toString());
+									ingerdientsProductName.clear();
+									System.out.println(ingerdientsProductName.toString());					
+								} else if (i == 5) {
+									System.out.println("아이스 카페라떼");
+									changeMainPurchaseScene();
+									ingerdientsProductName.add("아이스 카페라떼");
+									System.out.println(ingerdientsProductName.toString());
+									ingerdientsProductName.clear();
+									System.out.println(ingerdientsProductName.toString());
+								}
+							}
+						}
+					}
+								
+				}
+			});
+		}
 
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
@@ -1459,9 +1572,91 @@ public class Main {
 	public void changeIngredientsScene() {
 		changeIngerdientsMenu();
 		
-		for (int j = 0; j < menuImages.length; j++) {
-			menuImages[j].setVisible(false);
+		for (int i = 0; i < menuImages.length; i++) {
+			menuImages[i].setVisible(false);
 		}
+		
+		for	(int i = 0; i< ingerdientsMenuImages.length; i++) {
+			ingerdientsMenuImages[i].setVisible(true);
+		}
+		
+		/*
+		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
+			ingerdientsMenuImages[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					for (int i = 0; i < ingerdientsMenuImages.length; i++) {
+						if (e.getSource() == ingerdientsMenuImages[i]) {
+							if (ingerdientsPage == 0) {
+								if (i == 0) {
+									System.out.println("포테이토");
+									ingerdientsNextPage();
+								}else if (i == 1) {
+									System.out.println("콘샐러드");
+									ingerdientsNextPage();
+								} else if (i == 2) {
+									System.out.println("롱치즈스틱");
+									ingerdientsNextPage();
+								} else if (i == 3) {
+									System.out.println("양념감자");
+									ingerdientsNextPage();
+								} else if (i == 4) {
+									System.out.println("오징어링");
+									ingerdientsNextPage();
+								} else if (i == 5) {
+									System.out.println("치즈스틱");
+									ingerdientsNextPage();
+								} else if (i == 6) {
+									System.out.println("지파이 고소한맛");
+									ingerdientsNextPage();
+								} else if (i == 7) {
+									System.out.println("지파이 하바네로");
+									ingerdientsNextPage();
+								} else if (i == 8) {
+									System.out.println("쉑쉑치킨");
+									ingerdientsNextPage();
+								} else if (i == 9) {
+									System.out.println("치즈인더에그");
+									ingerdientsNextPage();
+								}
+							}else if (ingerdientsPage == 1) {
+								if (i == 0) {
+									System.out.println("콜라");
+									//ingerdientsPreviousPage();
+									changeMainPurchaseScene();
+								}else if (i == 1) {
+									System.out.println("사이다");
+									//ingerdientsPreviousPage();
+									changeMainPurchaseScene();
+									//ingerdientsPage--;
+								} else if (i == 2) {
+									System.out.println("아메리카노");
+									//ingerdientsPreviousPage();
+									changeMainPurchaseScene();
+									//ingerdientsPage--;
+								} else if (i == 3) {
+									System.out.println("아이스 아메리카노");
+									//ingerdientsPreviousPage();
+									changeMainPurchaseScene();
+									//ingerdientsPage--;
+								} else if (i == 4) {
+									System.out.println("카페라떼");
+									//ingerdientsPreviousPage();
+									changeMainPurchaseScene();
+									//ingerdientsPage--;
+								} else if (i == 5) {
+									System.out.println("아이스 카페라떼");
+									//ingerdientsPreviousPage();
+									changeMainPurchaseScene();
+									//ingerdientsPage--;
+								}
+							}
+						}
+					}
+								
+				}
+			});
+		}*/
 
 		hamburgerSetButton.setVisible(false);
 		hamburgerButton.setVisible(false);
@@ -1477,6 +1672,42 @@ public class Main {
 		ingerdientsDrinkButton.setVisible(true);
 	}
 
+	public void changeMainPurchaseScene() {	
+		
+		ingerdientsPage = 0;
+		
+		if (ingerdientsPage == 0) {
+			ingerdientsDessertButton.setBackground(Color.gray);
+			ingerdientsDrinkButton.setBackground(Color.white);
+			System.out.println("디저트 페이지 출력");
+		} else if (ingerdientsPage == 1) {
+			ingerdientsDessertButton.setBackground(Color.white);
+			ingerdientsDrinkButton.setBackground(Color.gray);
+			System.out.println("드렁크 페이지 출력");
+		}
+		
+		for (int i = 0; i < menuImages.length; i++) {
+			menuImages[i].setVisible(true);
+		}
+		
+		for	(int i = 0; i< ingerdientsMenuImages.length; i++) {
+			ingerdientsMenuImages[i].setVisible(false);
+		}
+		
+		hamburgerSetButton.setVisible(true);
+		hamburgerButton.setVisible(true);
+		drinkButton.setVisible(true);
+		dessertButton.setVisible(true);
+		nextPageButton.setVisible(true);
+		previousPageButton.setVisible(true);
+
+		changeIngredientsScene.setVisible(false);
+		ingerdientsNextPageButton.setVisible(false);
+		ingerdientsPreviousPageButton.setVisible(false);
+		ingerdientsDessertButton.setVisible(false);
+		ingerdientsDrinkButton.setVisible(false);
+	}
+	
 	public void changeIngerdientsMenu() {
 
 		if (ingerdientsPage == 0) {
@@ -1509,6 +1740,36 @@ public class Main {
 			ingerdientsMenuImages[10].setIcon(new ImageIcon());
 			ingerdientsMenuImages[11].setIcon(new ImageIcon());
 			ingerdientsMenuImages[12].setIcon(new ImageIcon());
+		}
+	}
+	
+	public void ingerdientsPreviousPage() {
+		ingerdientsPage--;
+		changeIngerdientsMenu();
+
+		if (ingerdientsPage == 0) {
+			ingerdientsDessertButton.setBackground(Color.gray);
+			ingerdientsDrinkButton.setBackground(Color.white);
+			System.out.println("디저트 페이지 출력");
+		} else if (ingerdientsPage == 1) {
+			ingerdientsDessertButton.setBackground(Color.white);
+			ingerdientsDrinkButton.setBackground(Color.gray);
+			System.out.println("드렁크 페이지 출력");
+		}
+	}
+	
+	public void ingerdientsNextPage() {
+		ingerdientsPage++;
+		changeIngerdientsMenu();
+
+		if (ingerdientsPage == 0) {
+			ingerdientsDessertButton.setBackground(Color.gray);
+			ingerdientsDrinkButton.setBackground(Color.white);
+			System.out.println("디저트 페이지 출력");
+		} else if (ingerdientsPage == 1) {
+			ingerdientsDessertButton.setBackground(Color.white);
+			ingerdientsDrinkButton.setBackground(Color.gray);
+			System.out.println("드렁크 페이지 출력");
 		}
 	}
 }
