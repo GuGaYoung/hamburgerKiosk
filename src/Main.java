@@ -62,8 +62,12 @@ public class Main {
 	JButton isertCardButton = new JButton();
 	JButton checkOKButton = new JButton();
 	JButton checkCancelButton = new JButton();
+	JButton[] ingerdientsMenuImages = new JButton[13];
+
 	JButton ingerdientsNextPageButton = new JButton();
 	JButton ingerdientsPreviousPageButton = new JButton();
+	JButton ingerdientsDessertButton = new JButton();
+	JButton ingerdientsDrinkButton = new JButton();
 
 	JLabel pressKeyText = new JLabel();
 	JButton packagingButton = new JButton();
@@ -113,6 +117,13 @@ public class Main {
 	int menuImageWidth = 150;
 	int menuImageHeight = 130;
 	int menuHorizontalInterval = 170;
+
+	int ingerdientsPage = 0; // 구성품 페이지
+	int ingerdientsMenuHorizontalLength = 50;
+	int ingerdientsMenuVerticalLength = 0;
+	int ingerdientsMenuImageWidth = 100;
+	int ingerdientsMenuImageHeight = 130;
+	int ingerdientsMenuHorizontalInterval = 130;
 
 	static int textNumber = 0;
 	static int totalAmount = 0; // 주문 총 양
@@ -223,7 +234,7 @@ public class Main {
 		mainPurchaseScene.setLayout(null);
 		mainPurchaseScene.setVisible(false);
 
-		//디저트 구성 교환 화면
+		// 디저트 구성 교환 화면
 		changeIngredientsScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
@@ -524,92 +535,91 @@ public class Main {
 			}
 		});
 		mainPurchaseScene.add(previousPageButton);
-		
-		//세트 구성의 바뀌는 버튼
-		ingerdientsNextPageButton .setBounds(537, 360, 50, 80);
-		ingerdientsNextPageButton .setBorderPainted(false);
-		ingerdientsNextPageButton .setContentAreaFilled(false);
-		ingerdientsNextPageButton .setFocusPainted(false);
-		ingerdientsNextPageButton .setIcon(new ImageIcon("./otherimages/nextButton.png"));
-		ingerdientsNextPageButton .addActionListener(new ActionListener() {
+
+		// 세트 구성관련 코드들
+		ingerdientsPreviousPageButton.setBounds(3, 360, 50, 80);
+		ingerdientsPreviousPageButton.setBorderPainted(false);
+		ingerdientsPreviousPageButton.setContentAreaFilled(false);
+		ingerdientsPreviousPageButton.setFocusPainted(false);
+		ingerdientsPreviousPageButton.setIcon(new ImageIcon("./otherimages/previousButton.png"));
+		ingerdientsPreviousPageButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("디저트 페이지 출력");
+				if (ingerdientsPage > 0) {
+
+					ingerdientsPage--;
+					changeIngerdientsMenu();
+
+					if (ingerdientsPage == 0) {
+						ingerdientsDessertButton.setBackground(Color.gray);
+						ingerdientsDrinkButton.setBackground(Color.white);
+						System.out.println("디저트 페이지 출력");
+					} else if (ingerdientsPage == 1) {
+						ingerdientsDessertButton.setBackground(Color.white);
+						ingerdientsDrinkButton.setBackground(Color.gray);
+						System.out.println("드렁크 페이지 출력");
+					}
+				}
+			}
+		});
+		mainPurchaseScene.add(ingerdientsPreviousPageButton);
+
+		ingerdientsDessertButton.setBounds(90, 150, 100, 40);
+		ingerdientsDessertButton.setText("세트_디저트");
+		ingerdientsDessertButton.setFont(new Font("굴림", Font.BOLD, 10));
+		ingerdientsDessertButton.setBackground(Color.gray);
+		ingerdientsDessertButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ingerdientsDessertButton.setBackground(Color.gray);
+				ingerdientsDrinkButton.setBackground(Color.white);
+
+				ingerdientsPage = 0;
+				changeIngerdientsMenu();
+			}
+		});
+		mainPurchaseScene.add(ingerdientsDessertButton);
+
+		ingerdientsDrinkButton.setBounds(190, 150, 100, 40);
+		ingerdientsDrinkButton.setText("세트_드링크");
+		ingerdientsDrinkButton.setFont(new Font("굴림", Font.BOLD, 10));
+		ingerdientsDrinkButton.setBackground(Color.white);
+		ingerdientsDrinkButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ingerdientsDessertButton.setBackground(Color.white);
+				ingerdientsDrinkButton.setBackground(Color.gray);
+
+				ingerdientsPage = 1;
+				changeIngerdientsMenu();
+			}
+		});
+		mainPurchaseScene.add(ingerdientsDrinkButton);
+
+		ingerdientsNextPageButton.setBounds(537, 360, 50, 80);
+		ingerdientsNextPageButton.setBorderPainted(false);
+		ingerdientsNextPageButton.setContentAreaFilled(false);
+		ingerdientsNextPageButton.setFocusPainted(false);
+		ingerdientsNextPageButton.setIcon(new ImageIcon("./otherimages/nextButton.png"));
+		ingerdientsNextPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("드링크 페이지 출력");
-				/*if (menupage < 6) {
+				if (ingerdientsPage < 2) {
 
-					menupage++;
-					changeMenu();
-
-					if (menupage == 0 || menupage == 1) {
-						hamburgerSetButton.setBackground(Color.gray);
-						hamburgerButton.setBackground(Color.white);
-						drinkButton.setBackground(Color.white);
-						dessertButton.setBackground(Color.white);
-
-					} else if (menupage == 2 || menupage == 3) {
-						hamburgerSetButton.setBackground(Color.white);
-						hamburgerButton.setBackground(Color.gray);
-						drinkButton.setBackground(Color.white);
-						dessertButton.setBackground(Color.white);
-
-					} else if (menupage == 4 || menupage == 5) {
-						hamburgerSetButton.setBackground(Color.white);
-						hamburgerButton.setBackground(Color.white);
-						drinkButton.setBackground(Color.white);
-						dessertButton.setBackground(Color.gray);
-
-					} else if (menupage == 6) {
-						hamburgerSetButton.setBackground(Color.white);
-						hamburgerButton.setBackground(Color.white);
-						drinkButton.setBackground(Color.gray);
-						dessertButton.setBackground(Color.white);
-
+					ingerdientsPage++;
+					changeIngerdientsMenu();
+					
+					if (ingerdientsPage == 0) {
+						ingerdientsDessertButton.setBackground(Color.gray);
+						ingerdientsDrinkButton.setBackground(Color.white);
+						System.out.println("디저트 페이지 출력");
+					} else if (ingerdientsPage == 1) {
+						ingerdientsDessertButton.setBackground(Color.white);
+						ingerdientsDrinkButton.setBackground(Color.gray);
+						System.out.println("드렁크 페이지 출력");
 					}
-				}*/
+				}
 			}
 		});
 		mainPurchaseScene.add(ingerdientsNextPageButton);
-
-		ingerdientsPreviousPageButton .setBounds(3, 360, 50, 80);
-		ingerdientsPreviousPageButton .setBorderPainted(false);
-		ingerdientsPreviousPageButton .setContentAreaFilled(false);
-		ingerdientsPreviousPageButton .setFocusPainted(false);
-		ingerdientsPreviousPageButton .setIcon(new ImageIcon("./otherimages/previousButton.png"));
-		ingerdientsPreviousPageButton .addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("디저트 페이지 출력");
-				/*if (menupage > 0) {
-
-					menupage--;
-					changeMenu();
-
-					if (menupage == 0 || menupage == 1) {
-						hamburgerSetButton.setBackground(Color.gray);
-						hamburgerButton.setBackground(Color.white);
-						drinkButton.setBackground(Color.white);
-						dessertButton.setBackground(Color.white);
-
-					} else if (menupage == 2 || menupage == 3) {
-						hamburgerSetButton.setBackground(Color.white);
-						hamburgerButton.setBackground(Color.gray);
-						drinkButton.setBackground(Color.white);
-						dessertButton.setBackground(Color.white);
-
-					} else if (menupage == 4 || menupage == 5) {
-						hamburgerSetButton.setBackground(Color.white);
-						hamburgerButton.setBackground(Color.white);
-						drinkButton.setBackground(Color.white);
-						dessertButton.setBackground(Color.gray);
-
-					} else if (menupage == 6) {
-						hamburgerSetButton.setBackground(Color.white);
-						hamburgerButton.setBackground(Color.white);
-						drinkButton.setBackground(Color.gray);
-						dessertButton.setBackground(Color.white);
-					}
-				}*/
-			}
-		});
-		mainPurchaseScene.add(ingerdientsPreviousPageButton );
 
 		for (int i = 0; i < menuImages.length; i++) {
 			mainPurchaseScene.add(menuImages[i] = new JButton());
@@ -639,6 +649,40 @@ public class Main {
 			menuImages[i].setBorderPainted(false);
 			menuImages[i].setContentAreaFilled(false);
 			menuImages[i].setFocusPainted(false);
+		}
+		
+		// 세트 구성
+		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
+			mainPurchaseScene.add(ingerdientsMenuImages[i] = new JButton());
+
+			ingerdientsMenuImages[i].setHorizontalAlignment(SwingConstants.CENTER);
+
+			if (i < 4) {
+				ingerdientsMenuVerticalLength = 190;
+				ingerdientsMenuImages[i].setBounds(ingerdientsMenuHorizontalLength, ingerdientsMenuVerticalLength, ingerdientsMenuImageWidth,
+						ingerdientsMenuImageHeight);
+
+			} else if ((i >= 4) && (i < 8)) {
+				ingerdientsMenuVerticalLength = 330;
+				ingerdientsMenuImages[i].setBounds(ingerdientsMenuHorizontalLength, ingerdientsMenuVerticalLength, ingerdientsMenuImageWidth,
+						ingerdientsMenuImageHeight);
+
+			} else if ((i >= 8) && (i < 12)) {
+				ingerdientsMenuVerticalLength = 470;
+				ingerdientsMenuImages[i].setBounds(ingerdientsMenuHorizontalLength, ingerdientsMenuVerticalLength, ingerdientsMenuImageWidth,
+						ingerdientsMenuImageHeight);
+
+			}
+
+			ingerdientsMenuHorizontalLength = ingerdientsMenuHorizontalInterval + ingerdientsMenuHorizontalLength;
+
+			if ((i + 1) % 4 == 0) {
+				ingerdientsMenuHorizontalLength = 50;
+			}
+
+			ingerdientsMenuImages[i].setBorderPainted(false);
+			ingerdientsMenuImages[i].setContentAreaFilled(false);
+			ingerdientsMenuImages[i].setFocusPainted(false);
 		}
 
 		totalOrderDetails.setBounds(90, 570, 200, 100);
@@ -1413,45 +1457,58 @@ public class Main {
 	}
 
 	public void changeIngredientsScene() {
+		changeIngerdientsMenu();
+		
 		for (int j = 0; j < menuImages.length; j++) {
 			menuImages[j].setVisible(false);
 		}
+
 		hamburgerSetButton.setVisible(false);
 		hamburgerButton.setVisible(false);
 		drinkButton.setVisible(false);
 		dessertButton.setVisible(false);
 		nextPageButton.setVisible(false);
 		previousPageButton.setVisible(false);
-		
+
 		changeIngredientsScene.setVisible(true);
 		ingerdientsNextPageButton.setVisible(true);
-		ingerdientsPreviousPageButton .setVisible(true);
+		ingerdientsPreviousPageButton.setVisible(true);
+		ingerdientsDessertButton.setVisible(true);
+		ingerdientsDrinkButton.setVisible(true);
 	}
-	
-	public void changeIngerdientsMenu() {
-			// 햄버거 세트메뉴
-			/*if (menupage == 0) {
-				menuImages[0].setIcon(new ImageIcon("./hamburgerSetimages/더블x2세트.png"));
-				menuImages[1].setIcon(new ImageIcon("./hamburgerSetimages/와규에디션2세트.png"));
-				menuImages[2].setIcon(new ImageIcon("./hamburgerSetimages/AZ버거세트.png"));
-				menuImages[3].setIcon(new ImageIcon("./hamburgerSetimages/한우불고기콤보.png"));
-				menuImages[4].setIcon(new ImageIcon("./hamburgerSetimages/한우불고기세트.png"));
-				menuImages[5].setIcon(new ImageIcon("./hamburgerSetimages/모짜렐라인더버거베이컨세트.png"));
-				menuImages[6].setIcon(new ImageIcon("./hamburgerSetimages/원조빅불세트.png"));
-				menuImages[7].setIcon(new ImageIcon("./hamburgerSetimages/핫크리스피세트.png"));
-				menuImages[8].setIcon(new ImageIcon("./hamburgerSetimages/불고기버거세트.png"));
-			}
 
-			else if (menupage == 1) {
-				menuImages[0].setIcon(new ImageIcon("./hamburgerSetimages/리아미라클버거세트.png"));
-				menuImages[1].setIcon(new ImageIcon("./hamburgerSetimages/새우버거세트.png"));
-				menuImages[2].setIcon(new ImageIcon("./hamburgerSetimages/치킨버거세트.png"));
-				menuImages[3].setIcon(new ImageIcon("./hamburgerSetimages/T-Rax버거세트.png"));
-				menuImages[4].setIcon(new ImageIcon("./hamburgerSetimages/클래식치즈버거세트.png"));
-				menuImages[5].setIcon(new ImageIcon("./hamburgerSetimages/데리버거세트.png"));
-				menuImages[6].setIcon(new ImageIcon());
-				menuImages[7].setIcon(new ImageIcon());
-				menuImages[8].setIcon(new ImageIcon());
-			}*/
+	public void changeIngerdientsMenu() {
+
+		if (ingerdientsPage == 0) {
+			ingerdientsMenuImages[0].setIcon(new ImageIcon("./ingerdientsDessertImages/포테이토(세트구성).png"));
+			ingerdientsMenuImages[1].setIcon(new ImageIcon("./ingerdientsDessertImages/콘셀러드(세트구성).png"));
+			ingerdientsMenuImages[2].setIcon(new ImageIcon("./ingerdientsDessertImages/롱치즈스틱(세트구성).png"));
+			ingerdientsMenuImages[3].setIcon(new ImageIcon("./ingerdientsDessertImages/양념감자(세트구성).png"));
+			ingerdientsMenuImages[4].setIcon(new ImageIcon("./ingerdientsDessertImages/오징어링(세트구성).png"));
+			ingerdientsMenuImages[5].setIcon(new ImageIcon("./ingerdientsDessertImages/치즈스틱(세트구성).png"));
+			ingerdientsMenuImages[6].setIcon(new ImageIcon("./ingerdientsDessertImages/지파이 고소한맛(세트구성).png"));
+			ingerdientsMenuImages[7].setIcon(new ImageIcon("./ingerdientsDessertImages/지파이 하바네로(세트구성).png"));
+			ingerdientsMenuImages[8].setIcon(new ImageIcon("./ingerdientsDessertImages/쉑쉑치킨(세트구성).png"));
+			ingerdientsMenuImages[9].setIcon(new ImageIcon("./ingerdientsDessertImages/치즈인더에그(세트구성).png"));
+			ingerdientsMenuImages[10].setIcon(new ImageIcon());
+			ingerdientsMenuImages[11].setIcon(new ImageIcon());
+			ingerdientsMenuImages[12].setIcon(new ImageIcon());
+		}
+
+		else if (ingerdientsPage == 1) {
+			ingerdientsMenuImages[0].setIcon(new ImageIcon("./ingerdientsDrinkImages/콜라(세트구성).png"));
+			ingerdientsMenuImages[1].setIcon(new ImageIcon("./ingerdientsDrinkImages/사이다(세트구성).png"));
+			ingerdientsMenuImages[2].setIcon(new ImageIcon("./ingerdientsDrinkImages/아메리카노(세트구성).png"));
+			ingerdientsMenuImages[3].setIcon(new ImageIcon("./ingerdientsDrinkImages/아이스아메리카노(세트구성).png"));
+			ingerdientsMenuImages[4].setIcon(new ImageIcon("./ingerdientsDrinkImages/카페라떼(세트구성).png"));
+			ingerdientsMenuImages[5].setIcon(new ImageIcon("./ingerdientsDrinkImages/아이스카페라떼(세트구성).png"));
+			ingerdientsMenuImages[6].setIcon(new ImageIcon());
+			ingerdientsMenuImages[7].setIcon(new ImageIcon());
+			ingerdientsMenuImages[8].setIcon(new ImageIcon());
+			ingerdientsMenuImages[9].setIcon(new ImageIcon());
+			ingerdientsMenuImages[10].setIcon(new ImageIcon());
+			ingerdientsMenuImages[11].setIcon(new ImageIcon());
+			ingerdientsMenuImages[12].setIcon(new ImageIcon());
+		}
 	}
 }
