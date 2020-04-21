@@ -62,16 +62,16 @@ public class Main {
 	JLabel totalOrderDetails = new JLabel();
 	JLabel textBackGround = new JLabel();
 	JLabel chooseEatingPlaceText = new JLabel();
-	//JTextArea textArea = new JTextArea();
-	
+	// JTextArea textArea = new JTextArea();
+
 	JLabel numberChangeBackGround = new JLabel();
 	JLabel howManyAddText = new JLabel();
-	JLabel howManyText = new JLabel();
+	static JLabel howManyText = new JLabel();
 	JButton oneThing = new JButton();
 	JButton fiveThing = new JButton();
 	JButton TenThing = new JButton();
-	JButton checkButton = new JButton();//확인버튼
-	
+	JButton checkButton = new JButton();// 확인버튼
+
 	// JTextArea textArea = new JTextArea();
 	static ArrayList<JLabel> OrderStatusText = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class Main {
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); // 수량변경
 	JLabel OrderStatusBackGround = new JLabel();
 
-	static ArrayList<String> orderProductName = new ArrayList<String>();	//주문한 제품 이름을 받는 배열
+	static ArrayList<String> orderProductName = new ArrayList<String>(); // 주문한 제품 이름을 받는 배열
 
 	int menupage = 0;
 	int menuHorizontalLength = 50;
@@ -89,15 +89,75 @@ public class Main {
 	int menuHorizontalInterval = 170;
 
 	static int textNumber = 0;
-	static int totalAmount = 0; //주문 총 양
-	static int totalPrice = 0; //주문 총 금액
+	static int totalAmount = 0; // 주문 총 양
+	static int totalPrice = 0; // 주문 총 금액
 	// int amount = 0;
+	int productNum = 0; //제품의 수량을 변경할때 어떤 제품인지 판단하기 위한 변수
 
 	String eatingPlace = "";// 매장에서 먹을 건지 포장 할 건지
 
 	int OrderStatusVerticalLength = -40;
 
 	changefirstScene changefirstScene = new changefirstScene(firstScene);
+	
+	// 세트메뉴
+	Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
+	Menu doubleX2Set = new Menu("더블X2 세트", 7500, 1);
+	Menu AZBurgerSet = new Menu("AZ버거 세트", 8300, 1);
+	Menu hanwooBulgogiCombo = new Menu("한우불고기 콤보", 8000, 1);
+	Menu hanwooBulgogiBurgerSet = new Menu("한우불고기 세트", 8700, 1);
+	Menu mozzarellaInTheBurgerSet = new Menu("모짜렐라 인 더 버거 세트", 7700, 1);
+	Menu bigBulgogiSet = new Menu("원조빅불 세트", 7600, 1);
+	Menu hotCrispyBurgerSet = new Menu("핫크리스피버거 세트", 6700, 1);
+	Menu bulgogiBurgerSet = new Menu("불고기버거 세트", 5900, 1);
+	Menu riaMiracleBurgerSet = new Menu("리아미라클버거 세트", 7400, 1);
+	Menu shrimpBurgerSet = new Menu("새우버거 세트", 5900, 1);
+	Menu chickenBurgerSet = new Menu("치킨버거 세트", 5100, 1);
+	Menu T_RexBurgerSet = new Menu("T-Rex 버거 세트", 5900, 1);
+	Menu classicCheeseBurgerSet = new Menu("클래식치즈버거 세트", 6400, 1);
+	Menu teriBurgerSet = new Menu("데리버거 세트", 4900, 1);
+
+	// 햄버거 메뉴
+	Menu wagyuEdition2 = new Menu("와규에디션2", 5800, 1);
+	Menu doubleX2 = new Menu("더블X2", 5500, 1);
+	Menu mozzarellaInTheBurger = new Menu("모짤렐라 인 더 버거", 6000, 1);
+	Menu AZBurger = new Menu("AZ버거", 6600, 1);
+	Menu bigBulgogi = new Menu("원조빅불", 5800, 1);
+	Menu hotCrispyBurger = new Menu("핫크리스피버거", 4900, 1);
+	Menu hanwooBulgogi = new Menu("한우 불고기 버거", 7000, 1);
+	Menu bulgogiBurger = new Menu("불고기 버거", 3900, 1);
+	Menu riaMiracleBurger = new Menu("리아미라클버거", 5600, 1);
+	Menu shrimpBurger = new Menu("새우버거", 3900, 1);
+	Menu chickenBurger = new Menu("치킨버거", 2900, 1);
+	Menu T_RexBurger = new Menu("T-Rex", 3700, 1);
+	Menu classicCheeseBurger = new Menu("클래식 치즈버거", 4400, 1);
+	Menu teriBurger = new Menu("데리버거", 2500, 1);
+
+	// 디저트
+	Menu cheeseInTheEgg = new Menu("치즈인더에그", 3000, 1);
+	Menu jipieHabanero_L = new Menu("지파이 하바네로", 4300, 1);
+	Menu jipie_S = new Menu("지파이 고소한맛", 3400, 1);
+	Menu chickenNugget = new Menu("치킨너겟", 1200, 1);
+	Menu longCheeseStick = new Menu("롱 치즈스틱", 1800, 1);
+	Menu coneSalad = new Menu("콘샐러드", 1700, 1);
+	Menu sundayIceCream = new Menu("선데이아이스크림", 1500, 1);
+	Menu shakeShakeChicken = new Menu("쉑쉑치킨", 2500, 1);
+	Menu seasoningPotato = new Menu("양념감자", 2000, 1);
+	Menu squidRing = new Menu("오징어링", 2200, 1);
+	Menu naturalCheeseStick = new Menu("치즈스틱", 2000, 1);
+	Menu potato = new Menu("포테이토", 1500, 1);
+	Menu chocoCookieTornado = new Menu("토네이도(초코쿠키)", 2300, 1);
+	Menu greenTeaTornado = new Menu("토네이도(녹차)", 2300, 1);
+	Menu strawberryTornado = new Menu("토네이도(스트로베리)", 2400, 1);
+	Menu softCone = new Menu("소프트콘", 700, 1);
+
+	// 음료수
+	Menu cider = new Menu("사이다", 1700, 1);
+	Menu cola = new Menu("콜라", 1700, 1);
+	Menu americano = new Menu("아메리카노", 2000, 1);
+	Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
+	Menu caffeLatte = new Menu("카페라떼", 2000, 1);
+	Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
 
 	public Main() {
 
@@ -158,77 +218,18 @@ public class Main {
 		 * Menu("아이스카페라떼", 2000, 1);
 		 */
 
-		// 세트메뉴
-		Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
-		Menu doubleX2Set = new Menu("더블X2 세트", 7500, 1);
-		Menu AZBurgerSet = new Menu("AZ버거 세트", 8300, 1);
-		Menu hanwooBulgogiCombo = new Menu("한우불고기 콤보", 8000, 1);
-		Menu hanwooBulgogiBurgerSet = new Menu("한우불고기 세트", 8700, 1);
-		Menu mozzarellaInTheBurgerSet = new Menu("모짜렐라 인 더 버거 세트", 7700, 1);
-		Menu bigBulgogiSet = new Menu("원조빅불 세트", 7600, 1);
-		Menu hotCrispyBurgerSet = new Menu("핫크리스피버거 세트", 6700, 1);
-		Menu bulgogiBurgerSet = new Menu("불고기버거 세트", 5900, 1);
-		Menu riaMiracleBurgerSet = new Menu("리아미라클버거 세트", 7400, 1);
-		Menu shrimpBurgerSet = new Menu("새우버거 세트", 5900, 1);
-		Menu chickenBurgerSet = new Menu("치킨버거 세트", 5100, 1);
-		Menu T_RexBurgerSet = new Menu("T-Rex 버거 세트", 5900, 1);
-		Menu classicCheeseBurgerSet = new Menu("클래식치즈버거 세트", 6400, 1);
-		Menu teriBurgerSet = new Menu("데리버거 세트", 4900, 1);
-
-		// 햄버거 메뉴
-		Menu wagyuEdition2 = new Menu("와규에디션2", 5800, 1);
-		Menu doubleX2 = new Menu("더블X2", 5500, 1);
-		Menu mozzarellaInTheBurger = new Menu("모짤렐라 인 더 버거", 6000, 1);
-		Menu AZBurger = new Menu("AZ버거", 6600, 1);
-		Menu bigBulgogi = new Menu("원조빅불", 5800, 1);
-		Menu hotCrispyBurger = new Menu("핫크리스피버거", 4900, 1);
-		Menu hanwooBulgogi = new Menu("한우 불고기 버거", 7000, 1);
-		Menu bulgogiBurger = new Menu("불고기 버거", 3900, 1);
-		Menu riaMiracleBurger = new Menu("리아미라클버거", 5600, 1);
-		Menu shrimpBurger = new Menu("새우버거", 3900, 1);
-		Menu chickenBurger = new Menu("치킨버거", 2900, 1);
-		Menu T_RexBurger = new Menu("T-Rex", 3700, 1);
-		Menu classicCheeseBurger = new Menu("클래식 치즈버거", 4400, 1);
-		Menu teriBurger = new Menu("데리버거", 2500, 1);
-
-		// 디저트
-		Menu cheeseInTheEgg = new Menu("치즈인더에그", 3000, 1);
-		Menu jipieHabanero_L = new Menu("지파이 하바네로", 4300, 1);
-		Menu jipie_S = new Menu("지파이 고소한맛", 3400, 1);
-		Menu chickenNugget = new Menu("치킨너겟", 1200, 1);
-		Menu longCheeseStick = new Menu("롱 치즈스틱", 1800, 1);
-		Menu coneSalad = new Menu("콘샐러드", 1700, 1);
-		Menu sundayIceCream = new Menu("선데이아이스크림", 1500, 1);
-		Menu shakeShakeChicken = new Menu("쉑쉑치킨", 2500, 1);
-		Menu seasoningPotato = new Menu("양념감자", 2000, 1);
-		Menu squidRing = new Menu("오징어링", 2200, 1);
-		Menu naturalCheeseStick = new Menu("치즈스틱", 2000, 1);
-		Menu potato = new Menu("포테이토", 1500, 1);
-		Menu chocoCookieTornado = new Menu("토네이도(초코쿠키)", 2300, 1);
-		Menu greenTeaTornado = new Menu("토네이도(녹차)", 2300, 1);
-		Menu strawberryTornado = new Menu("토네이도(스트로베리)", 2400, 1);
-		Menu softCone = new Menu("소프트콘", 700, 1);
-
-		// 음료수
-		Menu cider = new Menu("사이다", 1700, 1);
-		Menu cola = new Menu("콜라", 1700, 1);
-		Menu americano = new Menu("아메리카노", 2000, 1);
-		Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
-		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
-		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
-
 		ChangeSetMenu changeSetMenu = new ChangeSetMenu();
-		
+
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
 		packagingDeliveringScene.setLayout(null);
 		packagingDeliveringScene.setVisible(false);
-		
+
 		numberChangeBackGround.setBounds(50, 300, 490, 190);
 		numberChangeBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(numberChangeBackGround);
 		numberChangeBackGround.setVisible(false);
-		
+
 		mainPurchaseScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
@@ -242,14 +243,13 @@ public class Main {
 		pressKeyText.setFont(new Font("굴림", Font.BOLD, 30));
 		pressKeyText.setForeground(Color.white);
 		firstScene.add(pressKeyText);
-		
-		//매장에서 먹을 것인지 포장인지 선택하는 방법
+
+		// 매장에서 먹을 것인지 포장인지 선택하는 방법
 		chooseEatingPlaceText.setText("어디서 드시겠습니까?");
 		chooseEatingPlaceText.setBounds(0, 150, 600, 100);
 		chooseEatingPlaceText.setHorizontalAlignment(SwingConstants.CENTER);
 		chooseEatingPlaceText.setFont(new Font("굴림", Font.BOLD, 30));
 		packagingDeliveringScene.add(chooseEatingPlaceText);
-		
 
 		packagingButton.setBounds(320, 330, 150, 150);
 		packagingButton.setIcon(new ImageIcon("./otherimages/delivery.jpg"));
@@ -324,7 +324,7 @@ public class Main {
 				hamburgerButton.setBackground(Color.white);
 				drinkButton.setBackground(Color.white);
 				dessertButton.setBackground(Color.gray);
-				
+
 				menupage = 4;
 				changeMenu();
 			}
@@ -341,7 +341,7 @@ public class Main {
 				hamburgerButton.setBackground(Color.white);
 				drinkButton.setBackground(Color.gray);
 				dessertButton.setBackground(Color.white);
-				
+
 				menupage = 6;
 				changeMenu();
 			}
@@ -375,7 +375,7 @@ public class Main {
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
-				
+
 				System.out.println(OrderStatusText.size());
 				System.out.println(orderProductName.toString());
 			}
@@ -580,9 +580,6 @@ public class Main {
 							if (menupage == 0) {
 								if (i == 0) {
 									doubleX2Set.buy();
-									changeSetMenu.changeSetMenu("더블X2 세트", 1, 7500, "사이다", "롱치즈스틱");
-									changeSetMenu.changeSetMenu("더블X2 세트", 1, 7500, "사이다", "롱치즈스틱");
-									
 								} else if (i == 1) {
 									wagyuEdition2Set.buy();
 								} else if (i == 2) {
@@ -703,314 +700,315 @@ public class Main {
 
 					cancelButton.get(textNumber).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
 					quantityChangeButton.get(textNumber).setIcon(new ImageIcon("./otherimages/plus.jpg"));
-					
+
 					OrderStatusBackGround.add(OrderStatusText.get(textNumber));
 					OrderStatusBackGround.add(cancelButton.get(textNumber));
 					OrderStatusBackGround.add(quantityChangeButton.get(textNumber));
-					
+
 					OrderStatusVerticalLength = -40;
-					if(textNumber != 0) {
-						for(int i = 0; i < textNumber; i++) {
+					if (textNumber != 0) {
+						for (int i = 0; i < textNumber; i++) {
 							OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
 						}
 					}
 					System.out.println("textNumber" + textNumber);
 					System.out.println(OrderStatusVerticalLength);
-					
+
 					OrderStatusText.get(textNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
 					cancelButton.get(textNumber).setBounds(400, OrderStatusVerticalLength + 43, 20, 20);
 					quantityChangeButton.get(textNumber).setBounds(350, OrderStatusVerticalLength + 43, 20, 20);
-					
+
 					textNumber++;
 
 					for (int i = 0; i < OrderStatusText.size(); i++) {
 						cancelButton.get(i).addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 
-									for (int i = 0; i < OrderStatusText.size(); i++) {
-										if (e.getSource() == cancelButton.get(i)) {
-											OrderStatusText.get(i).setLocation(1000, 1000);
-											cancelButton.get(i).setLocation(1000, 1000);
-											quantityChangeButton.get(i).setLocation(1000, 1000);
-											
-											OrderStatusText.remove(i);
-											cancelButton.remove(i);
-											quantityChangeButton.remove(i);
-											
-											textNumber--;
-											
-											if(OrderStatusText.size() == 0) {
-												
-											}else {
-												for(int j = 0; j < OrderStatusText.size(); j++) {
-													if(i + j < OrderStatusText.size()) {
-														OrderStatusText.get(i + j).setLocation(OrderStatusText.get(i + j).getX(), OrderStatusText.get(i + j).getY() - 20);
-														cancelButton.get(i + j).setLocation(cancelButton.get(i + j).getX(), cancelButton.get(i + j).getY() - 20);
-														quantityChangeButton.get(i + j).setLocation(quantityChangeButton.get(i + j).getX(), quantityChangeButton.get(i + j).getY() - 20);		
-													}
+								for (int i = 0; i < OrderStatusText.size(); i++) {
+									if (e.getSource() == cancelButton.get(i)) {
+										OrderStatusText.get(i).setLocation(1000, 1000);
+										cancelButton.get(i).setLocation(1000, 1000);
+										quantityChangeButton.get(i).setLocation(1000, 1000);
+
+										OrderStatusText.remove(i);
+										cancelButton.remove(i);
+										quantityChangeButton.remove(i);
+
+										textNumber--;
+
+										if (OrderStatusText.size() == 0) {
+
+										} else {
+											for (int j = 0; j < OrderStatusText.size(); j++) {
+												if (i + j < OrderStatusText.size()) {
+													OrderStatusText.get(i + j).setLocation(
+															OrderStatusText.get(i + j).getX(),
+															OrderStatusText.get(i + j).getY() - 20);
+													cancelButton.get(i + j).setLocation(cancelButton.get(i + j).getX(),
+															cancelButton.get(i + j).getY() - 20);
+													quantityChangeButton.get(i + j).setLocation(
+															quantityChangeButton.get(i + j).getX(),
+															quantityChangeButton.get(i + j).getY() - 20);
 												}
 											}
+										}
 
 										System.out.println("삭제했습니다.");
 										System.out.print("판매할 ");
 
 										// 햄버거 세트 삭제 기능
-										
-											if (orderProductName.get(i).equals(doubleX2Set.productName)) {
-												doubleX2Set.cancel();
-												break;
-												
-											}else if (orderProductName.get(i).equals(wagyuEdition2Set.productName)) {
-												wagyuEdition2Set.cancel();
-												break;
-												
-											}else if (orderProductName.get(i).equals(AZBurgerSet.productName)) {
-												AZBurgerSet.cancel();
-												break;
-											}
 
-											else if (orderProductName.get(i).equals(hanwooBulgogiCombo.productName)) {
-												hanwooBulgogiCombo.cancel();
-												break;
-											}
+										if (orderProductName.get(i).equals(doubleX2Set.productName)) {
+											doubleX2Set.cancel();
+											break;
 
-											else if (orderProductName.get(i)
-													.equals(hanwooBulgogiBurgerSet.productName)) {
-												hanwooBulgogiBurgerSet.cancel();
-												break;
-											}
+										} else if (orderProductName.get(i).equals(wagyuEdition2Set.productName)) {
+											wagyuEdition2Set.cancel();
+											break;
 
-											else if (orderProductName.get(i)
-													.equals(mozzarellaInTheBurgerSet.productName)) {
-												mozzarellaInTheBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(bigBulgogiSet.productName)) {
-												bigBulgogiSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(hotCrispyBurgerSet.productName)) {
-												hotCrispyBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(bulgogiBurgerSet.productName)) {
-												bulgogiBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(riaMiracleBurgerSet.productName)) {
-												riaMiracleBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(shrimpBurgerSet.productName)) {
-												shrimpBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(chickenBurgerSet.productName)) {
-												chickenBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(T_RexBurgerSet.productName)) {
-												T_RexBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i)
-													.equals(classicCheeseBurgerSet.productName)) {
-												classicCheeseBurgerSet.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(teriBurgerSet.productName)) {
-												teriBurgerSet.cancel();
-												break;
-											}
-
-											// 햄버거 삭제 기능
-											else if (orderProductName.get(i).equals(wagyuEdition2.productName)) {
-												wagyuEdition2.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(doubleX2.productName)) {
-												doubleX2.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i)
-													.equals(mozzarellaInTheBurger.productName)) {
-												mozzarellaInTheBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(AZBurger.productName)) {
-												AZBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(bigBulgogi.productName)) {
-												bigBulgogi.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(hotCrispyBurger.productName)) {
-												hotCrispyBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(hanwooBulgogi.productName)) {
-												hanwooBulgogi.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(riaMiracleBurger.productName)) {
-												riaMiracleBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(shrimpBurger.productName)) {
-												shrimpBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(chickenBurger.productName)) {
-												chickenBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(T_RexBurger.productName)) {
-												T_RexBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(classicCheeseBurger.productName)) {
-												classicCheeseBurger.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(teriBurger.productName)) {
-												teriBurger.cancel();
-												break;
-											}
-
-											// 디저트 삭제 기능
-											else if (orderProductName.get(i).equals(cheeseInTheEgg.productName)) {
-												cheeseInTheEgg.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(jipieHabanero_L.productName)) {
-												jipieHabanero_L.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(jipie_S.productName)) {
-												jipie_S.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(chickenNugget.productName)) {
-												chickenNugget.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(longCheeseStick.productName)) {
-												longCheeseStick.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(coneSalad.productName)) {
-												coneSalad.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(sundayIceCream.productName)) {
-												sundayIceCream.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(shakeShakeChicken.productName)) {
-												shakeShakeChicken.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(seasoningPotato.productName)) {
-												seasoningPotato.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(squidRing.productName)) {
-												squidRing.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(naturalCheeseStick.productName)) {
-												naturalCheeseStick.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(potato.productName)) {
-												potato.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(chocoCookieTornado.productName)) {
-												chocoCookieTornado.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(greenTeaTornado.productName)) {
-												greenTeaTornado.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(strawberryTornado.productName)) {
-												strawberryTornado.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(softCone.productName)) {
-												softCone.cancel();
-												break;
-											}
-
-											// 드링크 삭제 기능
-											else if (orderProductName.get(i).equals(iceAmericano.productName)) {
-												iceAmericano.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(cider.productName)) {
-												cider.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(cola.productName)) {
-												cola.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(americano.productName)) {
-												americano.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(caffeLatte.productName)) {
-												caffeLatte.cancel();
-												break;
-											}
-
-											else if (orderProductName.get(i).equals(iceCaffeLatte.productName)) {
-												iceCaffeLatte.cancel();
-												break;
-											}
+										} else if (orderProductName.get(i).equals(AZBurgerSet.productName)) {
+											AZBurgerSet.cancel();
+											break;
 										}
+
+										else if (orderProductName.get(i).equals(hanwooBulgogiCombo.productName)) {
+											hanwooBulgogiCombo.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(hanwooBulgogiBurgerSet.productName)) {
+											hanwooBulgogiBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(mozzarellaInTheBurgerSet.productName)) {
+											mozzarellaInTheBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(bigBulgogiSet.productName)) {
+											bigBulgogiSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(hotCrispyBurgerSet.productName)) {
+											hotCrispyBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(bulgogiBurgerSet.productName)) {
+											bulgogiBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(riaMiracleBurgerSet.productName)) {
+											riaMiracleBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(shrimpBurgerSet.productName)) {
+											shrimpBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(chickenBurgerSet.productName)) {
+											chickenBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(T_RexBurgerSet.productName)) {
+											T_RexBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(classicCheeseBurgerSet.productName)) {
+											classicCheeseBurgerSet.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(teriBurgerSet.productName)) {
+											teriBurgerSet.cancel();
+											break;
+										}
+
+										// 햄버거 삭제 기능
+										else if (orderProductName.get(i).equals(wagyuEdition2.productName)) {
+											wagyuEdition2.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(doubleX2.productName)) {
+											doubleX2.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(mozzarellaInTheBurger.productName)) {
+											mozzarellaInTheBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(AZBurger.productName)) {
+											AZBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(bigBulgogi.productName)) {
+											bigBulgogi.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(hotCrispyBurger.productName)) {
+											hotCrispyBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(hanwooBulgogi.productName)) {
+											hanwooBulgogi.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(riaMiracleBurger.productName)) {
+											riaMiracleBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(shrimpBurger.productName)) {
+											shrimpBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(chickenBurger.productName)) {
+											chickenBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(T_RexBurger.productName)) {
+											T_RexBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(classicCheeseBurger.productName)) {
+											classicCheeseBurger.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(teriBurger.productName)) {
+											teriBurger.cancel();
+											break;
+										}
+
+										// 디저트 삭제 기능
+										else if (orderProductName.get(i).equals(cheeseInTheEgg.productName)) {
+											cheeseInTheEgg.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(jipieHabanero_L.productName)) {
+											jipieHabanero_L.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(jipie_S.productName)) {
+											jipie_S.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(chickenNugget.productName)) {
+											chickenNugget.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(longCheeseStick.productName)) {
+											longCheeseStick.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(coneSalad.productName)) {
+											coneSalad.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(sundayIceCream.productName)) {
+											sundayIceCream.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(shakeShakeChicken.productName)) {
+											shakeShakeChicken.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(seasoningPotato.productName)) {
+											seasoningPotato.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(squidRing.productName)) {
+											squidRing.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(naturalCheeseStick.productName)) {
+											naturalCheeseStick.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(potato.productName)) {
+											potato.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(chocoCookieTornado.productName)) {
+											chocoCookieTornado.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(greenTeaTornado.productName)) {
+											greenTeaTornado.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(strawberryTornado.productName)) {
+											strawberryTornado.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(softCone.productName)) {
+											softCone.cancel();
+											break;
+										}
+
+										// 드링크 삭제 기능
+										else if (orderProductName.get(i).equals(iceAmericano.productName)) {
+											iceAmericano.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(cider.productName)) {
+											cider.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(cola.productName)) {
+											cola.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(americano.productName)) {
+											americano.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(caffeLatte.productName)) {
+											caffeLatte.cancel();
+											break;
+										}
+
+										else if (orderProductName.get(i).equals(iceCaffeLatte.productName)) {
+											iceCaffeLatte.cancel();
+											break;
+										}
+									}
 								}
 							}
 						});
@@ -1020,6 +1018,7 @@ public class Main {
 								for (int i = 0; i < OrderStatusText.size(); i++) {
 									if (e.getSource() == quantityChangeButton.get(i)) {
 										numberChangeBackGround.setVisible(true);
+										productNum = i;
 									}
 								}
 							}
@@ -1032,60 +1031,60 @@ public class Main {
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(OrderStatusBackGround);
-		
+
 		howManyAddText.setBounds(140, -20, 300, 100);
 		howManyAddText.setText("몇개 추가하시겠습니까?");
 		howManyAddText.setFont(new Font("굴림", Font.BOLD, 20));
 		numberChangeBackGround.add(howManyAddText);
-		
+
 		howManyText.setBounds(210, 80, 300, 100);
 		howManyText.setText("현재 : 1 개");
 		howManyText.setFont(new Font("굴림", Font.BOLD, 15));
 		numberChangeBackGround.add(howManyText);
-		
-			oneThing.setText("1개");
-			oneThing.setFont(new Font("굴림", Font.BOLD, 20));
-			oneThing.setBounds(70, 60, 100, 50);
-			oneThing.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-				}
-			});
-			numberChangeBackGround.add(oneThing);
-			
-			fiveThing.setText("5개");
-			fiveThing.setFont(new Font("굴림", Font.BOLD, 20));
-			fiveThing.setBounds(200, 60, 100, 50);
-			fiveThing.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-				}
-			});
-			numberChangeBackGround.add(fiveThing);
-			
-			TenThing.setText("10개");
-			TenThing.setFont(new Font("굴림", Font.BOLD, 20));
-			TenThing.setBounds(330, 60, 100, 50);
-			TenThing.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-				}
-			});
-			numberChangeBackGround.add(TenThing);
-			
+
+		oneThing.setText("1개");
+		oneThing.setFont(new Font("굴림", Font.BOLD, 20));
+		oneThing.setBounds(70, 60, 100, 50);
+		numberChangeBackGround.add(oneThing);
+
+		fiveThing.setText("5개");
+		fiveThing.setFont(new Font("굴림", Font.BOLD, 20));
+		fiveThing.setBounds(200, 60, 100, 50);
+		numberChangeBackGround.add(fiveThing);
+
+		TenThing.setText("10개");
+		TenThing.setFont(new Font("굴림", Font.BOLD, 20));
+		TenThing.setBounds(330, 60, 100, 50);
+		numberChangeBackGround.add(TenThing);
+
 		checkButton.setText("확인");
 		checkButton.setFont(new Font("굴림", Font.BOLD, 20));
 		checkButton.setBounds(200, 150, 100, 30);
+		numberChangeBackGround.add(checkButton);
+
+		oneThing.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addProducts(1);
+			}
+		});
+		fiveThing.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addProducts(5);
+			}
+		});
+		TenThing.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addProducts(10);
+			}
+		});
 		checkButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				numberChangeBackGround.setVisible(false);
 			}
 		});
-		numberChangeBackGround.add(checkButton);
-			
+		
 		changeMenu();
 		changefirstScene.start();
-
 	}
 
 	public void changeMenu() {
@@ -1175,6 +1174,257 @@ public class Main {
 			menuImages[6].setIcon(new ImageIcon());
 			menuImages[7].setIcon(new ImageIcon());
 			menuImages[8].setIcon(new ImageIcon());
+		}
+	}
+	
+	public void addProducts(int addNum) {
+
+		if (orderProductName.get(productNum).equals(doubleX2Set.productName)) {
+			doubleX2Set.addNumOfProduct(addNum, productNum);
+
+		}
+		else if (orderProductName.get(productNum).equals(wagyuEdition2Set.productName)) {
+			wagyuEdition2Set.addNumOfProduct(addNum, productNum);
+
+		}
+		else if (orderProductName.get(productNum).equals(AZBurgerSet.productName)) {
+			AZBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+		else if (orderProductName.get(productNum).equals(hanwooBulgogiCombo.productName)) {
+			hanwooBulgogiCombo.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(hanwooBulgogiBurgerSet.productName)) {
+			hanwooBulgogiBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(mozzarellaInTheBurgerSet.productName)) {
+			mozzarellaInTheBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(bigBulgogiSet.productName)) {
+			bigBulgogiSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(hotCrispyBurgerSet.productName)) {
+			hotCrispyBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(bulgogiBurgerSet.productName)) {
+			bulgogiBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(riaMiracleBurgerSet.productName)) {
+			riaMiracleBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(shrimpBurgerSet.productName)) {
+			shrimpBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(chickenBurgerSet.productName)) {
+			chickenBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(T_RexBurgerSet.productName)) {
+			T_RexBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(classicCheeseBurgerSet.productName)) {
+			classicCheeseBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(teriBurgerSet.productName)) {
+			teriBurgerSet.addNumOfProduct(addNum, productNum);
+
+		}
+
+		// 햄버거 삭제 기능
+		else if (orderProductName.get(productNum).equals(wagyuEdition2.productName)) {
+			wagyuEdition2.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(doubleX2.productName)) {
+			doubleX2.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(mozzarellaInTheBurger.productName)) {
+			mozzarellaInTheBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(AZBurger.productName)) {
+			AZBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(bigBulgogi.productName)) {
+			bigBulgogi.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(hotCrispyBurger.productName)) {
+			hotCrispyBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(hanwooBulgogi.productName)) {
+			hanwooBulgogi.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(riaMiracleBurger.productName)) {
+			riaMiracleBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(shrimpBurger.productName)) {
+			shrimpBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(chickenBurger.productName)) {
+			chickenBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(T_RexBurger.productName)) {
+			T_RexBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(classicCheeseBurger.productName)) {
+			classicCheeseBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(teriBurger.productName)) {
+			teriBurger.addNumOfProduct(addNum, productNum);
+
+		}
+
+		// 디저트 삭제 기능
+		else if (orderProductName.get(productNum).equals(cheeseInTheEgg.productName)) {
+			cheeseInTheEgg.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(jipieHabanero_L.productName)) {
+			jipieHabanero_L.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(jipie_S.productName)) {
+			jipie_S.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(chickenNugget.productName)) {
+			chickenNugget.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(longCheeseStick.productName)) {
+			longCheeseStick.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(coneSalad.productName)) {
+			coneSalad.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(sundayIceCream.productName)) {
+			sundayIceCream.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(shakeShakeChicken.productName)) {
+			shakeShakeChicken.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(seasoningPotato.productName)) {
+			seasoningPotato.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(squidRing.productName)) {
+			squidRing.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(naturalCheeseStick.productName)) {
+			naturalCheeseStick.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(potato.productName)) {
+			potato.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(chocoCookieTornado.productName)) {
+			chocoCookieTornado.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(greenTeaTornado.productName)) {
+			greenTeaTornado.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(strawberryTornado.productName)) {
+			strawberryTornado.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(softCone.productName)) {
+			softCone.addNumOfProduct(addNum, productNum);
+
+		}
+
+		// 드링크 삭제 기능
+		else if (orderProductName.get(productNum).equals(iceAmericano.productName)) {
+			iceAmericano.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(cider.productName)) {
+			cider.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(cola.productName)) {
+			cola.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(americano.productName)) {
+			americano.addNumOfProduct(addNum, productNum);
+
+		}
+
+		else if (orderProductName.get(productNum).equals(caffeLatte.productName)) {
+			caffeLatte.addNumOfProduct(addNum, productNum);
+		}
+
+		else if (orderProductName.get(productNum).equals(iceCaffeLatte.productName)) {
+			iceCaffeLatte.addNumOfProduct(addNum, productNum);
 		}
 	}
 }

@@ -40,4 +40,19 @@ public class Menu {
 	//}
 	}
 	
+	void addNumOfProduct(int num, int textNumber) {
+		System.out.println(num + "개 추가 ");
+		amount = amount + num;
+		Main.howManyText.setText("현재  : " + amount + " 개");
+		
+		Main.totalPrice = Main.totalPrice + price;
+		//Main.orderProductName.add(productName);
+		System.out.println("productName" + productName);
+		Main.OrderStatusText.get(textNumber).setText(productName+" "+amount+"개 "+price);
+		
+		Main.totalAmount = Main.totalAmount + num;
+		System.out.println("amount" + amount + "totalAmount" + Main.totalAmount);
+		Main.numberText.setText(Main.totalAmount+"개");
+		Main.amountText.setText(Main.totalPrice+"원");
+	}
 }
