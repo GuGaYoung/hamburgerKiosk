@@ -70,6 +70,8 @@ public class Main {
 	JButton ingerdientsDessertButton = new JButton();
 	JButton ingerdientsDrinkButton = new JButton();
 	
+	int buyBurgerSetCount = 0;
+	int selectIngerdientsCount = 0;
 	String dessertSelect = "";
 	String drinkSelect = "";
 
@@ -224,6 +226,17 @@ public class Main {
 		Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
 		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
 		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
+		
+		JScrollPane scrollBar = new JScrollPane();
+		scrollBar.setBounds(68, 201, 450, 200);
+		scrollBar.getVerticalScrollBar().setValue(scrollBar.getVerticalScrollBar().getMaximum());
+		paymentCheckSceneImage.add(scrollBar);
+
+		JTextArea textArea = new JTextArea();
+		scrollBar.setViewportView(textArea);
+		textArea.setEditable(false);
+		textArea.setVisible(false);
+		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
 		
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
@@ -389,8 +402,17 @@ public class Main {
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
 
+				dessertSelect = "";
+				drinkSelect = "";
+				selectIngerdientsCount = 0;
+				buyBurgerSetCount = 0;
+				
 				System.out.println(OrderStatusText.size());
 				System.out.println(orderProductName.toString());
+				
+				textArea.selectAll();
+				textArea.replaceSelection("");
+				
 			}
 		});
 		mainPurchaseScene.add(goFirstScreenButton);
@@ -403,6 +425,28 @@ public class Main {
 		cancelPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				//세트메뉴 고르다 취소하기 누를시 세트메뉴 추가구성 페이지에서 메인구메창으로 바꿈			
+				for (int i = 0; i < menuImages.length; i++) {
+					menuImages[i].setVisible(true);
+				}
+				
+				for	(int i = 0; i< ingerdientsMenuImages.length; i++) {
+					ingerdientsMenuImages[i].setVisible(false);
+				}
+				
+				hamburgerSetButton.setVisible(true);
+				hamburgerButton.setVisible(true);
+				drinkButton.setVisible(true);
+				dessertButton.setVisible(true);
+				nextPageButton.setVisible(true);
+				previousPageButton.setVisible(true);
+
+				changeIngredientsScene.setVisible(false);
+				ingerdientsNextPageButton.setVisible(false);
+				ingerdientsPreviousPageButton.setVisible(false);
+				ingerdientsDessertButton.setVisible(false);
+				ingerdientsDrinkButton.setVisible(false);
+				
 				for (int i = 0; i < OrderStatusText.size(); i++) {
 					OrderStatusText.get(i).setLocation(1000, 1000);
 					cancelButton.get(i).setLocation(1000, 1000);
@@ -421,6 +465,7 @@ public class Main {
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
+				
 
 				System.out.println(orderProductName.toString());
 				System.out.println("전체 취소했습니다.");
@@ -428,6 +473,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(cancelPageButton);
 
+		/*
 		JScrollPane scrollBar = new JScrollPane();
 		scrollBar.setBounds(68, 201, 450, 200);
 		scrollBar.getVerticalScrollBar().setValue(scrollBar.getVerticalScrollBar().getMaximum());
@@ -437,7 +483,7 @@ public class Main {
 		scrollBar.setViewportView(textArea);
 		textArea.setEditable(false);
 		textArea.setVisible(false);
-		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
+		textArea.setFont((new Font("굴림체", Font.BOLD, 15))); */
 
 		paymentButton.setBounds(385, 750, 100, 40);
 		paymentButton.setText("결제하기");
@@ -446,7 +492,8 @@ public class Main {
 		paymentButton.setBorderPainted(false);
 		paymentButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(dessertSelect != "" && drinkSelect != "") {
+				
+				if(selectIngerdientsCount == buyBurgerSetCount) {
 					mainPurchaseScene.setVisible(false);
 					//cardPaymentSceneImage.setVisible(true);
 					paymentCheckScene.setVisible(true);
@@ -458,9 +505,13 @@ public class Main {
 						textArea.append(orderProduct.get(i) + "\n");
 						System.out.println(orderProduct.get(i) + "\n");
 					}
+					System.out.println("버거선택횟수"+buyBurgerSetCount);
+					System.out.println("추가구성세트 선택 횟수"+selectIngerdientsCount);
 				}else {
 					JOptionPane.showMessageDialog(frame, "세트 구성품을 선택하지 않았습니다.", "SYSTEM",
 							JOptionPane.INFORMATION_MESSAGE);
+					System.out.println("버거선택횟수"+buyBurgerSetCount);
+					System.out.println("추가구성세트 선택 횟수"+selectIngerdientsCount);
 				}
 			}
 		});
@@ -867,7 +918,7 @@ public class Main {
 							}
 						}
 					}
-
+					
 					// OrderStatusText.get(textNumber).setText("AZ버거 1개 6300원");
 					OrderStatusText.get(textNumber).setFont((new Font("굴림체", Font.BOLD, 15)));
 
@@ -1202,139 +1253,149 @@ public class Main {
 			});
 		}
 		
+		
 		//세트메뉴 추가 버튼
 		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
 			ingerdientsMenuImages[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-					for (int i = 0; i < ingerdientsMenuImages.length; i++) {
-						if (e.getSource() == ingerdientsMenuImages[i]) {
+					for (int j = 0; j < ingerdientsMenuImages.length; j++) {
+						if (e.getSource() == ingerdientsMenuImages[j]) {
 							if (ingerdientsPage == 0) {
-								if (i == 0) {
+								if (j == 0) {
 									System.out.println("포테이토");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("포테이토");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								}else if (i == 1) {
+									dessertSelect = "포테이토 선택완료";
+								}else if (j == 1) {
 									System.out.println("콘샐러드");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("콘샐러드");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 2) {
+									dessertSelect = "콘샐러드 선택완료";
+								} else if (j == 2) {
 									System.out.println("롱치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("롱치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 3) {
+									dessertSelect = "롱치즈스틱 선택완료";
+								} else if (j == 3) {
 									System.out.println("양념감자");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("양념감자");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 4) {
+									dessertSelect = "양념감자 선택완료";
+								} else if (j == 4) {
 									System.out.println("오징어링");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("오징어링");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 5) {
+									dessertSelect = "오징어링 선택완료";
+								} else if (j == 5) {
 									System.out.println("치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 6) {
+									dessertSelect = "치즈스틱 선택완료";
+								} else if (j == 6) {
 									System.out.println("지파이 고소한맛");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 고소한맛");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 7) {
+									dessertSelect = "지파이 고소한맛 선택완료";
+								} else if (j == 7) {
 									System.out.println("지파이 하바네로");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 하바네로");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 8) {
+									dessertSelect = "지파이 하바네로 선택완료";
+								} else if (j == 8) {
 									System.out.println("쉑쉑치킨");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("쉑쉑치킨");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
-								} else if (i == 9) {
+									dessertSelect = "쉑쉑치킨 선택완료";
+								} else if (j == 9) {
 									System.out.println("치즈인더에그");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈인더에그");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "선택완료";
+									dessertSelect = "치즈인더에그 선택완료";
 								}
 							}else if (ingerdientsPage == 1) {
-								if (i == 0) {
+								if (j == 0) {
 									System.out.println("콜라");
 									ingerdientsProductName.add("콜라");
 									System.out.println(ingerdientsProductName.toString());
 									//OrderStatusText.get(textNumber).setText("세트메뉴에 콜라 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "선택완료";
+									drinkSelect = "콜라 선택완료";
 									//ingerdientsProductName.clear();
 									//System.out.println(ingerdientsProductName.toString());
-								}else if (i == 1) {
+								}else if (j == 1) {
 									System.out.println("사이다");
 									ingerdientsProductName.add("사이다");
 									System.out.println(ingerdientsProductName.toString());
 									//OrderStatusText.get(textNumber).setText("세트메뉴에 사이다 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "선택완료";
+									drinkSelect = "사이다 선택완료";
 									//ingerdientsProductName.clear();
 									//System.out.println(ingerdientsProductName.toString());
-								} else if (i == 2) {
+								} else if (j == 2) {
 									System.out.println("아메리카노");
 									ingerdientsProductName.add("아메리카노");
 									System.out.println(ingerdientsProductName.toString());
 									//OrderStatusText.get(textNumber).setText("세트메뉴에 아메리카노 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "선택완료";
+									drinkSelect = "아메리카노 선택완료";
 									//ingerdientsProductName.clear();
 									//System.out.println(ingerdientsProductName.toString());
-								} else if (i == 3) {
+								} else if (j == 3) {
 									System.out.println("아이스 아메리카노");
 									ingerdientsProductName.add("아이스 아메리카노");
 									System.out.println(ingerdientsProductName.toString());
 									//OrderStatusText.get(textNumber).setText("세트메뉴에 아이스 아메리카노 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "선택완료";
+									drinkSelect = "아이스 아메리카노 선택완료";
 									//ingerdientsProductName.clear();
 									//System.out.println(ingerdientsProductName.toString());
-								} else if (i == 4) {
+								} else if (j == 4) {
 									System.out.println("카페라떼");
 									ingerdientsProductName.add("카페라떼");
 									System.out.println(ingerdientsProductName.toString());
 									//OrderStatusText.get(textNumber).setText("세트메뉴에 카페라떼 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "선택완료";
+									drinkSelect = "카페라떼 선택완료";
 									//ingerdientsProductName.clear();
 									//System.out.println(ingerdientsProductName.toString());			
-								} else if (i == 5) {
+								} else if (j == 5) {
 									System.out.println("아이스 카페라떼");
 									ingerdientsProductName.add("아이스 카페라떼");
 									System.out.println(ingerdientsProductName.toString());
 									//OrderStatusText.get(textNumber).setText("세트메뉴에 아이스 카페라떼 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "선택완료";
+									drinkSelect = "아이스 카페라떼 선택완료";
 									//ingerdientsProductName.clear();
 									//System.out.println(ingerdientsProductName.toString());
 								}
 							}
 						}
 					}
-								
+					System.out.println("디저트 선택 이름: "+dessertSelect);
+					System.out.println("드링크 선택 이름: "+drinkSelect);	
+					if(dessertSelect != "" && drinkSelect != "") {
+						selectIngerdientsCount++;
+						System.out.println("디저트 선택 이름: "+dessertSelect);
+						System.out.println("드링크 선택 이름: "+drinkSelect);
+						System.out.println("버거선택횟수"+buyBurgerSetCount);
+						System.out.println("추가구성세트 선택 횟수"+selectIngerdientsCount);
+					}
 				}
 			});
 		}
 
+		
 		OrderStatusBackGround.setBounds(50, 630, 490, 110);
 		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
 		mainPurchaseScene.add(OrderStatusBackGround);
@@ -1632,6 +1693,18 @@ public class Main {
 
 	public void changeIngredientsScene() {
 		changeIngerdientsMenu();
+		buyBurgerSetCount++;
+		
+		dessertSelect = "";
+		drinkSelect = "";
+		
+		// 세트 구성을 추가할 때는 수량조절,삭제버튼을 활성화 시킴
+		for (int i = 0; i < OrderStatusText.size(); i++) {
+			//OrderStatusText.get(i).setEditable(false);
+			cancelButton.get(i).setEnabled(false);
+			quantityChangeButton.get(i).setEnabled(false);
+			// OrderStatusText.remove(i);
+		}
 		
 		for (int i = 0; i < menuImages.length; i++) {
 			menuImages[i].setVisible(false);
@@ -1640,84 +1713,6 @@ public class Main {
 		for	(int i = 0; i< ingerdientsMenuImages.length; i++) {
 			ingerdientsMenuImages[i].setVisible(true);
 		}
-		
-		/*
-		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
-			ingerdientsMenuImages[i].addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-					for (int i = 0; i < ingerdientsMenuImages.length; i++) {
-						if (e.getSource() == ingerdientsMenuImages[i]) {
-							if (ingerdientsPage == 0) {
-								if (i == 0) {
-									System.out.println("포테이토");
-									ingerdientsNextPage();
-								}else if (i == 1) {
-									System.out.println("콘샐러드");
-									ingerdientsNextPage();
-								} else if (i == 2) {
-									System.out.println("롱치즈스틱");
-									ingerdientsNextPage();
-								} else if (i == 3) {
-									System.out.println("양념감자");
-									ingerdientsNextPage();
-								} else if (i == 4) {
-									System.out.println("오징어링");
-									ingerdientsNextPage();
-								} else if (i == 5) {
-									System.out.println("치즈스틱");
-									ingerdientsNextPage();
-								} else if (i == 6) {
-									System.out.println("지파이 고소한맛");
-									ingerdientsNextPage();
-								} else if (i == 7) {
-									System.out.println("지파이 하바네로");
-									ingerdientsNextPage();
-								} else if (i == 8) {
-									System.out.println("쉑쉑치킨");
-									ingerdientsNextPage();
-								} else if (i == 9) {
-									System.out.println("치즈인더에그");
-									ingerdientsNextPage();
-								}
-							}else if (ingerdientsPage == 1) {
-								if (i == 0) {
-									System.out.println("콜라");
-									//ingerdientsPreviousPage();
-									changeMainPurchaseScene();
-								}else if (i == 1) {
-									System.out.println("사이다");
-									//ingerdientsPreviousPage();
-									changeMainPurchaseScene();
-									//ingerdientsPage--;
-								} else if (i == 2) {
-									System.out.println("아메리카노");
-									//ingerdientsPreviousPage();
-									changeMainPurchaseScene();
-									//ingerdientsPage--;
-								} else if (i == 3) {
-									System.out.println("아이스 아메리카노");
-									//ingerdientsPreviousPage();
-									changeMainPurchaseScene();
-									//ingerdientsPage--;
-								} else if (i == 4) {
-									System.out.println("카페라떼");
-									//ingerdientsPreviousPage();
-									changeMainPurchaseScene();
-									//ingerdientsPage--;
-								} else if (i == 5) {
-									System.out.println("아이스 카페라떼");
-									//ingerdientsPreviousPage();
-									changeMainPurchaseScene();
-									//ingerdientsPage--;
-								}
-							}
-						}
-					}
-								
-				}
-			});
-		}*/
 
 		hamburgerSetButton.setVisible(false);
 		hamburgerButton.setVisible(false);
@@ -1734,6 +1729,14 @@ public class Main {
 	}
 
 	public void changeMainPurchaseScene() {	
+		
+		// 세트 구성을 추가할 때는 수량조절,삭제버튼을 활성화 시킴
+		for (int i = 0; i < OrderStatusText.size(); i++) {
+			//OrderStatusText.get(i).setEditable(false);
+			cancelButton.get(i).setEnabled(true);
+			quantityChangeButton.get(i).setEnabled(true);
+			// OrderStatusText.remove(i);
+		}
 		
 		ingerdientsPage = 0;
 		ingerdientsProductName.clear();
