@@ -493,6 +493,7 @@ public class Main {
 		cancelPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				
 				// 세트메뉴 고르다 취소하기 누를시 세트메뉴 추가구성 페이지에서 메인구메창으로 바꿈
 				for (int i = 0; i < menuImages.length; i++) {
 					menuImages[i].setVisible(true);
@@ -529,29 +530,23 @@ public class Main {
 				OrderStatusVerticalLength = -40;
 
 				orderProductName.clear();
+				orderProduct.clear();
 				totalAmount = 0;
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
-				checkTotalAmount.setText("총 개수 : +totalAmount+ 개");
-				checkTotalPrice.setText("총  +totalPrice 원");
-
+				
+				checkTotalAmount.setText("총 개수 : "+totalAmount+" 개");
+				checkTotalPrice.setText("총 "+totalPrice+" 원");
+				
+				textArea.selectAll();
+				textArea.replaceSelection("");
+				
 				System.out.println(orderProductName.toString());
 				System.out.println("전체 취소했습니다.");
 			}
 		});
 		mainPurchaseScene.add(cancelPageButton);
-
-		/*
-		 * JScrollPane scrollBar = new JScrollPane(); scrollBar.setBounds(68, 201, 450,
-		 * 200);
-		 * scrollBar.getVerticalScrollBar().setValue(scrollBar.getVerticalScrollBar().
-		 * getMaximum()); paymentCheckSceneImage.add(scrollBar);
-		 * 
-		 * JTextArea textArea = new JTextArea(); scrollBar.setViewportView(textArea);
-		 * textArea.setEditable(false); textArea.setVisible(false);
-		 * textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
-		 */
 
 		paymentButton.setBounds(385, 750, 100, 40);
 		paymentButton.setText("결제하기");
@@ -2009,6 +2004,7 @@ public class Main {
 	}
 
 	public void changeIngredientsScene() {
+		cancelPageButton.setEnabled(false);
 		changeIngerdientsMenu();
 		buyBurgerSetCount++;
 
@@ -2046,7 +2042,8 @@ public class Main {
 	}
 
 	public void changeMainPurchaseScene() {
-
+		cancelPageButton.setEnabled(true);
+		
 		// 세트 구성을 추가할 때는 수량조절,삭제버튼을 활성화 시킴
 		for (int i = 0; i < OrderStatusText.size(); i++) {
 			// OrderStatusText.get(i).setEditable(false);
