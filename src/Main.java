@@ -958,7 +958,7 @@ public class Main {
 						}
 					}
 
-					orderStatusText.get(orderStatusTextNumber).setFont((new Font("굴림체", Font.BOLD, 15)));
+					orderStatusText.get(orderStatusTextNumber).setFont((new Font("굴림체", Font.BOLD, 12)));
 
 					cancelButton.get(orderStatusTextNumber).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
 					quantityChangeButton.get(orderStatusTextNumber).setIcon(new ImageIcon("./otherimages/plus.jpg"));
@@ -977,8 +977,8 @@ public class Main {
 					System.out.println(OrderStatusVerticalLength);
 
 					orderStatusText.get(orderStatusTextNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
-					cancelButton.get(orderStatusTextNumber).setBounds(400, OrderStatusVerticalLength + 43, 20, 20);
-					quantityChangeButton.get(orderStatusTextNumber).setBounds(350, OrderStatusVerticalLength + 43, 20, 20);
+					cancelButton.get(orderStatusTextNumber).setBounds(460, OrderStatusVerticalLength + 43, 20, 20);
+					quantityChangeButton.get(orderStatusTextNumber).setBounds(430, OrderStatusVerticalLength + 43, 20, 20);
 
 					orderStatusTextNumber++;
 
