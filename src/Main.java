@@ -35,7 +35,7 @@ public class Main {
 		});
 	}
 
-	JLabel firstScene = new JLabel();
+	JLabel advertisingScene = new JLabel(); // 광고이미지 바꾸는 씬
 	JPanel mainPurchaseScene = new JPanel();
 	JPanel packagingDeliveringScene = new JPanel() {
 		public void paintComponent(Graphics g) {
@@ -45,28 +45,19 @@ public class Main {
 		}
 	};
 
-	JPanel changeIngredientsScene = new JPanel();
+	JPanel changeIngredientsScene = new JPanel(); //햄버거 세트의 추가구성 바꾸는 씬
 
-	/*
-	 * JPanel paymentCheckScene = new JPanel() { public void paintComponent(Graphics
-	 * g) { Dimension d = getSize(); ImageIcon image = new
-	 * ImageIcon("./otherimages/결제확인창.png"); g.drawImage(image.getImage(), 0, 0,
-	 * d.width, d.height, this); } };
-	 */
-
-	// JLabel paymentCheckText = new JLabel();
-	JPanel paymentCheckScene = new JPanel();
+	JPanel paymentCheckScene = new JPanel(); // 지불 확인 씬
 	JLabel paymentCheckSceneImage = new JLabel();
-	JLabel paymentCheckList = new JLabel();
 	JLabel cardPaymentSceneImage = new JLabel();
 	JLabel insertCardImage = new JLabel();
-	JButton isertCardButton = new JButton();
+	JButton insertCardButton = new JButton();
 	JButton checkOKButton = new JButton();
 	JButton checkCancelButton = new JButton();
 	JButton[] ingerdientsMenuImages = new JButton[13];
 
-	static JLabel checkTotalAmount = new JLabel();
-	static JLabel checkTotalPrice = new JLabel();
+	static JLabel finalTotalAmount = new JLabel();	
+	static JLabel finalTotalPrice = new JLabel();
 
 	JButton ingerdientsNextPageButton = new JButton();
 	JButton ingerdientsPreviousPageButton = new JButton();
@@ -75,8 +66,9 @@ public class Main {
 
 	int buyBurgerSetCount = 0;
 	int selectIngerdientsCount = 0;
-	String dessertSelect = "";
-	String drinkSelect = "";
+	
+	String hamburgerSetDessert = "";
+	String hamburgerSetDrink = "";
 
 	JLabel pressKeyText = new JLabel();
 	JButton packagingButton = new JButton();
@@ -84,40 +76,39 @@ public class Main {
 	JButton[] menuImages = new JButton[9];
 	JButton nextPageButton = new JButton();
 	JButton previousPageButton = new JButton();
-	JButton goFirstScreenButton = new JButton();
+	JButton goAdvertisingSceneButton = new JButton();
 	JButton cancelPageButton = new JButton();
 	JButton paymentButton = new JButton();
 	JButton hamburgerButton = new JButton();
 	JButton hamburgerSetButton = new JButton();
 	JButton drinkButton = new JButton();
 	JButton dessertButton = new JButton();
-	JLabel advertisingImage = new JLabel();
-	static JLabel numberText = new JLabel();
+	JLabel topAdvertisingImage = new JLabel(); // 상단 광고 이미지
 	static JLabel amountText = new JLabel();
-	JLabel totalOrderDetails = new JLabel();
-	JLabel textBackGround = new JLabel();
+	static JLabel priceText = new JLabel();
+	JLabel orderDetailsText = new JLabel(); // 총 주문 내역
+	JLabel orderDetailsBackGround = new JLabel();
 	JLabel chooseEatingPlaceText = new JLabel();
-	// JTextArea textArea = new JTextArea();
 
-	JLabel numberChangeBackGround = new JLabel();
+	JLabel orderSituationBackGround = new JLabel();
 	JLabel howManyAddText = new JLabel();
 	static JLabel howManyText = new JLabel();
 	JButton oneThing = new JButton();
 	JButton fiveThing = new JButton();
-	JButton TenThing = new JButton();
+	JButton tenThing = new JButton();
 	JButton checkButton = new JButton();// 확인버튼
-	// JTextArea textArea = new JTextArea();
-	static ArrayList<JLabel> OrderStatusText = new ArrayList<>();
-	// static ArrayList<JLabel> OrderCheckText = new ArrayList<>();
+	
+	static ArrayList<JLabel> orderStatusText = new ArrayList<>();
 
 	ArrayList<JButton> cancelButton = new ArrayList<>();
 	ArrayList<JButton> quantityChangeButton = new ArrayList<>(); // 수량변경
-	JLabel OrderStatusBackGround = new JLabel();
+	JLabel orderStatusBackGround = new JLabel();
 
 	static ArrayList<String> orderProductName = new ArrayList<String>(); // 주문한 제품 이름을 받는 배열
 	static ArrayList<String> orderProduct = new ArrayList<String>(); // 주문한 제품 이름,갯수,가격을 받는 배열
 	ArrayList<String> ingerdientsProductName = new ArrayList<String>();
 
+	// TODO 왜 값이 그 숫자들인지 증명해야함
 	int menupage = 0;
 	int menuHorizontalLength = 50;
 	int menuVerticalLength = 0;
@@ -125,9 +116,7 @@ public class Main {
 	int menuImageHeight = 130;
 	int menuHorizontalInterval = 170;
 
-	String hamburgerSet_dessert = "";
-	String hamburgerSet_drink = "";
-
+	// TODO 왜 값이 그 숫자들인지 증명해야함
 	int ingerdientsPage = 0; // 구성품 페이지
 	int ingerdientsMenuHorizontalLength = 50;
 	int ingerdientsMenuVerticalLength = 0;
@@ -135,17 +124,18 @@ public class Main {
 	int ingerdientsMenuImageHeight = 130;
 	int ingerdientsMenuHorizontalInterval = 130;
 
-	static int textNumber = 0;
+	static int orderStatusTextNumber = 0; // 주문상황 텍스트 수
 	static int totalAmount = 0; // 주문 총 양
 	static int totalPrice = 0; // 주문 총 금액
-	// int amount = 0;
+
 	int productNum = 0; // 제품의 수량을 변경할때 어떤 제품인지 판단하기 위한 변수
 
 	String eatingPlace = "";// 매장에서 먹을 건지 포장 할 건지
 
+	// TODO 왜 값이 -40 증명해야함
 	int OrderStatusVerticalLength = -40;
 
-	changefirstScene changefirstScene = new changefirstScene(firstScene);
+	ChangeAdvertisingScene changeAdvertisingScene = new ChangeAdvertisingScene(advertisingScene);
 
 	// 세트메뉴
 	Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
@@ -218,79 +208,20 @@ public class Main {
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 
-		firstScene.setBounds(0, 0, 600, 850);
-		frame.getContentPane().add(firstScene);
-		firstScene.setLayout(null);
+		advertisingScene.setBounds(0, 0, 600, 850);
+		frame.getContentPane().add(advertisingScene);
+		advertisingScene.setLayout(null);
 
-		firstScene.addMouseListener(new MouseAdapter() {
+		advertisingScene.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				firstScene.setVisible(false);
+				advertisingScene.setVisible(false);
 				packagingDeliveringScene.setVisible(true);
-				isertCardButton.setEnabled(true);
-				insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
+				insertCardButton.setEnabled(true);	//결제 후 비활성화 된 카드 투입버튼을 광고창이 나타날때 활성화 시킴
+				//insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
 				// restart = "";
 			}
 		});
-/*
-		// 세트메뉴
-		Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
-		Menu doubleX2Set = new Menu("더블X2 세트", 7500, 1);
-		Menu AZBurgerSet = new Menu("AZ버거 세트", 8300, 1);
-		Menu hanwooBulgogiCombo = new Menu("한우불고기 콤보", 8000, 1);
-		Menu hanwooBulgogiBurgerSet = new Menu("한우불고기 세트", 8700, 1);
-		Menu mozzarellaInTheBurgerSet = new Menu("모짜렐라 인 더 버거 세트", 7700, 1);
-		Menu bigBulgogiSet = new Menu("원조빅불 세트", 7600, 1);
-		Menu hotCrispyBurgerSet = new Menu("핫크리스피버거 세트", 6700, 1);
-		Menu bulgogiBurgerSet = new Menu("불고기버거 세트", 5900, 1);
-		Menu riaMiracleBurgerSet = new Menu("리아미라클버거 세트", 7400, 1);
-		Menu shrimpBurgerSet = new Menu("새우버거 세트", 5900, 1);
-		Menu chickenBurgerSet = new Menu("치킨버거 세트", 5100, 1);
-		Menu T_RexBurgerSet = new Menu("T-Rex 버거 세트", 5900, 1);
-		Menu classicCheeseBurgerSet = new Menu("클래식치즈버거 세트", 6400, 1);
-		Menu teriBurgerSet = new Menu("데리버거 세트", 4900, 1);
 
-		// 햄버거 메뉴
-		Menu wagyuEdition2 = new Menu("와규에디션2", 5800, 1);
-		Menu doubleX2 = new Menu("더블X2", 5500, 1);
-		Menu mozzarellaInTheBurger = new Menu("모짜렐라 인 더 버거", 6000, 1);
-		Menu AZBurger = new Menu("AZ버거", 6600, 1);
-		Menu bigBulgogi = new Menu("원조빅불", 5800, 1);
-		Menu hotCrispyBurger = new Menu("핫크리스피버거", 4900, 1);
-		Menu hanwooBulgogi = new Menu("한우 불고기 버거", 7000, 1);
-		Menu bulgogiBurger = new Menu("불고기 버거", 3900, 1);
-		Menu riaMiracleBurger = new Menu("리아미라클버거", 5600, 1);
-		Menu shrimpBurger = new Menu("새우버거", 3900, 1);
-		Menu chickenBurger = new Menu("치킨버거", 2900, 1);
-		Menu T_RexBurger = new Menu("T-Rex", 3700, 1);
-		Menu classicCheeseBurger = new Menu("클래식 치즈버거", 4400, 1);
-		Menu teriBurger = new Menu("데리버거", 2500, 1);
-
-		// 디저트
-		Menu cheeseInTheEgg = new Menu("치즈인더에그", 3000, 1);
-		Menu jipieHabanero_L = new Menu("지파이 하바네로", 4300, 1);
-		Menu jipie_S = new Menu("지파이 고소한맛", 3400, 1);
-		Menu chickenNugget = new Menu("치킨너겟", 1200, 1);
-		Menu longCheeseStick = new Menu("롱 치즈스틱", 1800, 1);
-		Menu coneSalad = new Menu("콘샐러드", 1700, 1);
-		Menu sundayIceCream = new Menu("선데이아이스크림", 1500, 1);
-		Menu shakeShakeChicken = new Menu("쉑쉑치킨", 2500, 1);
-		Menu seasoningPotato = new Menu("양념감자", 2000, 1);
-		Menu squidRing = new Menu("오징어링", 2200, 1);
-		Menu naturalCheeseStick = new Menu("치즈스틱", 2000, 1);
-		Menu potato = new Menu("포테이토", 1500, 1);
-		Menu chocoCookieTornado = new Menu("토네이도(초코쿠키)", 2300, 1);
-		Menu greenTeaTornado = new Menu("토네이도(녹차)", 2300, 1);
-		Menu strawberryTornado = new Menu("토네이도(스트로베리)", 2400, 1);
-		Menu softCone = new Menu("소프트콘", 700, 1);
-
-		// 음료수
-		Menu cider = new Menu("사이다", 1700, 1);
-		Menu cola = new Menu("콜라", 1700, 1);
-		Menu americano = new Menu("아메리카노", 2000, 1);
-		Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
-		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
-		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
-*/
 		JScrollPane scrollBar = new JScrollPane();
 		scrollBar.setBounds(68, 201, 450, 200);
 		scrollBar.getVerticalScrollBar().setValue(scrollBar.getVerticalScrollBar().getMaximum());
@@ -302,16 +233,19 @@ public class Main {
 		textArea.setVisible(false);
 		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
 
+		// 매장에서 먹을건지 포장할건지 고르는 화면
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
 		packagingDeliveringScene.setLayout(null);
 		packagingDeliveringScene.setVisible(false);
 
-		numberChangeBackGround.setBounds(50, 300, 490, 190);
-		numberChangeBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
-		mainPurchaseScene.add(numberChangeBackGround);
-		numberChangeBackGround.setVisible(false);
+		// 주문 상태 배경화면
+		orderSituationBackGround.setBounds(50, 300, 490, 190);
+		orderSituationBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
+		mainPurchaseScene.add(orderSituationBackGround);
+		orderSituationBackGround.setVisible(false);
 
+		// 메인 구매 화면
 		mainPurchaseScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(mainPurchaseScene);
 		mainPurchaseScene.setLayout(null);
@@ -330,7 +264,7 @@ public class Main {
 		pressKeyText.setHorizontalAlignment(SwingConstants.CENTER);
 		pressKeyText.setFont(new Font("굴림", Font.BOLD, 30));
 		pressKeyText.setForeground(Color.white);
-		firstScene.add(pressKeyText);
+		advertisingScene.add(pressKeyText);
 
 		// 매장에서 먹을 것인지 포장인지 선택하는 방법
 		chooseEatingPlaceText.setText("어디서 드시겠습니까?");
@@ -343,11 +277,11 @@ public class Main {
 		packagingButton.setIcon(new ImageIcon("./otherimages/delivery.jpg"));
 		packagingButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				eatingPlace = "매장";
 
 				packagingDeliveringScene.setVisible(false);
 				mainPurchaseScene.setVisible(true);
-				isertCardButton.setVisible(false);
+				insertCardButton.setVisible(false);
+				
 			}
 		});
 		packagingDeliveringScene.add(packagingButton);
@@ -356,20 +290,21 @@ public class Main {
 		deliveringButton.setIcon(new ImageIcon("./otherimages/store.jpg"));
 		deliveringButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				eatingPlace = "포장";
 
 				packagingDeliveringScene.setVisible(false);
 				mainPurchaseScene.setVisible(true);
-				isertCardButton.setVisible(false);
+				insertCardButton.setVisible(false);
+				
 			}
 		});
 		packagingDeliveringScene.add(deliveringButton);
 
 		// 구매화면
-		advertisingImage.setBounds(0, 0, 600, 140);
-		advertisingImage.setIcon(new ImageIcon("./otherimages/T-rax버거광고(구입창).jpg"));
-		mainPurchaseScene.add(advertisingImage);
+		topAdvertisingImage.setBounds(0, 0, 600, 140);
+		topAdvertisingImage.setIcon(new ImageIcon("./otherimages/T-rax버거광고(구입창).jpg"));
+		mainPurchaseScene.add(topAdvertisingImage);
 
+		// 햄버거 세트 버튼을 누르면 햄버거 세트를 고를 수 있는 페이지로 넘어간다.
 		hamburgerSetButton.setBounds(90, 150, 100, 40);
 		hamburgerSetButton.setText("햄버거 세트");
 		hamburgerSetButton.setFont(new Font("굴림", Font.BOLD, 10));
@@ -387,6 +322,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(hamburgerSetButton);
 
+		// 햄버거 버튼을 누르면 햄버거를 고를 수 있는 페이지로 넘어간다.
 		hamburgerButton.setBounds(190, 150, 100, 40);
 		hamburgerButton.setText("햄버거");
 		hamburgerButton.setFont(new Font("굴림", Font.BOLD, 10));
@@ -404,6 +340,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(hamburgerButton);
 
+		// 디저트 버튼을 누르면 디저트를 고를 수 있는 페이지로 넘어간다.
 		dessertButton.setBounds(290, 150, 100, 40);
 		dessertButton.setText("디저트");
 		dessertButton.setFont(new Font("굴림", Font.BOLD, 10));
@@ -421,6 +358,7 @@ public class Main {
 		});
 		mainPurchaseScene.add(dessertButton);
 
+		// 음료 버튼을 누르면 음료를 고를 수 있는 페이지로 넘어간다.
 		drinkButton.setBounds(390, 150, 100, 40);
 		drinkButton.setText("음료");
 		drinkButton.setFont(new Font("굴림", Font.BOLD, 10));
@@ -438,52 +376,50 @@ public class Main {
 		});
 		mainPurchaseScene.add(drinkButton);
 
-		goFirstScreenButton.setBounds(110, 750, 100, 40);
-		goFirstScreenButton.setText("첫화면으로");
-		goFirstScreenButton.setFont(new Font("굴림", Font.BOLD, 10));
-		goFirstScreenButton.setBackground(Color.LIGHT_GRAY);
-		goFirstScreenButton.setBorderPainted(false);
-		goFirstScreenButton.addActionListener(new ActionListener() {
+		goAdvertisingSceneButton.setBounds(110, 750, 100, 40);
+		goAdvertisingSceneButton.setText("첫화면으로");
+		goAdvertisingSceneButton.setFont(new Font("굴림", Font.BOLD, 10));
+		goAdvertisingSceneButton.setBackground(Color.LIGHT_GRAY);
+		goAdvertisingSceneButton.setBorderPainted(false);
+		goAdvertisingSceneButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				firstScene.setVisible(true);
+				advertisingScene.setVisible(true);
 				mainPurchaseScene.setVisible(false);
 
-				for (int i = 0; i < OrderStatusText.size(); i++) {
-					OrderStatusText.get(i).setLocation(1000, 1000);
+				for (int i = 0; i < orderStatusText.size(); i++) {
+					orderStatusText.get(i).setLocation(1000, 1000);
 					cancelButton.get(i).setLocation(1000, 1000);
 					quantityChangeButton.get(i).setLocation(1000, 1000);
-					// OrderStatusText.remove(i);
+					// orderStatusText.remove(i);
 				}
 
-				OrderStatusText.clear();
-				textNumber = 0;
+				orderStatusText.clear();
+				orderStatusTextNumber = 0;
 				OrderStatusVerticalLength = -40;
-				eatingPlace = "";
 
 				orderProductName.clear();
 				totalAmount = 0;
 				totalPrice = 0;
-				numberText.setText(totalAmount + "개");
-				amountText.setText(totalPrice + "원");
+				amountText.setText(totalAmount + "개");
+				priceText.setText(totalPrice + "원");
 
-				checkTotalAmount.setText("총 개수 : +totalAmount+ 개");
-				checkTotalPrice.setText("총  +totalPrice 원");
+				finalTotalAmount.setText("총 개수 : +totalAmount+ 개");
+				finalTotalPrice.setText("총  +totalPrice 원");
 
-				dessertSelect = "";
-				drinkSelect = "";
+				hamburgerSetDessert = "";
+				hamburgerSetDrink  = "";
 				selectIngerdientsCount = 0;
 				buyBurgerSetCount = 0;
 
-				System.out.println(OrderStatusText.size());
+				System.out.println(orderStatusText.size());
 				System.out.println(orderProductName.toString());
 
 				textArea.selectAll();
 				textArea.replaceSelection("");
-
 			}
 		});
-		mainPurchaseScene.add(goFirstScreenButton);
+		mainPurchaseScene.add(goAdvertisingSceneButton);
 
 		cancelPageButton.setBounds(247, 750, 100, 40);
 		cancelPageButton.setText("취소하기");
@@ -492,8 +428,7 @@ public class Main {
 		cancelPageButton.setBorderPainted(false);
 		cancelPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				
+			
 				// 세트메뉴 고르다 취소하기 누를시 세트메뉴 추가구성 페이지에서 메인구메창으로 바꿈
 				for (int i = 0; i < menuImages.length; i++) {
 					menuImages[i].setVisible(true);
@@ -516,28 +451,28 @@ public class Main {
 				ingerdientsDessertButton.setVisible(false);
 				ingerdientsDrinkButton.setVisible(false);
 
-				for (int i = 0; i < OrderStatusText.size(); i++) {
-					OrderStatusText.get(i).setLocation(1000, 1000);
+				for (int i = 0; i < orderStatusText.size(); i++) {
+					orderStatusText.get(i).setLocation(1000, 1000);
 					cancelButton.get(i).setLocation(1000, 1000);
 					quantityChangeButton.get(i).setLocation(1000, 1000);
-					// OrderStatusText.remove(i);
+					// orderStatusText.remove(i);
 
-					textNumber = 0;
+					orderStatusTextNumber = 0;
 				}
 
-				OrderStatusText.clear();
-				textNumber = 0;
+				orderStatusText.clear();
+				orderStatusTextNumber = 0;
 				OrderStatusVerticalLength = -40;
 
 				orderProductName.clear();
 				orderProduct.clear();
 				totalAmount = 0;
 				totalPrice = 0;
-				numberText.setText(totalAmount + "개");
-				amountText.setText(totalPrice + "원");
+				amountText.setText(totalAmount + "개");
+				priceText.setText(totalPrice + "원");
 				
-				checkTotalAmount.setText("총 개수 : "+totalAmount+" 개");
-				checkTotalPrice.setText("총 "+totalPrice+" 원");
+				finalTotalAmount.setText("총 개수 : "+totalAmount+" 개");
+				finalTotalPrice.setText("총 "+totalPrice+" 원");
 				
 				textArea.selectAll();
 				textArea.replaceSelection("");
@@ -560,9 +495,9 @@ public class Main {
 
 				if (selectIngerdientsCount == buyBurgerSetCount) {
 					mainPurchaseScene.setVisible(false);
-					// cardPaymentSceneImage.setVisible(true);
 					paymentCheckScene.setVisible(true);
-					isertCardButton.setVisible(true);
+					insertCardButton.setVisible(true);
+					
 					// 결제확인 창에 출력됌
 					textArea.setVisible(true);
 
@@ -715,7 +650,7 @@ public class Main {
 		ingerdientsDrinkButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (dessertSelect != "") {
+				if (hamburgerSetDessert != "") {
 					ingerdientsDessertButton.setBackground(Color.white);
 					ingerdientsDrinkButton.setBackground(Color.gray);
 
@@ -738,7 +673,7 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("드링크 페이지 출력");
 
-				if (dessertSelect != "") {
+				if (hamburgerSetDessert != "") {
 					if (ingerdientsPage < 2) {
 
 						ingerdientsPage++;
@@ -757,23 +692,11 @@ public class Main {
 				} else {
 					JOptionPane.showMessageDialog(frame, "세트_디저트 부터 선택하세요.", "SYSTEM", JOptionPane.INFORMATION_MESSAGE);
 				}
-				/*
-				 * if (ingerdientsPage < 2) {
-				 * 
-				 * ingerdientsPage++; changeIngerdientsMenu();
-				 * 
-				 * if (ingerdientsPage == 0) {
-				 * ingerdientsDessertButton.setBackground(Color.gray);
-				 * ingerdientsDrinkButton.setBackground(Color.white);
-				 * System.out.println("디저트 페이지 출력"); } else if (ingerdientsPage == 1) {
-				 * ingerdientsDessertButton.setBackground(Color.white);
-				 * ingerdientsDrinkButton.setBackground(Color.gray);
-				 * System.out.println("드렁크 페이지 출력"); } }
-				 */
 			}
 		});
 		mainPurchaseScene.add(ingerdientsNextPageButton);
 
+		//메뉴 이미지 버튼 초기화
 		for (int i = 0; i < menuImages.length; i++) {
 			mainPurchaseScene.add(menuImages[i] = new JButton());
 
@@ -804,7 +727,7 @@ public class Main {
 			menuImages[i].setFocusPainted(false);
 		}
 
-		// 세트 구성
+		// 세트 구성 이미지 버튼 초기화
 		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
 			mainPurchaseScene.add(ingerdientsMenuImages[i] = new JButton());
 
@@ -838,38 +761,34 @@ public class Main {
 			ingerdientsMenuImages[i].setFocusPainted(false);
 		}
 
-		totalOrderDetails.setBounds(90, 570, 200, 100);
-		totalOrderDetails.setText("총주문내역");
-		totalOrderDetails.setHorizontalAlignment(SwingConstants.CENTER);
-		totalOrderDetails.setFont(new Font("굴림", Font.BOLD, 15));
-		mainPurchaseScene.add(totalOrderDetails);
+		orderDetailsText.setBounds(90, 570, 200, 100);
+		orderDetailsText.setText("총주문내역");
+		orderDetailsText.setHorizontalAlignment(SwingConstants.CENTER);
+		orderDetailsText.setFont(new Font("굴림", Font.BOLD, 15));
+		mainPurchaseScene.add(orderDetailsText);
 
-		numberText.setBounds(210, 570, 200, 100);
-		numberText.setText("0개");
-		numberText.setHorizontalAlignment(SwingConstants.CENTER);
-		numberText.setFont(new Font("굴림", Font.BOLD, 15));
-		mainPurchaseScene.add(numberText);
-
-		amountText.setBounds(320, 570, 200, 100);
-		amountText.setText("0원");
+		amountText.setBounds(210, 570, 200, 100);
+		amountText.setText("0개");
 		amountText.setHorizontalAlignment(SwingConstants.CENTER);
 		amountText.setFont(new Font("굴림", Font.BOLD, 15));
 		mainPurchaseScene.add(amountText);
 
-		textBackGround.setBounds(50, 607, 490, 20);
-		textBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
-		mainPurchaseScene.add(textBackGround);
-		/*
-		 * textArea.setFont((new Font("굴림체", Font.BOLD, 15))); textArea.setBounds(50,
-		 * 630, 490, 110); mainPurchaseScene.add(textArea);
-		 */
+		priceText.setBounds(320, 570, 200, 100);
+		priceText.setText("0원");
+		priceText.setHorizontalAlignment(SwingConstants.CENTER);
+		priceText.setFont(new Font("굴림", Font.BOLD, 15));
+		mainPurchaseScene.add(priceText);
+
+		orderDetailsBackGround.setBounds(50, 607, 490, 20);
+		orderDetailsBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
+		mainPurchaseScene.add(orderDetailsBackGround);
 
 		// 메뉴 버튼을 누르면 선택한 메뉴들이 주문내역에 출력된다
 		for (int i = 0; i < menuImages.length; i++) {
 			menuImages[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 
-					OrderStatusText.add(new JLabel());
+					orderStatusText.add(new JLabel());
 					cancelButton.add(new JButton());
 					quantityChangeButton.add(new JButton());
 
@@ -879,8 +798,6 @@ public class Main {
 								if (i == 0) {
 									changeIngredientsScene();
 									doubleX2Set.buy();
-									// changeSetMenu.changeSetMenu(doubleX2Set , hamburgerSet_drink,
-									// hamburgerSet_dessert);
 								} else if (i == 1) {
 									changeIngredientsScene();
 									wagyuEdition2Set.buy();
@@ -1010,55 +927,55 @@ public class Main {
 						}
 					}
 
-					// OrderStatusText.get(textNumber).setText("AZ버거 1개 6300원");
-					OrderStatusText.get(textNumber).setFont((new Font("굴림체", Font.BOLD, 15)));
+					orderStatusText.get(orderStatusTextNumber).setFont((new Font("굴림체", Font.BOLD, 15)));
 
-					cancelButton.get(textNumber).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
-					quantityChangeButton.get(textNumber).setIcon(new ImageIcon("./otherimages/plus.jpg"));
+					cancelButton.get(orderStatusTextNumber).setIcon(new ImageIcon("./otherimages/cancel.jpg"));
+					quantityChangeButton.get(orderStatusTextNumber).setIcon(new ImageIcon("./otherimages/plus.jpg"));
 
-					OrderStatusBackGround.add(OrderStatusText.get(textNumber));
-					OrderStatusBackGround.add(cancelButton.get(textNumber));
-					OrderStatusBackGround.add(quantityChangeButton.get(textNumber));
+					orderStatusBackGround.add(orderStatusText.get(orderStatusTextNumber));
+					orderStatusBackGround.add(cancelButton.get(orderStatusTextNumber));
+					orderStatusBackGround.add(quantityChangeButton.get(orderStatusTextNumber));
 
 					OrderStatusVerticalLength = -40;
-					if (textNumber != 0) {
-						for (int i = 0; i < textNumber; i++) {
+					if (orderStatusTextNumber != 0) {
+						for (int i = 0; i < orderStatusTextNumber; i++) {
 							OrderStatusVerticalLength = OrderStatusVerticalLength + 20;
 						}
 					}
-					System.out.println("textNumber" + textNumber);
+					System.out.println("orderStatusTextNumber" + orderStatusTextNumber);
 					System.out.println(OrderStatusVerticalLength);
 
-					OrderStatusText.get(textNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
-					cancelButton.get(textNumber).setBounds(400, OrderStatusVerticalLength + 43, 20, 20);
-					quantityChangeButton.get(textNumber).setBounds(350, OrderStatusVerticalLength + 43, 20, 20);
+					orderStatusText.get(orderStatusTextNumber).setBounds(5, OrderStatusVerticalLength, 490, 110);
+					cancelButton.get(orderStatusTextNumber).setBounds(400, OrderStatusVerticalLength + 43, 20, 20);
+					quantityChangeButton.get(orderStatusTextNumber).setBounds(350, OrderStatusVerticalLength + 43, 20, 20);
 
-					textNumber++;
+					orderStatusTextNumber++;
 
-					for (int i = 0; i < OrderStatusText.size(); i++) {
+					for (int i = 0; i < orderStatusText.size(); i++) {
 						cancelButton.get(i).addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 
-								for (int i = 0; i < OrderStatusText.size(); i++) {
+								for (int i = 0; i < orderStatusText.size(); i++) {
 									if (e.getSource() == cancelButton.get(i)) {
-										OrderStatusText.get(i).setLocation(1000, 1000);
+										orderStatusText.get(i).setLocation(1000, 1000);
 										cancelButton.get(i).setLocation(1000, 1000);
 										quantityChangeButton.get(i).setLocation(1000, 1000);
 
-										OrderStatusText.remove(i);
+										orderStatusText.remove(i);
 										cancelButton.remove(i);
 										quantityChangeButton.remove(i);
 
-										textNumber--;
+										orderStatusTextNumber--;
 
-										if (OrderStatusText.size() == 0) {
+										if (orderStatusText.size() == 0) {
 
 										} else {
-											for (int j = 0; j < OrderStatusText.size(); j++) {
-												if (i + j < OrderStatusText.size()) {
-													OrderStatusText.get(i + j).setLocation(
-															OrderStatusText.get(i + j).getX(),
-															OrderStatusText.get(i + j).getY() - 20);
+											// x버튼을 누르면 한칸씩 당겨진다.
+											for (int j = 0; j < orderStatusText.size(); j++) {
+												if (i + j < orderStatusText.size()) {
+													orderStatusText.get(i + j).setLocation(
+															orderStatusText.get(i + j).getX(),
+															orderStatusText.get(i + j).getY() - 20);
 													cancelButton.get(i + j).setLocation(cancelButton.get(i + j).getX(),
 															cancelButton.get(i + j).getY() - 20);
 													quantityChangeButton.get(i + j).setLocation(
@@ -1069,7 +986,6 @@ public class Main {
 										}
 
 										System.out.println("삭제했습니다.");
-										System.out.print("판매할 ");
 
 										// 햄버거 세트 삭제 기능
 
@@ -1328,11 +1244,12 @@ public class Main {
 							}
 						});
 
+						// TODO 확인해보기 
 						quantityChangeButton.get(i).addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								for (int i = 0; i < OrderStatusText.size(); i++) {
+								for (int i = 0; i < orderStatusText.size(); i++) {
 									if (e.getSource() == quantityChangeButton.get(i)) {
-										numberChangeBackGround.setVisible(true);
+										orderSituationBackGround.setVisible(true);
 										howManyText.setText("현재  : 1 개");
 										productNum = i;
 									}
@@ -1345,7 +1262,7 @@ public class Main {
 			});
 		}
 
-		// 세트메뉴 추가 버튼
+		// 세트메뉴 추가구성 버튼 초기화
 		for (int i = 0; i < ingerdientsMenuImages.length; i++) {
 			ingerdientsMenuImages[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -1358,127 +1275,108 @@ public class Main {
 									ingerdientsNextPage();
 									ingerdientsProductName.add("포테이토");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "포테이토 선택완료";
+									hamburgerSetDessert = "포테이토 선택완료";
 								} else if (j == 1) {
 									System.out.println("콘샐러드");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("콘샐러드");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "콘샐러드 선택완료";
+									hamburgerSetDessert = "콘샐러드 선택완료";
 								} else if (j == 2) {
 									System.out.println("롱치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("롱치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "롱치즈스틱 선택완료";
+									hamburgerSetDessert = "롱치즈스틱 선택완료";
 								} else if (j == 3) {
 									System.out.println("양념감자");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("양념감자");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "양념감자 선택완료";
+									hamburgerSetDessert = "양념감자 선택완료";
 								} else if (j == 4) {
 									System.out.println("오징어링");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("오징어링");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "오징어링 선택완료";
+									hamburgerSetDessert = "오징어링 선택완료";
 								} else if (j == 5) {
 									System.out.println("치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "치즈스틱 선택완료";
+									hamburgerSetDessert = "치즈스틱 선택완료";
 								} else if (j == 6) {
 									System.out.println("지파이 고소한맛");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 고소한맛");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "지파이 고소한맛 선택완료";
+									hamburgerSetDessert = "지파이 고소한맛 선택완료";
 								} else if (j == 7) {
 									System.out.println("지파이 하바네로");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 하바네로");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "지파이 하바네로 선택완료";
+									hamburgerSetDessert = "지파이 하바네로 선택완료";
 								} else if (j == 8) {
 									System.out.println("쉑쉑치킨");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("쉑쉑치킨");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "쉑쉑치킨 선택완료";
+									hamburgerSetDessert = "쉑쉑치킨 선택완료";
 								} else if (j == 9) {
 									System.out.println("치즈인더에그");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈인더에그");
 									System.out.println(ingerdientsProductName.toString());
-									dessertSelect = "치즈인더에그 선택완료";
+									hamburgerSetDessert = "치즈인더에그 선택완료";
 								}
 							} else if (ingerdientsPage == 1) {
 								if (j == 0) {
 									System.out.println("콜라");
 									ingerdientsProductName.add("콜라");
 									System.out.println(ingerdientsProductName.toString());
-									// OrderStatusText.get(textNumber).setText("세트메뉴에 콜라 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "콜라 선택완료";
-									// ingerdientsProductName.clear();
-									// System.out.println(ingerdientsProductName.toString());
+									hamburgerSetDrink  = "콜라 선택완료";
 								} else if (j == 1) {
 									System.out.println("사이다");
 									ingerdientsProductName.add("사이다");
 									System.out.println(ingerdientsProductName.toString());
-									// OrderStatusText.get(textNumber).setText("세트메뉴에 사이다 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "사이다 선택완료";
-									// ingerdientsProductName.clear();
-									// System.out.println(ingerdientsProductName.toString());
+									hamburgerSetDrink  = "사이다 선택완료";
 								} else if (j == 2) {
 									System.out.println("아메리카노");
 									ingerdientsProductName.add("아메리카노");
 									System.out.println(ingerdientsProductName.toString());
-									// OrderStatusText.get(textNumber).setText("세트메뉴에 아메리카노 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "아메리카노 선택완료";
-									// ingerdientsProductName.clear();
-									// System.out.println(ingerdientsProductName.toString());
+									hamburgerSetDrink  = "아메리카노 선택완료";
 								} else if (j == 3) {
 									System.out.println("아이스 아메리카노");
 									ingerdientsProductName.add("아이스 아메리카노");
 									System.out.println(ingerdientsProductName.toString());
-									// OrderStatusText.get(textNumber).setText("세트메뉴에 아이스 아메리카노 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "아이스 아메리카노 선택완료";
-									// ingerdientsProductName.clear();
-									// System.out.println(ingerdientsProductName.toString());
+									hamburgerSetDrink  = "아이스 아메리카노 선택완료";
 								} else if (j == 4) {
 									System.out.println("카페라떼");
 									ingerdientsProductName.add("카페라떼");
 									System.out.println(ingerdientsProductName.toString());
-									// OrderStatusText.get(textNumber).setText("세트메뉴에 카페라떼 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "카페라떼 선택완료";
-									// ingerdientsProductName.clear();
-									// System.out.println(ingerdientsProductName.toString());
+									hamburgerSetDrink  = "카페라떼 선택완료";
 								} else if (j == 5) {
 									System.out.println("아이스 카페라떼");
 									ingerdientsProductName.add("아이스 카페라떼");
 									System.out.println(ingerdientsProductName.toString());
-									// OrderStatusText.get(textNumber).setText("세트메뉴에 아이스 카페라떼 추가");
 									changeMainPurchaseScene();
-									drinkSelect = "아이스 카페라떼 선택완료";
-									// ingerdientsProductName.clear();
-									// System.out.println(ingerdientsProductName.toString());
+									hamburgerSetDrink  = "아이스 카페라떼 선택완료";
 								}
 							}
 						}
 					}
-					System.out.println("디저트 선택 이름: " + dessertSelect);
-					System.out.println("드링크 선택 이름: " + drinkSelect);
-					if (dessertSelect != "" && drinkSelect != "") {
+					
+					if (hamburgerSetDessert != "" && hamburgerSetDrink  != "") {
 						selectIngerdientsCount++;
-						System.out.println("디저트 선택 이름: " + dessertSelect);
-						System.out.println("드링크 선택 이름: " + drinkSelect);
+						System.out.println("디저트 선택 이름: " + hamburgerSetDessert);
+						System.out.println("드링크 선택 이름: " + hamburgerSetDrink );
 						System.out.println("버거선택횟수" + buyBurgerSetCount);
 						System.out.println("추가구성세트 선택 횟수" + selectIngerdientsCount);
 					}
@@ -1486,45 +1384,44 @@ public class Main {
 			});
 		}
 
-		OrderStatusBackGround.setBounds(50, 630, 490, 110);
-		OrderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
-		mainPurchaseScene.add(OrderStatusBackGround);
+		orderStatusBackGround.setBounds(50, 630, 490, 110);
+		orderStatusBackGround.setIcon(new ImageIcon("./otherimages/empty.png"));
+		mainPurchaseScene.add(orderStatusBackGround);
 
 		howManyAddText.setBounds(140, -20, 300, 100);
 		howManyAddText.setText("몇개 추가하시겠습니까?");
 		howManyAddText.setFont(new Font("굴림", Font.BOLD, 20));
-		numberChangeBackGround.add(howManyAddText);
+		orderSituationBackGround.add(howManyAddText);
 
 		howManyText.setBounds(210, 80, 300, 100);
 		howManyText.setText("현재 : 1 개");
 		howManyText.setFont(new Font("굴림", Font.BOLD, 15));
-		numberChangeBackGround.add(howManyText);
+		orderSituationBackGround.add(howManyText);
 
 		oneThing.setText("1개");
 		oneThing.setFont(new Font("굴림", Font.BOLD, 20));
 		oneThing.setBounds(70, 60, 100, 50);
-		numberChangeBackGround.add(oneThing);
+		orderSituationBackGround.add(oneThing);
 
 		fiveThing.setText("5개");
 		fiveThing.setFont(new Font("굴림", Font.BOLD, 20));
 		fiveThing.setBounds(200, 60, 100, 50);
-		numberChangeBackGround.add(fiveThing);
+		orderSituationBackGround.add(fiveThing);
 
-		TenThing.setText("10개");
-		TenThing.setFont(new Font("굴림", Font.BOLD, 20));
-		TenThing.setBounds(330, 60, 100, 50);
-		numberChangeBackGround.add(TenThing);
+		tenThing.setText("10개");
+		tenThing.setFont(new Font("굴림", Font.BOLD, 20));
+		tenThing.setBounds(330, 60, 100, 50);
+		orderSituationBackGround.add(tenThing);
 
 		checkButton.setText("확인");
 		checkButton.setFont(new Font("굴림", Font.BOLD, 20));
 		checkButton.setBounds(200, 150, 100, 30);
-		numberChangeBackGround.add(checkButton);
+		orderSituationBackGround.add(checkButton);
 
+		// 각 해당되는 버튼을 누르면 그 숫자만큼 제품 수가 추가됌
 		oneThing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(americano.price);
 				addProducts(1);
-				System.out.println(americano.price);
 			}
 		});
 		fiveThing.addActionListener(new ActionListener() {
@@ -1532,21 +1429,18 @@ public class Main {
 				addProducts(5);
 			}
 		});
-		TenThing.addActionListener(new ActionListener() {
+		tenThing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addProducts(10);
 			}
 		});
+		
 		checkButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				numberChangeBackGround.setVisible(false);
+				orderSituationBackGround.setVisible(false);
 			}
 		});
-
-		numberChangeBackGround.add(checkButton);
-
-		changeMenu();
-		changefirstScene.start();
+		orderSituationBackGround.add(checkButton);
 
 		// 결제하기 전 체크 창
 		paymentCheckScene.setBounds(0, 0, 600, 850);
@@ -1567,21 +1461,17 @@ public class Main {
 		cardPaymentSceneImage.setIcon(new ImageIcon("./otherimages/카드삽입창.png"));
 		paymentCheckScene.add(cardPaymentSceneImage);
 
-		checkTotalAmount.setBounds(350, 400, 100, 20);
-		checkTotalAmount.setText("총 개수 : " + totalAmount + " 개");
-		// checkTotalAmount.setBackground(Color.blue);
-		// checkTotalAmount.setOpaque(true);
-		checkTotalAmount.setLayout(null);
-		checkTotalAmount.setVisible(true);
-		paymentCheckSceneImage.add(checkTotalAmount);
+		finalTotalAmount.setBounds(350, 400, 100, 20);
+		finalTotalAmount.setText("총 개수 : " + totalAmount + " 개");
+		finalTotalAmount.setLayout(null);
+		finalTotalAmount.setVisible(true);
+		paymentCheckSceneImage.add(finalTotalAmount);
 
-		checkTotalPrice.setBounds(450, 400, 100, 20);
-		checkTotalPrice.setText("총 " + totalPrice + " 원");
-		// checkTotalAmount.setBackground(Color.blue);
-		// checkTotalAmount.setOpaque(true);
-		checkTotalPrice.setLayout(null);
-		checkTotalPrice.setVisible(true);
-		paymentCheckSceneImage.add(checkTotalPrice);
+		finalTotalPrice.setBounds(450, 400, 100, 20);
+		finalTotalPrice.setText("총 " + totalPrice + " 원");
+		finalTotalPrice.setLayout(null);
+		finalTotalPrice.setVisible(true);
+		paymentCheckSceneImage.add(finalTotalPrice);
 
 		checkOKButton.setBounds(150, 500, 100, 30);
 		checkOKButton.setText("결제하기");
@@ -1590,9 +1480,8 @@ public class Main {
 
 				paymentCheckSceneImage.setVisible(false);
 				cardPaymentSceneImage.setVisible(true);
-				isertCardButton.setVisible(true);
-				isertCardButton.setEnabled(true);
-				// System.out.println("restart 값은 : " + restart);
+				insertCardButton.setVisible(true);
+				//insertCardButton.setEnabled(true);
 			}
 		});
 		paymentCheckSceneImage.add(checkOKButton);
@@ -1610,58 +1499,50 @@ public class Main {
 		});
 		paymentCheckSceneImage.add(checkCancelButton);
 
-		/*
-		 * paymentCheckList.setBounds(100, 220, 400, 250);
-		 * paymentCheckList.setBackground(Color.pink); paymentCheckList.setOpaque(true);
-		 * // 레이블 백그라운드 색이 보여지기 위해서 필요함 paymentCheckList.setLayout(null);
-		 * paymentCheckList.setVisible(true); //paymentCheckList.add(OrderStatusText));
-		 * paymentCheckSceneImage.add(paymentCheckList);
-		 */
-
 		insertCardImage.setBounds(100, 220, 400, 300);
 		insertCardImage.setIcon(new ImageIcon("./otherimages/카드투입.png"));
 		insertCardImage.setLayout(null);
 		insertCardImage.setVisible(true);
 		cardPaymentSceneImage.add(insertCardImage);
 
-		isertCardButton.setBounds(100, 520, 400, 100);
-		isertCardButton.setText("카드 투입");
-		isertCardButton.addActionListener(new ActionListener() {
+		insertCardButton.setBounds(100, 520, 400, 100);
+		insertCardButton.setText("카드 투입");
+		insertCardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage,
-						isertCardButton, firstScene, mainPurchaseScene, paymentCheckScene, cardPaymentSceneImage);
+						insertCardButton, advertisingScene, mainPurchaseScene, cardPaymentSceneImage);
 				changeCardPaymentImage.start();
-				// 세트 추가 구입 UI 구현 후 나중에 스레드 수정해야함
 
-				// frame = new JFrame();
+				insertCardButton.setVisible(false);
 
-				isertCardButton.setVisible(false);
-
-				for (int i = 0; i < OrderStatusText.size(); i++) {
-					OrderStatusText.get(i).setLocation(1000, 1000);
+				for (int i = 0; i < orderStatusText.size(); i++) {
+					orderStatusText.get(i).setLocation(1000, 1000);
 					cancelButton.get(i).setLocation(1000, 1000);
 					quantityChangeButton.get(i).setLocation(1000, 1000);
-					// OrderStatusText.remove(i);
+					// orderStatusText.remove(i);
 				}
 
-				OrderStatusText.clear();
-				textNumber = 0;
+				orderStatusText.clear();
+				orderStatusTextNumber = 0;
 				OrderStatusVerticalLength = -40;
 				eatingPlace = "";
 
 				orderProductName.clear();
 				totalAmount = 0;
 				totalPrice = 0;
-				numberText.setText(totalAmount + "개");
-				amountText.setText(totalPrice + "원");
+				amountText.setText(totalAmount + "개");
+				priceText.setText(totalPrice + "원");
 
-				checkTotalAmount.setText("총 개수 : " + totalAmount + " 개");
-				checkTotalPrice.setText("총  " + totalPrice + " 원");
+				finalTotalAmount.setText("총 개수 : " + totalAmount + " 개");
+				finalTotalPrice.setText("총  " + totalPrice + " 원");
 
 			}
 		});
-		cardPaymentSceneImage.add(isertCardButton);
+		cardPaymentSceneImage.add(insertCardButton);
+		
+		changeMenu();
+		changeAdvertisingScene.start();
 	}
 
 	public void changeMenu() {
@@ -1754,12 +1635,10 @@ public class Main {
 		}
 	}
 
+	// 몇개를 추가할 것인지
 	public void addProducts(int addNum) {
-		System.out.println("americano" + americano.price);
-		System.out.println("americano" + americano.originalPrice);
-		
 		if (orderProductName.get(productNum).equals(doubleX2Set.productName)) {
-			doubleX2Set.addNumOfProduct_hamburgerSet(addNum, productNum, hamburgerSet_drink, hamburgerSet_dessert);
+			doubleX2Set.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		} else if (orderProductName.get(productNum).equals(wagyuEdition2Set.productName)) {
 			wagyuEdition2Set.addNumOfProduct(addNum, productNum);
@@ -2008,15 +1887,15 @@ public class Main {
 		changeIngerdientsMenu();
 		buyBurgerSetCount++;
 
-		dessertSelect = "";
-		drinkSelect = "";
+		hamburgerSetDessert = "";
+		hamburgerSetDrink  = "";
 
 		// 세트 구성을 추가할 때는 수량조절,삭제버튼을 활성화 시킴
-		for (int i = 0; i < OrderStatusText.size(); i++) {
-			// OrderStatusText.get(i).setEditable(false);
+		for (int i = 0; i < orderStatusText.size(); i++) {
+			// orderStatusText.get(i).setEditable(false);
 			cancelButton.get(i).setEnabled(false);
 			quantityChangeButton.get(i).setEnabled(false);
-			// OrderStatusText.remove(i);
+			// orderStatusText.remove(i);
 		}
 
 		for (int i = 0; i < menuImages.length; i++) {
@@ -2045,17 +1924,18 @@ public class Main {
 		cancelPageButton.setEnabled(true);
 		
 		// 세트 구성을 추가할 때는 수량조절,삭제버튼을 활성화 시킴
-		for (int i = 0; i < OrderStatusText.size(); i++) {
-			// OrderStatusText.get(i).setEditable(false);
+		for (int i = 0; i < orderStatusText.size(); i++) {
+			// orderStatusText.get(i).setEditable(false);
 			cancelButton.get(i).setEnabled(true);
 			quantityChangeButton.get(i).setEnabled(true);
-			// OrderStatusText.remove(i);
+			// orderStatusText.remove(i);
 		}
 
 		ingerdientsPage = 0;
 		ingerdientsProductName.clear();
 		System.out.println(ingerdientsProductName.toString());
 
+		// 페이지 0은 디저트 페이지 , 페이지 1은 드링크 페이지
 		if (ingerdientsPage == 0) {
 			ingerdientsDessertButton.setBackground(Color.gray);
 			ingerdientsDrinkButton.setBackground(Color.white);
@@ -2127,6 +2007,7 @@ public class Main {
 		ingerdientsPage--;
 		changeIngerdientsMenu();
 
+		// 페이지 0은 디저트 페이지 , 페이지 1은 드링크 페이지
 		if (ingerdientsPage == 0) {
 			ingerdientsDessertButton.setBackground(Color.gray);
 			ingerdientsDrinkButton.setBackground(Color.white);
@@ -2142,6 +2023,7 @@ public class Main {
 		ingerdientsPage++;
 		changeIngerdientsMenu();
 
+		// 페이지 0은 디저트 페이지 , 페이지 1은 드링크 페이지
 		if (ingerdientsPage == 0) {
 			ingerdientsDessertButton.setBackground(Color.gray);
 			ingerdientsDrinkButton.setBackground(Color.white);

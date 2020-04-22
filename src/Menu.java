@@ -2,16 +2,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JTextArea;
 
 public class Menu {
 	String productName; //제품 이름
 	int price;			//가격
-	int originalPrice = 0;
+	int originalPrice = 0; //변경전 원래 가격
 	int amount = 0;
 	
-	JTextArea textArea;
-	ArrayList<String> ingerdientsMenuImages;
+	ArrayList<String> ingerdientsMenuImages;	//추가구성 메뉴 이미지 배열
 	
 	Menu(String productName, int price, int amount) {
 		this.productName = productName;
@@ -28,43 +26,35 @@ public class Menu {
 		Main.totalPrice = Main.totalPrice+price;
 		Main.orderProductName.add(productName);
 		Main.orderProduct.add(productName+" "+amount+"개 "+price);
-		//textArea.append(productName+" "+amount+"개 "+price);
-		Main.OrderStatusText.get(Main.textNumber).setText(productName+" "+amount+"개 "+price);
+		Main.orderStatusText.get(Main.orderStatusTextNumber).setText(productName+" "+amount+"개 "+price);
 		Main.totalAmount++;
-		Main.numberText.setText(Main.totalAmount+"개");
-		Main.amountText.setText(Main.totalPrice+"원");
+		Main.amountText.setText(Main.totalAmount+"개");
+		Main.priceText.setText(Main.totalPrice+"원");
 
-		Main.checkTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
-		Main.checkTotalPrice.setText("총 "+Main.totalPrice+" 원");
+		Main.finalTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
+		Main.finalTotalPrice.setText("총 "+Main.totalPrice+" 원");
 		
 		System.out.println("추가 후 배열 값");
 		System.out.println(Main.orderProductName.toString());
-		//System.out.println(Main.orderProduct.toString());
 	}
 	
 	void cancel() {
-		//if (Main.orderProductName.get(i).equals(productName)) {
+
 			Main.totalAmount -= amount;
 			Main.totalPrice -= price;
-			Main.numberText.setText(Main.totalAmount + "개");
-			Main.amountText.setText(Main.totalPrice + "원");
+			Main.amountText.setText(Main.totalAmount + "개");
+			Main.priceText.setText(Main.totalPrice + "원");
 			Main.orderProductName.remove(productName);
 			Main.orderProduct.remove(productName+" "+amount+"개 "+price);
 			
-			Main.checkTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
-			Main.checkTotalPrice.setText("총 "+Main.totalPrice+" 원");
+			Main.finalTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
+			Main.finalTotalPrice.setText("총 "+Main.totalPrice+" 원");
 			
-			System.out.println(productName + " 갯수: " + amount + productName + " 가격: "
-					+ price);
-			System.out.println(
-					"총 가격: " + (Main.totalPrice + price) + "에서  " + productName + " 가격: "
-							+ price + "을 뺀 값은 " + Main.totalPrice);
 			System.out.println(Main.orderProductName.toString());
-			//System.out.println(Main.orderProduct.toString());
-	//}
+
 	}
 	
-	void addNumOfProduct(int num, int textNumber) {
+	void addNumOfProduct(int num, int orderStatusTextNumber) {
 		Main.orderProduct.remove(productName+" "+amount+"개 "+price);
 		
 		amount = amount + num;
@@ -74,19 +64,19 @@ public class Menu {
 		Main.totalPrice = Main.totalPrice + originalPrice * num;
 		//Main.orderProductName.add(productName);
 		System.out.println("productName" + productName);
-		Main.OrderStatusText.get(textNumber).setText(productName+" "+amount+"개 "+ price);
+		Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price);
 		
 		Main.totalAmount = Main.totalAmount + num;
 		System.out.println("amount" + amount + "totalAmount" + Main.totalAmount);
-		Main.numberText.setText(Main.totalAmount+"개");
-		Main.amountText.setText(Main.totalPrice+"원");
+		Main.amountText.setText(Main.totalAmount+"개");
+		Main.priceText.setText(Main.totalPrice+"원");
 		
 		Main.orderProduct.add(productName+" "+amount+"개 "+price);
-		Main.checkTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
-		Main.checkTotalPrice.setText("총 "+Main.totalPrice+" 원");
+		Main.finalTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
+		Main.finalTotalPrice.setText("총 "+Main.totalPrice+" 원");
 	}
 	
-	void addNumOfProduct_hamburgerSet(int num, int textNumber, String hamburgerSet_drink, String hamburgerSet_dessert) {
+	void addNumOfHamburgerSet(int num, int orderStatusTextNumber, String hamburgerSet_drink, String hamburgerSet_dessert) {
 		System.out.println(num + "개 추가 ");
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
@@ -94,27 +84,28 @@ public class Menu {
 		Main.totalPrice = Main.totalPrice + price;
 		//Main.orderProductName.add(productName);
 		System.out.println("productName" + productName);
-		Main.OrderStatusText.get(textNumber).setText(productName+" "+amount+"개 "+price);
+		Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+price);
 		
 		Main.totalAmount = Main.totalAmount + num;
 		System.out.println("amount" + amount + "totalAmount" + Main.totalAmount);
-		Main.numberText.setText(Main.totalAmount+"개");
-		Main.amountText.setText(Main.totalPrice+"원");
+		Main.amountText.setText(Main.totalAmount+"개");
+		Main.priceText.setText(Main.totalPrice+"원");
 		
+		//TODO 합치면서 코드 다시 보기
 		if(hamburgerSet_drink != "") {
 			//음료수만 변경됬다면
-			Main.OrderStatusText.get(textNumber).setText(productName+" "+amount+"개 "+ price + 
+			Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
 					" 음료 :" + hamburgerSet_drink);
 			
 			//둘다 변경됬다면
 			if(hamburgerSet_dessert != "") {
-				Main.OrderStatusText.get(textNumber).setText(productName+" "+amount+"개 "+ price + 
+				Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
 						" 음료 :" + hamburgerSet_drink + " 디저트 :" + hamburgerSet_dessert);
 			}
 
 		//디저트만 변경됬다면	
 		}else if(hamburgerSet_dessert != "") {
-			Main.OrderStatusText.get(Main.textNumber).setText(productName+" "+amount+"개 "+ price + 
+			Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
 					" 디저트 :" + hamburgerSet_dessert);
 		}
 	}
