@@ -101,7 +101,7 @@ public class ChangeSetMenu {
 		System.out.println("nowDessertsPrice" + dessertBasePrice );
 		System.out.println("hamburberPrice" + hamburgerSet.price);
 		System.out.println("Main.totalPrice" + Main.totalPrice);
-
+/*
 		if (drinksName != "") {
 			// 음료수만 변경됬다면
 			Main.orderStatusText.get(Main.orderStatusTextNumber).setText(
@@ -118,8 +118,13 @@ public class ChangeSetMenu {
 			Main.orderStatusText.get(Main.orderStatusTextNumber).setText(
 					hamburgerSet.productName + " " + hamburgerSet.amount + "개 " + hamburgerSet.price + " 디저트 :" + dessertsName);
 		}
-
-		Main.amountText.setText(Main.totalPrice + "원");
+*/
+		if (drinksName != "" && dessertsName != "") {
+			Main.orderStatusText.get(Main.orderStatusTextNumber - 1).setText(hamburgerSet.productName + " " + hamburgerSet.amount + "개 "
+					+ hamburgerSet.price + " 음료 :" + drinksName + " 디저트 :" + dessertsName);
+		}
+		
+		Main.amountText.setText(Main.totalAmount + "개");
 	}
 
 }

@@ -195,6 +195,8 @@ public class Main {
 	Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
 	Menu caffeLatte = new Menu("카페라떼", 2000, 1);
 	Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
+	
+	static Menu selectedMenu;
 
 	ChangeSetMenu changeSetMenu = new ChangeSetMenu();
 
@@ -798,50 +800,79 @@ public class Main {
 								if (i == 0) {
 									changeIngredientsScene();
 									doubleX2Set.buy();
+									selectedMenu = doubleX2Set;
+									
 								} else if (i == 1) {
 									changeIngredientsScene();
 									wagyuEdition2Set.buy();
+									selectedMenu = wagyuEdition2Set;
+									
 								} else if (i == 2) {
 									changeIngredientsScene();
 									AZBurgerSet.buy();
+									selectedMenu = AZBurgerSet;
+									
 								} else if (i == 3) {
 									changeIngredientsScene();
 									hanwooBulgogiCombo.buy();
+									selectedMenu = hanwooBulgogiCombo;
+									
 								} else if (i == 4) {
 									changeIngredientsScene();
 									hanwooBulgogiBurgerSet.buy();
+									selectedMenu = hanwooBulgogiBurgerSet;
+									
 								} else if (i == 5) {
 									changeIngredientsScene();
 									mozzarellaInTheBurgerSet.buy();
+									selectedMenu = mozzarellaInTheBurgerSet;
+									
 								} else if (i == 6) {
 									changeIngredientsScene();
 									bigBulgogiSet.buy();
+									selectedMenu = bigBulgogiSet;
+									
 								} else if (i == 7) {
 									changeIngredientsScene();
 									hotCrispyBurgerSet.buy();
+									selectedMenu = hotCrispyBurgerSet;
+									
 								} else if (i == 8) {
 									changeIngredientsScene();
 									bulgogiBurgerSet.buy();
+									selectedMenu = bulgogiBurgerSet;
+									
 								}
 							} else if (menupage == 1) {
 								if (i == 0) {
 									changeIngredientsScene();
 									riaMiracleBurgerSet.buy();
+									selectedMenu = riaMiracleBurgerSet;
+									
 								} else if (i == 1) {
 									changeIngredientsScene();
 									shrimpBurgerSet.buy();
+									selectedMenu = shrimpBurgerSet;
+									
 								} else if (i == 2) {
 									changeIngredientsScene();
 									chickenBurgerSet.buy();
+									selectedMenu = chickenBurgerSet;
+									
 								} else if (i == 3) {
 									changeIngredientsScene();
 									T_RexBurgerSet.buy();
+									selectedMenu = T_RexBurgerSet;
+									
 								} else if (i == 4) {
 									changeIngredientsScene();
 									classicCheeseBurgerSet.buy();
+									selectedMenu = classicCheeseBurgerSet;
+									
 								} else if (i == 5) {
 									changeIngredientsScene();
 									teriBurgerSet.buy();
+									selectedMenu = teriBurgerSet;
 								}
 							} else if (menupage == 2) {
 								if (i == 0) {
@@ -1275,61 +1306,61 @@ public class Main {
 									ingerdientsNextPage();
 									ingerdientsProductName.add("포테이토");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "포테이토 선택완료";
+									hamburgerSetDessert = "포테이토";
 								} else if (j == 1) {
 									System.out.println("콘샐러드");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("콘샐러드");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "콘샐러드 선택완료";
+									hamburgerSetDessert = "콘샐러드";
 								} else if (j == 2) {
 									System.out.println("롱치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("롱치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "롱치즈스틱 선택완료";
+									hamburgerSetDessert = "롱치즈스틱";
 								} else if (j == 3) {
 									System.out.println("양념감자");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("양념감자");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "양념감자 선택완료";
+									hamburgerSetDessert = "양념감자";
 								} else if (j == 4) {
 									System.out.println("오징어링");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("오징어링");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "오징어링 선택완료";
+									hamburgerSetDessert = "오징어링";
 								} else if (j == 5) {
 									System.out.println("치즈스틱");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈스틱");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "치즈스틱 선택완료";
+									hamburgerSetDessert = "치즈스틱";
 								} else if (j == 6) {
 									System.out.println("지파이 고소한맛");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 고소한맛");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "지파이 고소한맛 선택완료";
+									hamburgerSetDessert = "지파이 고소한맛";
 								} else if (j == 7) {
 									System.out.println("지파이 하바네로");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("지파이 하바네로");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "지파이 하바네로 선택완료";
+									hamburgerSetDessert = "지파이 하바네로";
 								} else if (j == 8) {
 									System.out.println("쉑쉑치킨");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("쉑쉑치킨");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "쉑쉑치킨 선택완료";
+									hamburgerSetDessert = "쉑쉑치킨";
 								} else if (j == 9) {
 									System.out.println("치즈인더에그");
 									ingerdientsNextPage();
 									ingerdientsProductName.add("치즈인더에그");
 									System.out.println(ingerdientsProductName.toString());
-									hamburgerSetDessert = "치즈인더에그 선택완료";
+									hamburgerSetDessert = "치즈인더에그";
 								}
 							} else if (ingerdientsPage == 1) {
 								if (j == 0) {
@@ -1337,37 +1368,37 @@ public class Main {
 									ingerdientsProductName.add("콜라");
 									System.out.println(ingerdientsProductName.toString());
 									changeMainPurchaseScene();
-									hamburgerSetDrink  = "콜라 선택완료";
+									hamburgerSetDrink  = "콜라";
 								} else if (j == 1) {
 									System.out.println("사이다");
 									ingerdientsProductName.add("사이다");
 									System.out.println(ingerdientsProductName.toString());
 									changeMainPurchaseScene();
-									hamburgerSetDrink  = "사이다 선택완료";
+									hamburgerSetDrink  = "사이다";
 								} else if (j == 2) {
 									System.out.println("아메리카노");
 									ingerdientsProductName.add("아메리카노");
 									System.out.println(ingerdientsProductName.toString());
 									changeMainPurchaseScene();
-									hamburgerSetDrink  = "아메리카노 선택완료";
+									hamburgerSetDrink  = "아메리카노";
 								} else if (j == 3) {
 									System.out.println("아이스 아메리카노");
 									ingerdientsProductName.add("아이스 아메리카노");
 									System.out.println(ingerdientsProductName.toString());
 									changeMainPurchaseScene();
-									hamburgerSetDrink  = "아이스 아메리카노 선택완료";
+									hamburgerSetDrink  = "아이스 아메리카노";
 								} else if (j == 4) {
 									System.out.println("카페라떼");
 									ingerdientsProductName.add("카페라떼");
 									System.out.println(ingerdientsProductName.toString());
 									changeMainPurchaseScene();
-									hamburgerSetDrink  = "카페라떼 선택완료";
+									hamburgerSetDrink  = "카페라떼";
 								} else if (j == 5) {
 									System.out.println("아이스 카페라떼");
 									ingerdientsProductName.add("아이스 카페라떼");
 									System.out.println(ingerdientsProductName.toString());
 									changeMainPurchaseScene();
-									hamburgerSetDrink  = "아이스 카페라떼 선택완료";
+									hamburgerSetDrink  = "아이스 카페라떼";
 								}
 							}
 						}
@@ -1379,6 +1410,9 @@ public class Main {
 						System.out.println("드링크 선택 이름: " + hamburgerSetDrink );
 						System.out.println("버거선택횟수" + buyBurgerSetCount);
 						System.out.println("추가구성세트 선택 횟수" + selectIngerdientsCount);
+					
+						//선택된 햄버거세트의 음료, 드링크를 설정
+						changeSetMenu.changeSetMenu(selectedMenu , hamburgerSetDrink, hamburgerSetDessert);
 					}
 				}
 			});
@@ -1641,68 +1675,67 @@ public class Main {
 			doubleX2Set.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		} else if (orderProductName.get(productNum).equals(wagyuEdition2Set.productName)) {
-			wagyuEdition2Set.addNumOfProduct(addNum, productNum);
+			wagyuEdition2Set.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		} else if (orderProductName.get(productNum).equals(AZBurgerSet.productName)) {
-			AZBurgerSet.addNumOfProduct(addNum, productNum);
+			AZBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		} else if (orderProductName.get(productNum).equals(hanwooBulgogiCombo.productName)) {
-			hanwooBulgogiCombo.addNumOfProduct(addNum, productNum);
-
+			hanwooBulgogiCombo.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 		}
 
 		else if (orderProductName.get(productNum).equals(hanwooBulgogiBurgerSet.productName)) {
-			hanwooBulgogiBurgerSet.addNumOfProduct(addNum, productNum);
+			hanwooBulgogiBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(mozzarellaInTheBurgerSet.productName)) {
-			mozzarellaInTheBurgerSet.addNumOfProduct(addNum, productNum);
+			mozzarellaInTheBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(bigBulgogiSet.productName)) {
-			bigBulgogiSet.addNumOfProduct(addNum, productNum);
+			bigBulgogiSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(hotCrispyBurgerSet.productName)) {
-			hotCrispyBurgerSet.addNumOfProduct(addNum, productNum);
+			hotCrispyBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(bulgogiBurgerSet.productName)) {
-			bulgogiBurgerSet.addNumOfProduct(addNum, productNum);
+			bulgogiBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(riaMiracleBurgerSet.productName)) {
-			riaMiracleBurgerSet.addNumOfProduct(addNum, productNum);
+			riaMiracleBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(shrimpBurgerSet.productName)) {
-			shrimpBurgerSet.addNumOfProduct(addNum, productNum);
+			shrimpBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(chickenBurgerSet.productName)) {
-			chickenBurgerSet.addNumOfProduct(addNum, productNum);
+			chickenBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(T_RexBurgerSet.productName)) {
-			T_RexBurgerSet.addNumOfProduct(addNum, productNum);
+			T_RexBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(classicCheeseBurgerSet.productName)) {
-			classicCheeseBurgerSet.addNumOfProduct(addNum, productNum);
+			classicCheeseBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
 		else if (orderProductName.get(productNum).equals(teriBurgerSet.productName)) {
-			teriBurgerSet.addNumOfProduct(addNum, productNum);
+			teriBurgerSet.addNumOfHamburgerSet(addNum, productNum, hamburgerSetDrink, hamburgerSetDessert);
 
 		}
 
