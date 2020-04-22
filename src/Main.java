@@ -658,11 +658,18 @@ public class Main {
 		ingerdientsDrinkButton.setBackground(Color.white);
 		ingerdientsDrinkButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ingerdientsDessertButton.setBackground(Color.white);
-				ingerdientsDrinkButton.setBackground(Color.gray);
+				
+				if(dessertSelect != "") {
+					ingerdientsDessertButton.setBackground(Color.white);
+					ingerdientsDrinkButton.setBackground(Color.gray);
 
-				ingerdientsPage = 1;
-				changeIngerdientsMenu();
+					ingerdientsPage = 1;
+					changeIngerdientsMenu();
+				}else {
+					JOptionPane.showMessageDialog(frame, "세트_디저트 부터 선택하세요.", "SYSTEM",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+
 			}
 		});
 		mainPurchaseScene.add(ingerdientsDrinkButton);
@@ -675,6 +682,28 @@ public class Main {
 		ingerdientsNextPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("드링크 페이지 출력");
+				
+				if(dessertSelect != "") {
+					if (ingerdientsPage < 2) {
+
+						ingerdientsPage++;
+						changeIngerdientsMenu();
+						
+						if (ingerdientsPage == 0) {
+							ingerdientsDessertButton.setBackground(Color.gray);
+							ingerdientsDrinkButton.setBackground(Color.white);
+							System.out.println("디저트 페이지 출력");
+						} else if (ingerdientsPage == 1) {
+							ingerdientsDessertButton.setBackground(Color.white);
+							ingerdientsDrinkButton.setBackground(Color.gray);
+							System.out.println("드렁크 페이지 출력");
+						}
+					}
+				}else {
+					JOptionPane.showMessageDialog(frame, "세트_디저트 부터 선택하세요.", "SYSTEM",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+				/*
 				if (ingerdientsPage < 2) {
 
 					ingerdientsPage++;
@@ -690,6 +719,7 @@ public class Main {
 						System.out.println("드렁크 페이지 출력");
 					}
 				}
+				*/
 			}
 		});
 		mainPurchaseScene.add(ingerdientsNextPageButton);
