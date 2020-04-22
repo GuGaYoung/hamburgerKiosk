@@ -231,7 +231,7 @@ public class Main {
 				// restart = "";
 			}
 		});
-
+/*
 		// 세트메뉴
 		Menu wagyuEdition2Set = new Menu("와규에디션2 세트", 7600, 1);
 		Menu doubleX2Set = new Menu("더블X2 세트", 7500, 1);
@@ -290,7 +290,7 @@ public class Main {
 		Menu iceAmericano = new Menu("아이스 아메리카노", 2000, 1);
 		Menu caffeLatte = new Menu("카페라떼", 2000, 1);
 		Menu iceCaffeLatte = new Menu("아이스카페라떼", 2000, 1);
-
+*/
 		JScrollPane scrollBar = new JScrollPane();
 		scrollBar.setBounds(68, 201, 450, 200);
 		scrollBar.getVerticalScrollBar().setValue(scrollBar.getVerticalScrollBar().getMaximum());

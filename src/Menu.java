@@ -68,7 +68,8 @@ public class Menu {
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
 		
-		Main.totalPrice = Main.totalPrice + price;
+		price = price + originalPrice * num;
+		Main.totalPrice = Main.totalPrice + originalPrice * num;
 		//Main.orderProductName.add(productName);
 		System.out.println("productName" + productName);
 		Main.OrderStatusText.get(textNumber).setText(productName+" "+amount+"개 "+ price);
