@@ -124,6 +124,7 @@ public class ChangeSetMenu {
 					+ hamburgerSet.price + " 음료 :" + drinksName + " 디저트 :" + dessertsName);
 		}
 		
+		Main.priceText.setText(Main.totalPrice + "원");
 		Main.amountText.setText(Main.totalAmount + "개");
 	}
 
