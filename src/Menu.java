@@ -65,6 +65,8 @@ public class Menu {
 	}
 	
 	void addNumOfProduct(int num, int textNumber) {
+		Main.orderProduct.remove(productName+" "+amount+"개 "+price);
+		
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
 		
@@ -78,6 +80,10 @@ public class Menu {
 		System.out.println("amount" + amount + "totalAmount" + Main.totalAmount);
 		Main.numberText.setText(Main.totalAmount+"개");
 		Main.amountText.setText(Main.totalPrice+"원");
+		
+		Main.orderProduct.add(productName+" "+amount+"개 "+price);
+		Main.checkTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
+		Main.checkTotalPrice.setText("총 "+Main.totalPrice+" 원");
 	}
 	
 	void addNumOfProduct_hamburgerSet(int num, int textNumber, String hamburgerSet_drink, String hamburgerSet_dessert) {
