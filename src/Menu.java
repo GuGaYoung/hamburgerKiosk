@@ -2,15 +2,20 @@
 public class Menu {
 	String productName; //제품 이름
 	int price;			//가격
+	int originalPrice = 0;
 	int amount = 0;
 	
 	Menu(String productName, int price, int amount) {
 		this.productName = productName;
-		this.price = price;
+		this.originalPrice = price;
 		this.amount = amount;
 	}
 	
 	void buy() {
+		//제품 초기화
+		price = originalPrice;
+		amount = 1;
+		
 		price = price * amount;
 		Main.totalPrice = Main.totalPrice+price;
 		Main.orderProductName.add(productName);

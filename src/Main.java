@@ -585,7 +585,7 @@ public class Main {
 									doubleX2Set.buy();
 									hamburgerSet_drink = "사이다";
 									hamburgerSet_dessert = "콘샐러드";
-									changeSetMenu.changeSetMenu(doubleX2Set, hamburgerSet_drink, hamburgerSet_dessert);
+									changeSetMenu.changeSetMenu(doubleX2Set , hamburgerSet_drink, hamburgerSet_dessert);
 								} else if (i == 1) {
 									wagyuEdition2Set.buy();
 								} else if (i == 2) {
