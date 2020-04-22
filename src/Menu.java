@@ -28,6 +28,9 @@ public class Menu {
 		Main.totalAmount++;
 		Main.numberText.setText(Main.totalAmount+"개");
 		Main.amountText.setText(Main.totalPrice+"원");
+
+		Main.checkTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
+		Main.checkTotalPrice.setText("총 "+Main.totalPrice+" 원");
 		
 		System.out.println("추가 후 배열 값");
 		System.out.println(Main.orderProductName.toString());
@@ -42,6 +45,9 @@ public class Menu {
 			Main.amountText.setText(Main.totalPrice + "원");
 			Main.orderProductName.remove(productName);
 			Main.orderProduct.remove(productName+" "+amount+"개 "+price);
+			
+			Main.checkTotalAmount.setText("총 개수 : "+Main.totalAmount+" 개");
+			Main.checkTotalPrice.setText("총 "+Main.totalPrice+" 원");
 			
 			System.out.println(productName + " 갯수: " + amount + productName + " 가격: "
 					+ price);

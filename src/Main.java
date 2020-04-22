@@ -44,7 +44,7 @@ public class Main {
 			g.drawImage(image.getImage(), 0, 0, d.width, d.height, this);
 		}
 	};
-
+	
 	JPanel changeIngredientsScene = new JPanel();
 
 	/*
@@ -64,6 +64,9 @@ public class Main {
 	JButton checkOKButton = new JButton();
 	JButton checkCancelButton = new JButton();
 	JButton[] ingerdientsMenuImages = new JButton[13];
+	
+	static JLabel checkTotalAmount = new JLabel();
+	static JLabel checkTotalPrice = new JLabel();
 
 	JButton ingerdientsNextPageButton = new JButton();
 	JButton ingerdientsPreviousPageButton = new JButton();
@@ -236,7 +239,7 @@ public class Main {
 		scrollBar.setViewportView(textArea);
 		textArea.setEditable(false);
 		textArea.setVisible(false);
-		textArea.setFont((new Font("굴림체", Font.BOLD, 15)));
+		textArea.setFont((new Font("굴림체", Font.BOLD, 15))); 
 		
 		packagingDeliveringScene.setBounds(0, 0, 600, 850);
 		frame.getContentPane().add(packagingDeliveringScene);
@@ -381,6 +384,7 @@ public class Main {
 		goFirstScreenButton.setBorderPainted(false);
 		goFirstScreenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				firstScene.setVisible(true);
 				mainPurchaseScene.setVisible(false);
 
@@ -401,6 +405,8 @@ public class Main {
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
+				checkTotalAmount.setText("총 개수 : +totalAmount+ 개");
+				checkTotalPrice.setText("총  +totalPrice 원");
 
 				dessertSelect = "";
 				drinkSelect = "";
@@ -465,7 +471,8 @@ public class Main {
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
-				
+				checkTotalAmount.setText("총 개수 : +totalAmount+ 개");
+				checkTotalPrice.setText("총  +totalPrice 원");
 
 				System.out.println(orderProductName.toString());
 				System.out.println("전체 취소했습니다.");
@@ -493,6 +500,8 @@ public class Main {
 		paymentButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//paymentCheckSceneImage.setVisible(true);
+				
 				if(selectIngerdientsCount == buyBurgerSetCount) {
 					mainPurchaseScene.setVisible(false);
 					//cardPaymentSceneImage.setVisible(true);
@@ -507,7 +516,7 @@ public class Main {
 					}
 					System.out.println("버거선택횟수"+buyBurgerSetCount);
 					System.out.println("추가구성세트 선택 횟수"+selectIngerdientsCount);
-				}else {
+				}else {				
 					JOptionPane.showMessageDialog(frame, "세트 구성품을 선택하지 않았습니다.", "SYSTEM",
 							JOptionPane.INFORMATION_MESSAGE);
 					System.out.println("버거선택횟수"+buyBurgerSetCount);
@@ -1470,6 +1479,23 @@ public class Main {
 		cardPaymentSceneImage.setVisible(false);
 		cardPaymentSceneImage.setIcon(new ImageIcon("./otherimages/카드삽입창.png"));
 		paymentCheckScene.add(cardPaymentSceneImage);
+		
+		checkTotalAmount.setBounds(350, 400, 100, 20);
+		checkTotalAmount.setText("총 개수 : "+totalAmount+" 개");
+		//checkTotalAmount.setBackground(Color.blue);
+		//checkTotalAmount.setOpaque(true);
+		checkTotalAmount.setLayout(null);
+		checkTotalAmount.setVisible(true);
+		paymentCheckSceneImage.add(checkTotalAmount);
+		
+		checkTotalPrice.setBounds(450, 400, 100, 20);
+		checkTotalPrice.setText("총 "+totalPrice+" 원");
+		//checkTotalAmount.setBackground(Color.blue);
+		//checkTotalAmount.setOpaque(true);
+		checkTotalPrice.setLayout(null);
+		checkTotalPrice.setVisible(true);
+		paymentCheckSceneImage.add(checkTotalPrice);
+
 
 		checkOKButton.setBounds(150, 500, 100, 30);
 		checkOKButton.setText("결제하기");
@@ -1520,11 +1546,9 @@ public class Main {
 				changeCardPaymentImage changeCardPaymentImage = new changeCardPaymentImage(insertCardImage, isertCardButton, firstScene, mainPurchaseScene, paymentCheckScene, cardPaymentSceneImage);
 				changeCardPaymentImage.start();
 				// 세트 추가 구입 UI 구현 후 나중에 스레드 수정해야함
-				
+
 				//frame = new JFrame();
-				//isertCardButton.setVisible(false);
-				
-				
+
 				isertCardButton.setVisible(false);
 				
 				for (int i = 0; i < OrderStatusText.size(); i++) {
@@ -1544,6 +1568,9 @@ public class Main {
 				totalPrice = 0;
 				numberText.setText(totalAmount + "개");
 				amountText.setText(totalPrice + "원");
+				
+				checkTotalAmount.setText("총 개수 : "+totalAmount+" 개");
+				checkTotalPrice.setText("총  "+totalPrice+" 원");
 				
 				/*
 				 * try { changeCardPaymentImage.join(); //Thread.sleep(1000);
@@ -1571,7 +1598,6 @@ public class Main {
 				// } catch (InterruptedException e1) {
 				// System.out.println(e1.getMessage());
 				// }
-
 			}
 		});
 		cardPaymentSceneImage.add(isertCardButton);
