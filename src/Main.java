@@ -1024,17 +1024,13 @@ public class Main {
 								for (int i = 0; i < OrderStatusText.size(); i++) {
 									if (e.getSource() == quantityChangeButton.get(i)) {
 										numberChangeBackGround.setVisible(true);
+										howManyText.setText("현재  :  개");
 										productNum = i;
 									}
 								}
 							}
 						});
 					}
-				}
-
-				private void changeSetMenu(String string, String string2) {
-					// TODO Auto-generated method stub
-					
 				}
 			});
 		}

@@ -46,7 +46,6 @@ public class Menu {
 	}
 	
 	void addNumOfProduct(int num, int textNumber) {
-		System.out.println(num + "개 추가 ");
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
 		
