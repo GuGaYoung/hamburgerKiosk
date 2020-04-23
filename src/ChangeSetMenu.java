@@ -1,4 +1,3 @@
-
 public class ChangeSetMenu {
 
 	int additionalPrice; // 추가금액
