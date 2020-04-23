@@ -157,7 +157,7 @@ public class Main {
 	// 햄버거 메뉴
 	Menu wagyuEdition2 = new Menu("와규에디션2", 5800, 1);
 	Menu doubleX2 = new Menu("더블X2", 5500, 1);
-	Menu mozzarellaInTheBurger = new Menu("모짤렐라 인 더 버거", 6000, 1);
+	Menu mozzarellaInTheBurger = new Menu("모짜렐라 인 더 버거", 6000, 1);
 	Menu AZBurger = new Menu("AZ버거", 6600, 1);
 	Menu bigBulgogi = new Menu("원조빅불", 5800, 1);
 	Menu hotCrispyBurger = new Menu("핫크리스피버거", 4900, 1);
