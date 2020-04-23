@@ -76,7 +76,8 @@ public class Menu {
 		Main.finalTotalPrice.setText("총 "+Main.totalPrice+" 원");
 	}
 	
-	void addNumOfHamburgerSet(int num, int orderStatusTextNumber, String hamburgerSet_drink, String hamburgerSet_dessert) {
+	void addNumOfHamburgerSet(int num, int orderStatusTextNumber, String hamburgerSetDrink, String hamburgerSetDessert) {
+		
 		System.out.println(num + "개 추가 ");
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
@@ -92,21 +93,26 @@ public class Menu {
 		Main.priceText.setText(Main.totalPrice+"원");
 		
 		//TODO 합치면서 코드 다시 보기
-		if(hamburgerSet_drink != "") {
+		if(hamburgerSetDrink != "") {
 			//음료수만 변경됬다면
 			Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
-					" 음료 :" + hamburgerSet_drink);
-			
+					" 음료 :" + hamburgerSetDrink);
+			Main.orderProduct.add(productName+" "+amount+"개 "+ price + 
+					" 음료 :" + hamburgerSetDrink);
 			//둘다 변경됬다면
-			if(hamburgerSet_dessert != "") {
+			if(hamburgerSetDessert != "") {
 				Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
-						" 음료 :" + hamburgerSet_drink + " 디저트 :" + hamburgerSet_dessert);
+						" 음료 :" + hamburgerSetDrink + " 디저트 :" + hamburgerSetDessert);
+				Main.orderProduct.add(productName+" "+amount+"개 "+ price + 
+						" 음료 :" + hamburgerSetDrink + " 디저트 :" + hamburgerSetDessert);
 			}
 
 		//디저트만 변경됬다면	
-		}else if(hamburgerSet_dessert != "") {
+		}else if(hamburgerSetDessert != "") {
 			Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
-					" 디저트 :" + hamburgerSet_dessert);
+					" 디저트 :" + hamburgerSetDessert);
+			Main.orderProduct.add(productName+" "+amount+"개 "+ price + 
+					" 디저트 :" + hamburgerSetDessert);
 		}
 	}
 }
