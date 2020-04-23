@@ -76,43 +76,31 @@ public class Menu {
 		Main.finalTotalPrice.setText("총 "+Main.totalPrice+" 원");
 	}
 	
-	void addNumOfHamburgerSet(int num, int orderStatusTextNumber, String hamburgerSetDrink, String hamburgerSetDessert) {
+	void addNumOfHamburgerSet(int num, int orderStatusTextNumber, String hamburgerSet_drink, String hamburgerSet_dessert) {
+		Main.orderProductName.remove(productName);
+		Main.orderProduct.remove(productName+" "+amount+"개 "+price);
 		
 		System.out.println(num + "개 추가 ");
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
 		
-		Main.totalPrice = Main.totalPrice + price;
+		//price = price * amount;
+		Main.totalPrice = Main.totalPrice + price * (amount - 1);
 		//Main.orderProductName.add(productName);
-		System.out.println("productName" + productName);
-		Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+price);
+		Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ (price * amount));
 		
 		Main.totalAmount = Main.totalAmount + num;
 		System.out.println("amount" + amount + "totalAmount" + Main.totalAmount);
 		Main.amountText.setText(Main.totalAmount+"개");
-		Main.priceText.setText(Main.totalPrice+"원");
+		Main.priceText.setText(Main.totalPrice +"원");
 		
-		//TODO 합치면서 코드 다시 보기
-		if(hamburgerSetDrink != "") {
-			//음료수만 변경됬다면
-			Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
-					" 음료 :" + hamburgerSetDrink);
-			Main.orderProduct.add(productName+" "+amount+"개 "+ price + 
-					" 음료 :" + hamburgerSetDrink);
-			//둘다 변경됬다면
-			if(hamburgerSetDessert != "") {
-				Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
-						" 음료 :" + hamburgerSetDrink + " 디저트 :" + hamburgerSetDessert);
-				Main.orderProduct.add(productName+" "+amount+"개 "+ price + 
-						" 음료 :" + hamburgerSetDrink + " 디저트 :" + hamburgerSetDessert);
-			}
-
-		//디저트만 변경됬다면	
-		}else if(hamburgerSetDessert != "") {
-			Main.orderStatusText.get(orderStatusTextNumber).setText(productName+" "+amount+"개 "+ price + 
-					" 디저트 :" + hamburgerSetDessert);
-			Main.orderProduct.add(productName+" "+amount+"개 "+ price + 
-					" 디저트 :" + hamburgerSetDessert);
+		Main.orderProductName.add(productName);
+		Main.orderProduct.add(productName + " " + amount + "개 "
+				+ price * amount + " 음료 :" + hamburgerSet_drink + " 디저트 :" + hamburgerSet_dessert);
+		
+		if (hamburgerSet_drink != "" && hamburgerSet_dessert != "") {
+			Main.orderStatusText.get(Main.orderStatusTextNumber - 1).setText(productName + " " + amount + "개 "
+					+ price * amount + " 음료 :" + hamburgerSet_drink + " 디저트 :" + hamburgerSet_dessert);
 		}
 	}
 }
