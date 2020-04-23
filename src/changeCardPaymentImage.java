@@ -28,7 +28,7 @@ public class changeCardPaymentImage extends Thread {
 			insertCardButton.setEnabled(false);
 
 			try {
-				sleep(1000);
+				sleep(3000);
 				System.out.println("이미지가 카드결제중으로 변경되었습니다.");
 				
 				advertisingScene.setVisible(true);

@@ -21,7 +21,7 @@ public class Menu {
 		//제품 초기화
 		price = originalPrice;
 		amount = 1;
-		
+	
 		price = price * amount;
 		Main.totalPrice = Main.totalPrice+price;
 		Main.orderProductName.add(productName);
