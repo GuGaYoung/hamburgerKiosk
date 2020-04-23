@@ -109,21 +109,19 @@ public class Main {
 	static ArrayList<String> orderProduct = new ArrayList<String>(); // 주문한 제품 이름,갯수,가격을 받는 배열
 	ArrayList<String> ingerdientsProductName = new ArrayList<String>();
 
-	// TODO 왜 값이 그 숫자들인지 증명해야함
 	int menupage = 0;
-	int menuHorizontalLength = 50;
-	int menuVerticalLength = 0;
-	int menuImageWidth = 150;
-	int menuImageHeight = 130;
-	int menuHorizontalInterval = 170;
+	int menuHorizontalLength = 50; //첫번째 메뉴의 가로위치
+	int menuVerticalLength = 0; //첫번째 매뉴의 세로위치
+	int menuImageWidth = 150;   //메뉴들의 가로 길이
+	int menuImageHeight = 130;  //메뉴들의 세로 길이
+	int menuHorizontalInterval = 170; //메뉴들사이의 간격
 
-	// TODO 왜 값이 그 숫자들인지 증명해야함
 	int ingerdientsPage = 0; // 구성품 페이지
-	int ingerdientsMenuHorizontalLength = 50;
-	int ingerdientsMenuVerticalLength = 0;
-	int ingerdientsMenuImageWidth = 100;
-	int ingerdientsMenuImageHeight = 130;
-	int ingerdientsMenuHorizontalInterval = 130;
+	int ingerdientsMenuHorizontalLength = 50; //메뉴를 고르는 버튼과 x축을 맞추기 위해 50을 줌
+	int ingerdientsMenuVerticalLength = 0;	//메뉴를 고르는 버튼과 y축을 맞추기 위해 50을 줌
+	int ingerdientsMenuImageWidth = 100; //추가 구성 이미지 크기에 맞춰 100을 줌
+	int ingerdientsMenuImageHeight = 130;	//추가 구성 이미지 크기에 맞춰 130을  줌
+	int ingerdientsMenuHorizontalInterval = 130; //추가 구성 버튼은 한 행에 4개씩 들어가기 때문에 130을 줌
 
 	static int orderStatusTextNumber = 0; // 주문상황 텍스트 수
 	static int totalAmount = 0; // 주문 총 양
@@ -133,8 +131,7 @@ public class Main {
 	int addProductNum = 0; //몇개를 수량 추가 했는지 
 	String eatingPlace = "";// 매장에서 먹을 건지 포장 할 건지
 
-	// TODO 왜 값이 -40 증명해야함
-	int OrderStatusVerticalLength = -40;
+	int OrderStatusVerticalLength = -40;   //주문상태창에 주문상황을 나타내는 text의 위치를 조정하기 위함
 
 	ChangeAdvertisingScene changeAdvertisingScene = new ChangeAdvertisingScene(advertisingScene);
 

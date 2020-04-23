@@ -77,6 +77,9 @@ public class Menu {
 	}
 	
 	void addNumOfHamburgerSet(int num, int orderStatusTextNumber, String hamburgerSet_drink, String hamburgerSet_dessert) {
+		Main.orderProductName.remove(productName);
+		Main.orderProduct.remove(productName+" "+amount+"개 "+price);
+		
 		System.out.println(num + "개 추가 ");
 		amount = amount + num;
 		Main.howManyText.setText("현재  : " + amount + " 개");
@@ -90,6 +93,10 @@ public class Menu {
 		System.out.println("amount" + amount + "totalAmount" + Main.totalAmount);
 		Main.amountText.setText(Main.totalAmount+"개");
 		Main.priceText.setText(Main.totalPrice +"원");
+		
+		Main.orderProductName.add(productName);
+		Main.orderProduct.add(productName + " " + amount + "개 "
+				+ price * amount + " 음료 :" + hamburgerSet_drink + " 디저트 :" + hamburgerSet_dessert);
 		
 		if (hamburgerSet_drink != "" && hamburgerSet_dessert != "") {
 			Main.orderStatusText.get(Main.orderStatusTextNumber - 1).setText(productName + " " + amount + "개 "

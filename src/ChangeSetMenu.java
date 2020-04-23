@@ -1,4 +1,3 @@
-
 public class ChangeSetMenu {
 
 	int additionalPrice; // 추가금액
@@ -112,22 +111,3 @@ public class ChangeSetMenu {
 	}
 
 }
-
-/*
-if (drinksName != "") {
-	// 음료수만 변경됬다면
-	Main.orderStatusText.get(Main.orderStatusTextNumber).setText(
-			hamburgerSet.productName + " " + hamburgerSet.amount + "개 " + hamburgerSet.price + " 음료 :" + drinksName);
-
-	// 둘다 변경됬다면
-	if (dessertsName != "") {
-		Main.orderStatusText.get(Main.orderStatusTextNumber).setText(hamburgerSet.productName + " " + hamburgerSet.amount + "개 "
-				+ hamburgerSet.price + " 음료 :" + drinksName + " 디저트 :" + dessertsName);
-	}
-
-	// 디저트만 변경됬다면
-} else if (dessertsName != "") {
-	Main.orderStatusText.get(Main.orderStatusTextNumber).setText(
-			hamburgerSet.productName + " " + hamburgerSet.amount + "개 " + hamburgerSet.price + " 디저트 :" + dessertsName);
-}
-*/
